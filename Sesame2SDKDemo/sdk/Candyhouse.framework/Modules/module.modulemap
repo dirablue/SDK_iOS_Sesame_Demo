@@ -1,0 +1,6 @@
+framework module Candyhouse {
+  umbrella header "Pods-SesameSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

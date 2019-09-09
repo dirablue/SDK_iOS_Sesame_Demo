@@ -1,0 +1,509 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		41F0A6C62320E0B400851EB6 /* DataExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F0A6C52320E0B400851EB6 /* DataExtention.swift */; };
+		41F0A6C82320E24700851EB6 /* SesameSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F0A6C72320E24600851EB6 /* SesameSDK.framework */; };
+		41F0A6CA2320E24F00851EB6 /* SesameSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41F0A6C72320E24600851EB6 /* SesameSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41F452092320D55A00A62DC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F452082320D55A00A62DC6 /* AppDelegate.swift */; };
+		41F4520E2320D55A00A62DC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41F4520C2320D55A00A62DC6 /* Main.storyboard */; };
+		41F452132320D55B00A62DC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41F452122320D55B00A62DC6 /* Assets.xcassets */; };
+		41F452162320D55B00A62DC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41F452142320D55B00A62DC6 /* LaunchScreen.storyboard */; };
+		41F4522D2320D5CC00A62DC6 /* BluetoothDevicesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4521E2320D5CB00A62DC6 /* BluetoothDevicesListViewController.swift */; };
+		41F4522E2320D5CC00A62DC6 /* BluetoothSesameControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4521F2320D5CB00A62DC6 /* BluetoothSesameControlViewController.swift */; };
+		41F4522F2320D5CC00A62DC6 /* Knob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F452202320D5CB00A62DC6 /* Knob.swift */; };
+		41F452302320D5CC00A62DC6 /* BluetoothDevicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F452212320D5CB00A62DC6 /* BluetoothDevicesCell.swift */; };
+		41F452312320D5CC00A62DC6 /* MyDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F452232320D5CB00A62DC6 /* MyDeviceViewController.swift */; };
+		41F452322320D5CC00A62DC6 /* MyDevicesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F452242320D5CB00A62DC6 /* MyDevicesListViewController.swift */; };
+		41F452332320D5CC00A62DC6 /* AWSServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F452262320D5CB00A62DC6 /* AWSServiceClient.swift */; };
+		41F452352320D5CC00A62DC6 /* GeneralTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F452282320D5CB00A62DC6 /* GeneralTabViewController.swift */; };
+		41F452362320D5CC00A62DC6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F452292320D5CB00A62DC6 /* LoginViewController.swift */; };
+		41F452372320D5CC00A62DC6 /* ViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4522B2320D5CC00A62DC6 /* ViewHelper.swift */; };
+		41F452382320D5CC00A62DC6 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4522C2320D5CC00A62DC6 /* AccountViewController.swift */; };
+		41F452492320D6DB00A62DC6 /* AWSCognitoIdentityProviderASF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F4523E2320D6DA00A62DC6 /* AWSCognitoIdentityProviderASF.framework */; };
+		41F4524C2320D6DB00A62DC6 /* AWSCognitoIdentityProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F452412320D6DB00A62DC6 /* AWSCognitoIdentityProvider.framework */; };
+		41F4524D2320D6DB00A62DC6 /* AWSAPIGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F452422320D6DB00A62DC6 /* AWSAPIGateway.framework */; };
+		41F4524E2320D6DB00A62DC6 /* AWSMobileClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F452432320D6DB00A62DC6 /* AWSMobileClient.framework */; };
+		41F452522320D6E300A62DC6 /* AWSAPIGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41F452422320D6DB00A62DC6 /* AWSAPIGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41F452532320D6E300A62DC6 /* AWSAuthCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F4523F2320D6DA00A62DC6 /* AWSAuthCore.framework */; };
+		41F452542320D6E300A62DC6 /* AWSAuthCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41F4523F2320D6DA00A62DC6 /* AWSAuthCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41F452562320D6E300A62DC6 /* AWSCognitoIdentityProvider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41F452412320D6DB00A62DC6 /* AWSCognitoIdentityProvider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41F452582320D6E300A62DC6 /* AWSCognitoIdentityProviderASF.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41F4523E2320D6DA00A62DC6 /* AWSCognitoIdentityProviderASF.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41F452592320D6E300A62DC6 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F452402320D6DB00A62DC6 /* AWSCore.framework */; };
+		41F4525A2320D6E300A62DC6 /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41F452402320D6DB00A62DC6 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41F4525E2320D6E300A62DC6 /* AWSMobileClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41F452432320D6DB00A62DC6 /* AWSMobileClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41F452632320D6E300A62DC6 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F4523B2320D6DA00A62DC6 /* PromiseKit.framework */; };
+		41F452642320D6E300A62DC6 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41F4523B2320D6DA00A62DC6 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ED7FE83A2326691000B2F7ED /* Candyhouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7FE8392326691000B2F7ED /* Candyhouse.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		41F452672320D6E300A62DC6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				41F452582320D6E300A62DC6 /* AWSCognitoIdentityProviderASF.framework in Embed Frameworks */,
+				41F4525A2320D6E300A62DC6 /* AWSCore.framework in Embed Frameworks */,
+				41F452522320D6E300A62DC6 /* AWSAPIGateway.framework in Embed Frameworks */,
+				41F4525E2320D6E300A62DC6 /* AWSMobileClient.framework in Embed Frameworks */,
+				41F452642320D6E300A62DC6 /* PromiseKit.framework in Embed Frameworks */,
+				41F0A6CA2320E24F00851EB6 /* SesameSDK.framework in Embed Frameworks */,
+				41F452562320D6E300A62DC6 /* AWSCognitoIdentityProvider.framework in Embed Frameworks */,
+				41F452542320D6E300A62DC6 /* AWSAuthCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		41F0A6C52320E0B400851EB6 /* DataExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExtention.swift; sourceTree = "<group>"; };
+		41F0A6C72320E24600851EB6 /* SesameSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SesameSDK.framework; sourceTree = "<group>"; };
+		41F452052320D55A00A62DC6 /* Sesame2SDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sesame2SDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		41F452082320D55A00A62DC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		41F4520D2320D55A00A62DC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		41F452122320D55B00A62DC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		41F452152320D55B00A62DC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		41F452172320D55B00A62DC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41F4521E2320D5CB00A62DC6 /* BluetoothDevicesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothDevicesListViewController.swift; sourceTree = "<group>"; };
+		41F4521F2320D5CB00A62DC6 /* BluetoothSesameControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothSesameControlViewController.swift; sourceTree = "<group>"; };
+		41F452202320D5CB00A62DC6 /* Knob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Knob.swift; sourceTree = "<group>"; };
+		41F452212320D5CB00A62DC6 /* BluetoothDevicesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothDevicesCell.swift; sourceTree = "<group>"; };
+		41F452232320D5CB00A62DC6 /* MyDeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDeviceViewController.swift; sourceTree = "<group>"; };
+		41F452242320D5CB00A62DC6 /* MyDevicesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDevicesListViewController.swift; sourceTree = "<group>"; };
+		41F452262320D5CB00A62DC6 /* AWSServiceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSServiceClient.swift; sourceTree = "<group>"; };
+		41F452282320D5CB00A62DC6 /* GeneralTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralTabViewController.swift; sourceTree = "<group>"; };
+		41F452292320D5CB00A62DC6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		41F4522B2320D5CC00A62DC6 /* ViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewHelper.swift; sourceTree = "<group>"; };
+		41F4522C2320D5CC00A62DC6 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		41F4523B2320D6DA00A62DC6 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = "<group>"; };
+		41F4523E2320D6DA00A62DC6 /* AWSCognitoIdentityProviderASF.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognitoIdentityProviderASF.framework; sourceTree = "<group>"; };
+		41F4523F2320D6DA00A62DC6 /* AWSAuthCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSAuthCore.framework; sourceTree = "<group>"; };
+		41F452402320D6DB00A62DC6 /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCore.framework; sourceTree = "<group>"; };
+		41F452412320D6DB00A62DC6 /* AWSCognitoIdentityProvider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognitoIdentityProvider.framework; sourceTree = "<group>"; };
+		41F452422320D6DB00A62DC6 /* AWSAPIGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSAPIGateway.framework; sourceTree = "<group>"; };
+		41F452432320D6DB00A62DC6 /* AWSMobileClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileClient.framework; sourceTree = "<group>"; };
+		ED7FE8392326691000B2F7ED /* Candyhouse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Candyhouse.framework; path = Sesame2SDKDemo/sdk/Candyhouse.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		41F452022320D55A00A62DC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED7FE83A2326691000B2F7ED /* Candyhouse.framework in Frameworks */,
+				41F452632320D6E300A62DC6 /* PromiseKit.framework in Frameworks */,
+				41F452492320D6DB00A62DC6 /* AWSCognitoIdentityProviderASF.framework in Frameworks */,
+				41F452592320D6E300A62DC6 /* AWSCore.framework in Frameworks */,
+				41F452532320D6E300A62DC6 /* AWSAuthCore.framework in Frameworks */,
+				41F4524D2320D6DB00A62DC6 /* AWSAPIGateway.framework in Frameworks */,
+				41F4524C2320D6DB00A62DC6 /* AWSCognitoIdentityProvider.framework in Frameworks */,
+				41F0A6C82320E24700851EB6 /* SesameSDK.framework in Frameworks */,
+				41F4524E2320D6DB00A62DC6 /* AWSMobileClient.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		41F451FC2320D55A00A62DC6 = {
+			isa = PBXGroup;
+			children = (
+				41F452072320D55A00A62DC6 /* Sesame2SDKDemo */,
+				41F452062320D55A00A62DC6 /* Products */,
+				ED7FE8382326691000B2F7ED /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		41F452062320D55A00A62DC6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				41F452052320D55A00A62DC6 /* Sesame2SDKDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		41F452072320D55A00A62DC6 /* Sesame2SDKDemo */ = {
+			isa = PBXGroup;
+			children = (
+				41F452082320D55A00A62DC6 /* AppDelegate.swift */,
+				41F4523A2320D68000A62DC6 /* sdk */,
+				B138B74A23211D3300157D61 /* AccountView */,
+				41F452222320D5CB00A62DC6 /* DeviceView */,
+				41F4521D2320D5CB00A62DC6 /* BLEView */,
+				B138B74B23211D5400157D61 /* Storyboard */,
+				41F4522B2320D5CC00A62DC6 /* ViewHelper.swift */,
+				41F452282320D5CB00A62DC6 /* GeneralTabViewController.swift */,
+				41F452262320D5CB00A62DC6 /* AWSServiceClient.swift */,
+				41F0A6C52320E0B400851EB6 /* DataExtention.swift */,
+				41F452122320D55B00A62DC6 /* Assets.xcassets */,
+				41F452172320D55B00A62DC6 /* Info.plist */,
+			);
+			path = Sesame2SDKDemo;
+			sourceTree = "<group>";
+		};
+		41F4521D2320D5CB00A62DC6 /* BLEView */ = {
+			isa = PBXGroup;
+			children = (
+				41F4521E2320D5CB00A62DC6 /* BluetoothDevicesListViewController.swift */,
+				41F452212320D5CB00A62DC6 /* BluetoothDevicesCell.swift */,
+				41F4521F2320D5CB00A62DC6 /* BluetoothSesameControlViewController.swift */,
+				41F452202320D5CB00A62DC6 /* Knob.swift */,
+			);
+			path = BLEView;
+			sourceTree = "<group>";
+		};
+		41F452222320D5CB00A62DC6 /* DeviceView */ = {
+			isa = PBXGroup;
+			children = (
+				41F452242320D5CB00A62DC6 /* MyDevicesListViewController.swift */,
+				41F452232320D5CB00A62DC6 /* MyDeviceViewController.swift */,
+			);
+			path = DeviceView;
+			sourceTree = "<group>";
+		};
+		41F4523A2320D68000A62DC6 /* sdk */ = {
+			isa = PBXGroup;
+			children = (
+				41F0A6C72320E24600851EB6 /* SesameSDK.framework */,
+				41F452422320D6DB00A62DC6 /* AWSAPIGateway.framework */,
+				41F4523F2320D6DA00A62DC6 /* AWSAuthCore.framework */,
+				41F452412320D6DB00A62DC6 /* AWSCognitoIdentityProvider.framework */,
+				41F4523E2320D6DA00A62DC6 /* AWSCognitoIdentityProviderASF.framework */,
+				41F452402320D6DB00A62DC6 /* AWSCore.framework */,
+				41F452432320D6DB00A62DC6 /* AWSMobileClient.framework */,
+				41F4523B2320D6DA00A62DC6 /* PromiseKit.framework */,
+			);
+			path = sdk;
+			sourceTree = "<group>";
+		};
+		B138B74A23211D3300157D61 /* AccountView */ = {
+			isa = PBXGroup;
+			children = (
+				41F4522C2320D5CC00A62DC6 /* AccountViewController.swift */,
+				41F452292320D5CB00A62DC6 /* LoginViewController.swift */,
+			);
+			path = AccountView;
+			sourceTree = "<group>";
+		};
+		B138B74B23211D5400157D61 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				41F4520C2320D55A00A62DC6 /* Main.storyboard */,
+				41F452142320D55B00A62DC6 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		ED7FE8382326691000B2F7ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED7FE8392326691000B2F7ED /* Candyhouse.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		41F452042320D55A00A62DC6 /* Sesame2SDKDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41F4521A2320D55B00A62DC6 /* Build configuration list for PBXNativeTarget "Sesame2SDKDemo" */;
+			buildPhases = (
+				41F452012320D55A00A62DC6 /* Sources */,
+				41F452022320D55A00A62DC6 /* Frameworks */,
+				41F452032320D55A00A62DC6 /* Resources */,
+				41F452672320D6E300A62DC6 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sesame2SDKDemo;
+			productName = Sesame2SDKDemo;
+			productReference = 41F452052320D55A00A62DC6 /* Sesame2SDKDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		41F451FD2320D55A00A62DC6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = co.candyhouse;
+				TargetAttributes = {
+					41F452042320D55A00A62DC6 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 41F452002320D55A00A62DC6 /* Build configuration list for PBXProject "Sesame2SDKDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 41F451FC2320D55A00A62DC6;
+			productRefGroup = 41F452062320D55A00A62DC6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				41F452042320D55A00A62DC6 /* Sesame2SDKDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		41F452032320D55A00A62DC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41F452162320D55B00A62DC6 /* LaunchScreen.storyboard in Resources */,
+				41F452132320D55B00A62DC6 /* Assets.xcassets in Resources */,
+				41F4520E2320D55A00A62DC6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		41F452012320D55A00A62DC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41F452362320D5CC00A62DC6 /* LoginViewController.swift in Sources */,
+				41F452322320D5CC00A62DC6 /* MyDevicesListViewController.swift in Sources */,
+				41F452382320D5CC00A62DC6 /* AccountViewController.swift in Sources */,
+				41F4522D2320D5CC00A62DC6 /* BluetoothDevicesListViewController.swift in Sources */,
+				41F0A6C62320E0B400851EB6 /* DataExtention.swift in Sources */,
+				41F4522E2320D5CC00A62DC6 /* BluetoothSesameControlViewController.swift in Sources */,
+				41F4522F2320D5CC00A62DC6 /* Knob.swift in Sources */,
+				41F452092320D55A00A62DC6 /* AppDelegate.swift in Sources */,
+				41F452332320D5CC00A62DC6 /* AWSServiceClient.swift in Sources */,
+				41F452352320D5CC00A62DC6 /* GeneralTabViewController.swift in Sources */,
+				41F452312320D5CC00A62DC6 /* MyDeviceViewController.swift in Sources */,
+				41F452372320D5CC00A62DC6 /* ViewHelper.swift in Sources */,
+				41F452302320D5CC00A62DC6 /* BluetoothDevicesCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		41F4520C2320D55A00A62DC6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41F4520D2320D55A00A62DC6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		41F452142320D55B00A62DC6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41F452152320D55B00A62DC6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		41F452182320D55B00A62DC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		41F452192320D55B00A62DC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		41F4521B2320D55B00A62DC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 59M5HB7F95;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Sesame2SDKDemo/sdk",
+				);
+				INFOPLIST_FILE = Sesame2SDKDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.candyhouse.Sesame2SDKDemo.Sesame2SDKDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		41F4521C2320D55B00A62DC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 59M5HB7F95;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Sesame2SDKDemo/sdk",
+				);
+				INFOPLIST_FILE = Sesame2SDKDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.candyhouse.Sesame2SDKDemo.Sesame2SDKDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		41F452002320D55A00A62DC6 /* Build configuration list for PBXProject "Sesame2SDKDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41F452182320D55B00A62DC6 /* Debug */,
+				41F452192320D55B00A62DC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41F4521A2320D55B00A62DC6 /* Build configuration list for PBXNativeTarget "Sesame2SDKDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41F4521B2320D55B00A62DC6 /* Debug */,
+				41F4521C2320D55B00A62DC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 41F451FD2320D55A00A62DC6 /* Project object */;
+}
