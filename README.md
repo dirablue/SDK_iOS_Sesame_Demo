@@ -175,7 +175,10 @@ After the connection is fully established, the Sesame Mechanical status will be 
 
 ## Communications
 
-If you **found a bug**, and know how to consistently reproduce it, please open an issue or email to developers@candyhouse.co. Thank you for your cooperation.
+- If you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue.
+- If you **have a feature request**, open an issue.
+- If you **want to contribute**, submit a pull request.
+- If you believe you have identified a **security vulnerability** with SesameSDK, you should report it as soon as possible via email to developers@candyhouse.co Please do not post it to a public issue tracker.
 
 ## License
 SesameSDK is owned and maintained by [CANDY HOUSE, Inc.](https://jp.candyhouse.co/)
