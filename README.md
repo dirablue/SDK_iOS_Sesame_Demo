@@ -13,7 +13,7 @@ SesameSDK on iOS is a delightful Bluetooth library for your iOS app. The officia
 
 
 ## Installation
-Import following frameworks
+Import the following frameworks
 
 - Candyhouse.framework
 - SesameSDK.framework
@@ -64,19 +64,19 @@ Debug:
 ## Example Operation Flow
 
 1. Log in
-1. Connect to Sesame
-1. Register Sesame
-1. Set an locked angles
+1. Connect to the Sesame
+1. Register the Sesame
+1. Set a locked angle
 1. Set an unlocked angle
-1. Lock command
-1. Unlock command
+1. Try Lock command
+1. Try Unlock command
 
 ### CHAccountManager
 `CHAccountManager` creates a Singleton to handle all Login-Related API calls. It also manages a `CHDeviceManager` which is the top manager of all Sesame devices. 
 
 For the login process, a protocol conforming to `<CHLoginProvider>` is required. Whenever the `CHOauthToken` in `CHLoginProvider` protocol is valid for Candy House, `CHAccountManager` will create a `Credential` to sign each API request. 
 
-The Credentail expires in every two hours or so. Normally, Candy House SDK refreshes the `Credential` in background. To check the `Credential` is valid or not, please use `func ensureCredentials`. If ensureCredentials returns any error, You may have to go through Login prcoess again, to provide a valid `CHOauthToken` to Candy House.
+The Credentail expires in every two hours or so. Normally, Candy House SDK refreshes the `Credential` in background. To check the `Credential` is valid or not, please use `func ensureCredentials`. If `ensureCredentials` returns any error, You may have to go through Login prcoess again, to provide a valid `CHOauthToken` to Candy House.
 
 To see how to implement the login process, please checkout this file. [link](https://github.com/CANDY-HOUSE/SDK_iOS_SSM2_DEMO/blob/master/Sesame2SDKDemo/AWSServiceClient.swift)
 
