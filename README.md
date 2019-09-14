@@ -27,9 +27,9 @@ Import the following frameworks
 
 ## Requirements
 
- Minimum iOS Target  | 
-|:---------------------------:|
- iOS 11.4 | 
+| Minimum iOS Target | Minimum Bluetooth Target | 
+|:------------------:|:------------------------:|
+| iOS 11.4 | Bluetooth 4.0 | 
 
 
 ## Architecture
