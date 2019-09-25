@@ -79,6 +79,8 @@ For the login process, a protocol conforming to `<CHLoginProvider>` is required.
 The Credentail expires in every two hours or so. Normally, Candy House SDK refreshes the `Credential` in background. To check the `Credential` is valid or not, please use `func ensureCredentials`. If `ensureCredentials` returns any error, You may have to go through Login prcoess again, to provide a valid `CHOauthToken` to Candy House.
 
 
+To see how to implement the login process, please checkout this file. [link](https://github.com/CANDY-HOUSE/SDK_iOS_SSM2_DEMO/blob/master/Sesame2SDKDemo/AWSServiceClient.swift)
+
 ```swift
     public static let shared = CHAccountManager()
     public var deviceManager: CHDeviceManager!
