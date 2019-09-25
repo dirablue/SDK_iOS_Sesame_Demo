@@ -30,10 +30,6 @@
 		4197AE18233B4290002E2CCD /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE00233B4277002E2CCD /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4197AE19233B4291002E2CCD /* AWSCognitoIdentityProviderASF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197ADFE233B4277002E2CCD /* AWSCognitoIdentityProviderASF.framework */; };
 		4197AE1A233B4291002E2CCD /* AWSCognitoIdentityProviderASF.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4197ADFE233B4277002E2CCD /* AWSCognitoIdentityProviderASF.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4197AE21233B4747002E2CCD /* ZIPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE1F233B4739002E2CCD /* ZIPFoundation.framework */; };
-		4197AE22233B4747002E2CCD /* ZIPFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE1F233B4739002E2CCD /* ZIPFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4197AE25233B47D0002E2CCD /* iOSDFULibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE23233B47AC002E2CCD /* iOSDFULibrary.framework */; };
-		4197AE26233B47D0002E2CCD /* iOSDFULibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE23233B47AC002E2CCD /* iOSDFULibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4197AE27233B47E6002E2CCD /* Candyhouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197ADFF233B4277002E2CCD /* Candyhouse.framework */; };
 		4197AE28233B47E6002E2CCD /* Candyhouse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4197ADFF233B4277002E2CCD /* Candyhouse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4197AE3C233B4F91002E2CCD /* SesameSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE3A233B4F8B002E2CCD /* SesameSDK.framework */; };
@@ -53,6 +49,10 @@
 		B179691222F7CE9400E91996 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B179691122F7CE9400E91996 /* Assets.xcassets */; };
 		B179691522F7CE9400E91996 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B179691322F7CE9400E91996 /* LaunchScreen.storyboard */; };
 		B1D4726D2327AB1B005454C5 /* sesame2_firmware.zip in Resources */ = {isa = PBXBuildFile; fileRef = B1D4726C2327AB1B005454C5 /* sesame2_firmware.zip */; };
+		ED429A93233B87BC00710FE9 /* iOSDFULibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE23233B47AC002E2CCD /* iOSDFULibrary.framework */; };
+		ED429A94233B87BC00710FE9 /* iOSDFULibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE23233B47AC002E2CCD /* iOSDFULibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ED429A95233B87C200710FE9 /* ZIPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE1F233B4739002E2CCD /* ZIPFoundation.framework */; };
+		ED429A96233B87C200710FE9 /* ZIPFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE1F233B4739002E2CCD /* ZIPFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ED82A913233487F900FB0262 /* BaseLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82A912233487F900FB0262 /* BaseLightViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,16 +63,16 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4197AE26233B47D0002E2CCD /* iOSDFULibrary.framework in Embed Frameworks */,
+				ED429A94233B87BC00710FE9 /* iOSDFULibrary.framework in Embed Frameworks */,
 				4197AE0E233B4281002E2CCD /* AWSAPIGateway.framework in Embed Frameworks */,
 				4197AE1A233B4291002E2CCD /* AWSCognitoIdentityProviderASF.framework in Embed Frameworks */,
 				4197AE12233B4287002E2CCD /* AWSCognitoIdentityProvider.framework in Embed Frameworks */,
 				4197AE10233B4282002E2CCD /* AWSAuthCore.framework in Embed Frameworks */,
 				4197AE16233B428E002E2CCD /* AWSMobileClient.framework in Embed Frameworks */,
-				4197AE22233B4747002E2CCD /* ZIPFoundation.framework in Embed Frameworks */,
 				4197AE3D233B4F91002E2CCD /* SesameSDK.framework in Embed Frameworks */,
 				4197AE28233B47E6002E2CCD /* Candyhouse.framework in Embed Frameworks */,
 				4197AE18233B4290002E2CCD /* AWSCore.framework in Embed Frameworks */,
+				ED429A96233B87C200710FE9 /* ZIPFoundation.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,16 +126,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED429A93233B87BC00710FE9 /* iOSDFULibrary.framework in Frameworks */,
 				4197AE19233B4291002E2CCD /* AWSCognitoIdentityProviderASF.framework in Frameworks */,
 				4197AE17233B4290002E2CCD /* AWSCore.framework in Frameworks */,
-				4197AE21233B4747002E2CCD /* ZIPFoundation.framework in Frameworks */,
 				4197AE0D233B4281002E2CCD /* AWSAPIGateway.framework in Frameworks */,
 				4197AE11233B4287002E2CCD /* AWSCognitoIdentityProvider.framework in Frameworks */,
 				4197AE0F233B4282002E2CCD /* AWSAuthCore.framework in Frameworks */,
 				4197AE15233B428E002E2CCD /* AWSMobileClient.framework in Frameworks */,
 				4197AE3C233B4F91002E2CCD /* SesameSDK.framework in Frameworks */,
 				4197AE27233B47E6002E2CCD /* Candyhouse.framework in Frameworks */,
-				4197AE25233B47D0002E2CCD /* iOSDFULibrary.framework in Frameworks */,
+				ED429A95233B87C200710FE9 /* ZIPFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +259,7 @@
 				4197ADFC233B4218002E2CCD /* sdk */,
 				B179690922F7CE9300E91996 /* sesame-sdk-test-app */,
 				4197AE33233B4C06002E2CCD /* sesame-sdk-test-app.app */,
+				ED429A90233B86A700710FE9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -289,6 +290,13 @@
 				B1D4726C2327AB1B005454C5 /* sesame2_firmware.zip */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		ED429A90233B86A700710FE9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
