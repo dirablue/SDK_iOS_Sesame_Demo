@@ -74,18 +74,17 @@ Debug:
 ### CHAccountManager
 `CHAccountManager` creates a Singleton to handle all Login-Related API calls. It also manages a `CHDeviceManager` which is the top manager of all Sesame devices. 
 
-For the login process, a protocol conforming to `<CHLoginProvider>` is required. Whenever the `CHOauthToken` in `CHLoginProvider` protocol is valid for Candy House, `CHAccountManager` will create a `Credential` to sign each API request. 
+For the login process, a protocol conforming to `<CHLoginProvider>` is required. Use `setupLoginSession` to pass the protocol to AccountManager. Whenever the `CHOauthToken` in `CHLoginProvider` protocol is valid for Candy House, `CHAccountManager` will create a `Credential` to sign each API request. 
 
 The Credentail expires in every two hours or so. Normally, Candy House SDK refreshes the `Credential` in background. To check the `Credential` is valid or not, please use `func ensureCredentials`. If `ensureCredentials` returns any error, You may have to go through Login prcoess again, to provide a valid `CHOauthToken` to Candy House.
 
-To see how to implement the login process, please checkout this file. [link](https://github.com/CANDY-HOUSE/SDK_iOS_SSM2_DEMO/blob/master/Sesame2SDKDemo/AWSServiceClient.swift)
 
 ```swift
     public static let shared = CHAccountManager()
     public var deviceManager: CHDeviceManager!
     public var candyhouseUserId: UUID?
-    public func continueLoginSession(identityProvider: CHLoginProvider)
-    public func login(identityProvider: CHLoginProvider, result: @escaping (SesameSDK.CHAccountManager, SesameSDK.CHApiResult) -> Void)
+    public func setupLoginSession(identityProvider: CHLoginProvider)
+    public func login(result: @escaping (caller: CHAccountManager, loginResult: CHApiResult) -> Void)
     public func logout()
     public func isLogin() -> Bool
     public func ensureCredentials(_ result: @escaping (SesameSDK.CHAccountManager, SesameSDK.CHApiResult) -> Void)
