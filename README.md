@@ -23,7 +23,6 @@ Import the following frameworks
 - AWSCognitoIdentityProviderASF.framework
 - AWSCore.framework
 - AWSMobileClient.framework
-- PromiseKit.framework
 
 ## Requirements
 
@@ -33,21 +32,24 @@ Import the following frameworks
 
 
 ## Architecture
+<p align="center" >
+  <img src="https://cdn.shopify.com/s/files/1/0939/4828/files/sdk_architecture.001.png?902" alt="CANDY HOUSE Sesame SDK architecture" title="SesameSDK">
+</p>
 
 Managers:
 * `CHBleManager`: Bluetooth interface
 * `CHAccountManager`: Web APIs interface
-* `CHDeviceManager`: Device profiles interface
+* `CHDeviceManager`: Device profiles interface, each device could be Sesame II or any other products from Candy House.
 
 Device Info:
 * `CHDeviceProfile`
-    * `CHLockStatus`
-    * `CHBatteryStatus`
     * `CHDeviceModel`
     * `CHDeviceAccessLevel`
 
 BLE Device Info:
 * `CHSesameBleInterface`
+    * `CHBatteryStatus`
+    * `CHSesameMechStatus`
     * `CHBleGattStatus`
     * `CHSesameCommand`
     * `CHSesameCommandResult`
@@ -61,15 +63,12 @@ Debug:
 * `CHSesameGattError`: `incompleteKey`, `encryptionError`, `wrongStatus`, `runtimeError`, `bleError`
 * `CHAccountError`: `notLogin`, `permissionDeny`, `masterUserKeyNotExist`
 
-## Example Operation Flow
+## Account Login Process
+<p align="center" >
+  <img src="https://cdn.shopify.com/s/files/1/0939/4828/files/candyhouse_login.png?899" alt="CANDY HOUSE Sesame SDK login" title="SesameSDK">
+</p>
+Example (Google) (https://accounts.google.com/.well-known/openid-configuration)
 
-1. Log in
-1. Connect to the Sesame
-1. Register the Sesame
-1. Set a locked angle
-1. Set an unlocked angle
-1. Try Lock command
-1. Try Unlock command
 
 ### CHAccountManager
 `CHAccountManager` creates a Singleton to handle all Login-Related API calls. It also manages a `CHDeviceManager` which is the top manager of all Sesame devices. 
@@ -82,38 +81,51 @@ The Credentail expires in every two hours or so. Normally, Candy House SDK refre
 To see how to implement the login process, please checkout this file. [link](https://github.com/CANDY-HOUSE/SDK_iOS_SSM2_DEMO/blob/master/Sesame2SDKDemo/AWSServiceClient.swift)
 
 ```swift
-    public static let shared = CHAccountManager()
-    public var deviceManager: CHDeviceManager!
+class CHAccountManager {
+    public static let shared
+
+    public var deviceManager: CHDeviceManager
     public var candyhouseUserId: UUID?
+
     public func setupLoginSession(identityProvider: CHLoginProvider)
-    public func login(result: @escaping (caller: CHAccountManager, loginResult: CHApiResult) -> Void)
+    public func login(result: @escaping (CHAccountManager, CHApiResult) -> Void)
     public func logout()
     public func isLogin() -> Bool
-    public func ensureCredentials(_ result: @escaping (SesameSDK.CHAccountManager, SesameSDK.CHApiResult) -> Void)
-
+    public func ensureCredentials(_ result: @escaping (CHAccountManager, CHApiResult) -> Void)
+}
 ```
+
+<p align="center" >
+  <img src="https://cdn.shopify.com/s/files/1/0939/4828/files/candyhouse_login_diagram.png?909" alt="CANDY HOUSE Sesame SDK login" title="SesameSDK">
+</p>
+
 ### CHDeviceManager
 `CHDeviceManager` is under the `CHAccountManager`, where is responsible for fetching device list from server. (`func flushDevices`).
 
 ```swift
-    public func flushDevices(_ result: @escaping (SesameSDK.CHDeviceManager?, SesameSDK.CHApiResult, [SesameSDK.CHDeviceProfile]?) -> Void)
-    public func getDevices() -> [SesameSDK.CHDeviceProfile]
-    public func getDeviceByBleIdentity(_ identity: Data, withModel: SesameSDK.CHDeviceModel) -> SesameSDK.CHDeviceProfile?
-    public func getDeviceByUUID(uuid: UUID) -> SesameSDK.CHDeviceProfile?
+class CHDeviceManager {
+    public func flushDevices(_ result: @escaping (CHDeviceManager?, CHApiResult, [CHDeviceProfile]?) -> Void)
+    public func getDevices() -> [CHDeviceProfile]
+    public func getDeviceByBleIdentity(_ identity: Data, withModel: CHDeviceModel) -> CHDeviceProfile?
+    public func getDeviceByUUID(uuid: UUID) -> CHDeviceProfile?
+}
 ```
 
 ### CHDeviceProfile
 CHDeviceProfile contains some public-get-properties such as `bleIdentity`, `deviceId`, `model`, `accessLevel`, `deviceName` and `customName`. Those are essential parameters for users to identify each Sesame.
 ```swift
+class CHDeviceProfile {
     public var bleIdentity: Data?
     public var deviceId: UUID
-    public var model: SesameSDK.CHDeviceModel
-    public var accessLevel: SesameSDK.CHDeviceAccessLevel
+    public var model: CHDeviceModel
+    public var accessLevel: CHDeviceAccessLevel
     public var deviceName: String?
     public var customName: String?
-    public func renameDevice(name: String, completion: @escaping (SesameSDK.CHApiResult) -> Void) throws
-    public func renameNickname(name: String, completion: @escaping (SesameSDK.CHApiResult) -> Void)
-    public func unregisterDeivce(deviceId: UUID, model: SesameSDK.CHDeviceModel, completion: @escaping (SesameSDK.CHApiResult) -> Void)
+  
+    public func renameDevice(name: String, completion: @escaping (CHApiResult) -> Void) throws
+    public func renameNickname(name: String, completion: @escaping (CHApiResult) -> Void)
+    public func unregisterDeivce(deviceId: UUID, model: CHDeviceModel, completion: @escaping (CHApiResult) -> Void)
+}
 ```
 
 ### CHBleManager
@@ -121,6 +133,7 @@ CHDeviceProfile contains some public-get-properties such as `bleIdentity`, `devi
 `CHBleManager` creates and manages `Bluetooth-related` objects based on a `CBCentralManager`, which conforms to `<CBCentralManagerDelegate>`, `<CBPeripheralDelegate>`.
 CHBLEManager has a delegate extension `CHBleManagerDelegate`, which gets called whenever nearby Sesame is scanned.
 ```swift
+class CHBleManager {
     public func enableScan()
     public func disableScan()
     public func getSesame(identifier: String) -> CHSesameBleInterface?
@@ -128,7 +141,7 @@ CHBLEManager has a delegate extension `CHBleManagerDelegate`, which gets called 
     public protocol CHBleManagerDelegate : AnyObject {
         func didDiscoverSesame(device: CHSesameBleInterface)
     }
-
+}
 ```
 
 ### CHSesameBleInterface
@@ -139,7 +152,7 @@ Each Bluetooth object under the CHBleManager follows the interface `CHSesameBleI
 After the connection is fully established, the Sesame Mechanical status will be revealed (`CHSesameMechStatus`), which allows users to grab the update-to-date Sesame battery voltage or the angle of thumb turn.
 
 ```swift
-  public protocol CHSesameBleInterface : AnyObject {
+public protocol CHSesameBleInterface : AnyObject {
 
     var delegate: CHSesameBleDeviceDelegate?
     
@@ -166,10 +179,9 @@ After the connection is fully established, the Sesame Mechanical status will be 
     // Bluetooth operations
     func lock() throws
     func unlock() throws
-    func getMechStatus() throws
     func configureLockPosition(configure: SesameSDK.CHSesameLockPositionConfiguration) throws
-    func register(nickname: String, _ callback: @escaping (SesameSDK.CHApiResult) -> Void) throws
-    func unregister(_ callback: @escaping (SesameSDK.CHApiResult) -> Void) throws
+    func register(nickname: String, _ callback: @escaping (CHApiResult) -> Void) throws
+    func unregister() throws
     func lastSeen() -> Date
 }
 ```
