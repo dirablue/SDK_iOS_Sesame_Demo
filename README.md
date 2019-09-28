@@ -3,7 +3,20 @@
 </p>
 
 
-SesameSDK on iOS is a delightful Bluetooth library for your iOS app. The official Sesame app is built on this SesameSDK. By using SesameSDK, your app will have `ALL` functions and features that Sesame app has, which means, you will be able to `Register Sesame`/`Lock door`/`Unlock door`/`Share keys`/`Read door history`/`Update Sesame firmware`/`Configure Sesame name`/`Configure Auto-lock`/`Configure angles`/`Get battery status` with your app.<br>Please note, SesameSDK currently only supports ___Sesame 2___ and ___Sesame 2 mini___ which will be available in late 2019.
+SesameSDK on iOS is a delightful Bluetooth library for your iOS app. The official Sesame app is built on this SesameSDK. By using SesameSDK, your app will have `ALL` functions and features that Sesame app has, which means, you will be able to
+
+- Register Sesame
+- Lock door
+- Unlock door
+- Share keys
+- Read door history
+- Update Sesame firmware
+- Configure Sesame name
+- Configure Auto-lock
+- Configure angles
+- Get battery status
+
+with your app.<br>Please note, SesameSDK currently only supports ___Sesame 2___ and ___Sesame 2 mini___ which will be available in late 2019.
 
 
 ## Quick Start
