@@ -194,5 +194,5 @@ public protocol CHSesameBleInterface : AnyObject {
 - If you believe you have identified a **security vulnerability** with SesameSDK, you should report it as soon as possible via email to developers@candyhouse.co Please do not post it to a public issue tracker.
 
 ## License
-SesameSDK is owned and maintained by [CANDY HOUSE, Inc.](https://jp.candyhouse.co/) under a [MIT License](https://github.com/CANDY-HOUSE/SDK_iOS_Sesame_Demo/blob/master/LICENSE).
+SesameSDK is owned and maintained by [CANDY HOUSE, Inc.](https://jp.candyhouse.co/) under the [MIT License](https://github.com/CANDY-HOUSE/SDK_iOS_Sesame_Demo/blob/master/LICENSE).
 
