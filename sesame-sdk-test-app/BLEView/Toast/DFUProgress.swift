@@ -10,12 +10,12 @@ import Foundation
 import SesameSDK
 
 class TemporaryFirmwareUpdateClass: CHFirmwareUpdateInterface {
-    weak var view: BaseLightViewController?
+    weak var view: BaseViewController?
     var alertView: UIAlertController
     var abortFunc: (() -> Void)?
     var isFinished: Bool = false
 
-    init(_ mainView: BaseLightViewController) {
+    init(_ mainView: BaseViewController) {
         self.view = mainView
         abortFunc = nil
 

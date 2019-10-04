@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseViewController: UIViewController, UIAlertViewDelegate {
+class BaseViewController: UIViewController {
     func generateQRCode(from string: String) -> UIImage? {
         let data = string.data(using: String.Encoding.ascii)
 

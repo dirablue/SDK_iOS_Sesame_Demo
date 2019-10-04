@@ -11,8 +11,8 @@ import CoreBluetooth
 import SesameSDK
 import UIKit.UIGestureRecognizerSubclass
 
-class BluetoothDevicesListViewController: BaseLightViewController {
-    var deviceNameID = [String]()
+class BluetoothDevicesListViewController: BaseViewController {
+
     var devices = [CHSesameBleInterface]()
     var sesameDevicesMap: [String: CHSesameBleInterface] = [:]
     @IBOutlet weak var deviceTableView: UITableView!
@@ -27,10 +27,15 @@ class BluetoothDevicesListViewController: BaseLightViewController {
     override func viewDidAppear(_ animated: Bool) {
         CHBleManager.shared.delegate = self
     }
+    @IBAction func scan(_ sender: Any) {
+        L.d("test scanV")
+        let tabVC = self.tabBarController as! GeneralTabViewController
+        tabVC.scanQR()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Scanned BLE List"
+        self.title = "Device List"
         self.deviceTableView.delegate = self
         self.deviceTableView.dataSource = self
         self.deviceTableView.allowsSelection = true
@@ -39,39 +44,76 @@ class BluetoothDevicesListViewController: BaseLightViewController {
         let gesture = SingleTouchDownGestureRecognizer(target: self, action: nil)
         self.deviceTableView.addGestureRecognizer(gesture)
 
-        let tabGesture = UITapGestureRecognizer(target: self, action: Selector("tapGesture:"))
+        let tabGesture = UITapGestureRecognizer(target: self, action: #selector(tapGesture(_:)))
         self.deviceTableView.addGestureRecognizer(tabGesture)
 
+        let  mydevices = CHAccountManager.shared.deviceManager.getDevices()
+            for mydev in  mydevices
+            {
+                L.d("🔵🔴⚫️⚪️", mydev.bleIdentity?.toHexString(), mydev.customName, mydev.accessLevel.rawValue, mydev.deviceId)
+                let sesame: mySesame  = mySesame(deviceProfile: mydev)
+                if(mydev.bleIdentity == nil) {
+
+                } else {
+                    let  inde = self.sesameDevicesMap.index(forKey: mydev.bleIdentity!.toHexString())
+                    if(inde == nil){
+                        self.sesameDevicesMap.updateValue(sesame, forKey: mydev.bleIdentity!.toHexString())
+                    }
+                }
+            }
+            deviceTableView.reloadData()
     }
 
     @objc func tapGesture(_ sender: UITapGestureRecognizer) {
         let touch =   sender.location(in: self.deviceTableView)
         if let indexPath = self.deviceTableView.indexPathForRow(at: touch) {
-            self.performSegue(withIdentifier: "toDeviceDetail", sender: deviceNameID[indexPath.row])
+            self.performSegue(withIdentifier: "toDeviceDetail", sender: devices[indexPath.row])
         }
     }
 
     @IBAction func freshDidPress(_ sender: Any) {
         devices.removeAll()
-        deviceNameID.removeAll()
         sesameDevicesMap.removeAll()
+        deviceTableView.reloadData()
+
+        CHAccountManager.shared.deviceManager.flushDevices { (_, result, deviceDatas) in
+
+            L.d("result.success",result.success,"deviceDatas",deviceDatas?.count)
+            if let mydevices = deviceDatas, result.success == true {
+                for mydev: CHDeviceProfile in mydevices {
+                    L.d("🔵🔴⚫️⚪️", mydev.bleIdentity?.toHexString(), mydev.customName, mydev.accessLevel.rawValue, mydev.deviceId)
+                    let sesame: mySesame  = mySesame(deviceProfile: mydev)
+                    if(mydev.bleIdentity == nil) {
+
+                    } else {
+                        let  inde = self.sesameDevicesMap.index(forKey: mydev.bleIdentity!.toHexString())
+                        if(inde == nil){
+                            self.sesameDevicesMap.updateValue(sesame, forKey: mydev.bleIdentity!.toHexString())
+                        }
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.reloadTable()
+                }
+            }
+        }
+    }
+    func reloadTable() {
+        devices.removeAll()
+        for (_, value) in sesameDevicesMap {
+            devices.append(value)
+        }
+        devices.sort { (a, b) -> Bool in
+            return a.accessLevel.power()  < b.accessLevel.power()
+        }
         deviceTableView.reloadData()
     }
 }
 
 extension BluetoothDevicesListViewController: CHBleManagerDelegate {
     func didDiscoverSesame(device: CHSesameBleInterface) {
-        deviceNameID.removeAll()
-        devices.removeAll()
-        sesameDevicesMap.updateValue(device, forKey: device.identifier)
-
-        for (key, value) in sesameDevicesMap {
-            devices.append(value)
-            deviceNameID.append(key)
-        }
-
-        deviceTableView.reloadData()
-
+        sesameDevicesMap.updateValue(device, forKey: device.bleIdStr)
+        reloadTable()
     }
 }
 
@@ -84,66 +126,41 @@ extension BluetoothDevicesListViewController: UITableViewDataSource {
         let ssm = devices[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "SSMCell", for: indexPath) as! BluetoothDevicesCell
 
-        cell.title.text = "BleID: \(ssm.bleId?.toHexString().prefix(8) ?? "UNKNOWN")"
+        cell.title.text = "BleID: \(ssm.bleIdStr)"
         cell.registerStatus.text = "\(ssm.isRegistered ? "Registered" : "Unregistered")"
         cell.registerStatus.textColor = ssm.isRegistered ? UIColor.lightGray : UIColor.red
         cell.rssiValue.text = "rssi: \(ssm.rssi)"
         cell.nameLB.text = ssm.customNickname
-
-        if let accessLevel = ssm.accessLevel {
-            cell.ownerLB.text = accessLevel.rawValue
-        } else {
-            cell.ownerLB.text = ""
-        }
-
+        cell.ownerLB.text =  ssm.accessLevel.rawValue
         cell.connectStatusLB.text = ssm.gattStatus.description()
-        if(ssm.gattStatus == .idle) {
-            do {
-                if ssm.accessLevel == .owner {
-                    try ssm.connect()
-                }
-            } catch {
-                print(error)
-            }
+
+        if(ssm.accessLevel == .owner || ssm.accessLevel == .manager || ssm.accessLevel == .guest){
+            cell.backgroundColor = UIColor(rgb: 0xEEEEEE)
+        }else{
+            cell.backgroundColor = UIColor.white
         }
 
-
+        if(ssm.gattStatus == .established) {
+            ssm.disconnect()
+        }
+        //        if(ssm.gattStatus == .idle) {
+        //            if ssm.accessLevel == .owner || ssm.accessLevel ==  .manager || ssm.accessLevel ==  .guest {
+        //                if(ssm.identifier != "fromserver"){
+        //                    ssm.connect(),
+        //                }
+        //            }
+        //        }
         return cell
     }
 
-    //    func tableView(_ tableView: UITableView,
-    //                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-    //    {
-    //        let closeAction = UIContextualAction(style: .normal, title:  "Close", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-    //            print("OK, marked as Closed")
-    //            success(true)
-    //        })
-    //        closeAction.image = UIImage(named: "a")
-    //        closeAction.backgroundColor = .purple
-    //
-    //        return UISwipeActionsConfiguration(actions: [closeAction])
-    //
-    //    }
-    //
-    //    func tableView(_ tableView: UITableView,
-    //                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-    //    {
-    //        let modifyAction = UIContextualAction(style: .normal, title:  "Update", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-    //            print("Update action ...")
-    //            success(true)
-    //        })
-    //        modifyAction.image = UIImage(named: "b")
-    //        modifyAction.backgroundColor = .blue
-    //
-    //        return UISwipeActionsConfiguration(actions: [modifyAction])
-    //    }
 }
 
 extension BluetoothDevicesListViewController: UITableViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDeviceDetail"{
             if let controller = segue.destination as? BluetoothSesameControlViewController {
-                controller.deviceID = sender as? String
+                let sesameDevice = sender as? CHSesameBleInterface
+                controller.sesame = sesameDevice
             }
         }
     }
@@ -152,10 +169,12 @@ extension BluetoothDevicesListViewController: UITableViewDelegate {
 class SingleTouchDownGestureRecognizer: UIGestureRecognizer {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
         super.touchesBegan(touches, with: event)
-        CHBleManager.shared.disableScan()
+//        CHBleManager.shared.disableScan()
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent) {
         super.touchesEnded(touches, with: event)
-        CHBleManager.shared.enableScan()
+//        CHBleManager.shared.enableScan()
     }
 }
+
+

@@ -23,24 +23,25 @@ class MyDeviceViewController: BaseLightViewController {
         detailLabel.text = "Device ID: \(device!.deviceId.uuidString)\nCustomName: \(device!.customName ?? "")\nDevice Model: \(device!.model.rawValue)\nBluetooth Identity: \(device!.bleIdentity?.toHexString() ?? "")\nAccess Level: \(device!.accessLevel.rawValue)\n"
         detailLabel.sizeToFit()
         detailLabel.numberOfLines = 0
-        if #available(iOS 13.0, *) {
-            self.overrideUserInterfaceStyle = .light
-        }
     }
 
     @IBAction func unregisterDidPress(_ sender: Any) {
         weak var weakSelf = self
         ViewHelper.showLoadingInView(view: self.view)
-        device?.unregisterDeivce(deviceId: device!.deviceId, model: device!.model, completion: { (result) in
-            ViewHelper.hideLoadingView(view: weakSelf?.view)
-            if result.success {
-                self.listView?.flushDevice { (_) in
-                    weakSelf?.presentingViewController?.dismiss(animated: true, completion: nil)
-                }
-            } else {
-                ViewHelper.showAlertMessage(title: "Error", message: "unregister failed: \(result.errorDescription ?? "unknown reason")", actionTitle: "ok", viewController: weakSelf!)
-            }
-        })
+//        device?.unregisterDeivce(deviceId: device!.deviceId, model: device!.model, completion: { (result) in
+//            ViewHelper.hideLoadingView(view: weakSelf?.view)
+//            if result.success {
+//                self.listView?.flushDevice { (_) in
+//                    DispatchQueue.main.async {
+//                        weakSelf?.presentingViewController?.dismiss(animated: true, completion: nil)
+//                    }
+//                }
+//            } else {
+//                ViewHelper.showAlertMessage(title: "Error", message: "unregister failed: \(result.errorDescription ?? "unknown reason")", actionTitle: "ok", viewController: weakSelf!)
+//            }
+//        })
+
+        
     }
 
     @IBAction func didPressUserRefresh(_ sender: Any) {
@@ -49,7 +50,7 @@ class MyDeviceViewController: BaseLightViewController {
             return
         }
         weak var weakSelf = self
-        CHAccountManager.shared.deviceManager.getDeviceUsers(self.device!.deviceId) { (_, result, users) in
+        CHAccountManager.shared.deviceManager.getDeviceMembers(self.device!.deviceId) { (_, result, users) in
             if result.success {
                 guard users == nil else {
                     DispatchQueue.main.async {
@@ -64,6 +65,53 @@ class MyDeviceViewController: BaseLightViewController {
                     return
                 }
             }
+        }
+    }
+
+    func deleteUser(_ user: CHDeviceMember) {
+        guard device?.bleIdentity != nil else {
+            ViewHelper.showAlertMessage(title: "Ooops", message: "Incomplete device detailsj to connect: missing bleIdentity", actionTitle: "ok", viewController: self)
+            return
+        }
+
+        guard user.userId != CHAccountManager.shared.candyhouseUserId else {
+            ViewHelper.showAlertMessage(title: "Ooops", message: "You can't delete yourself dear 😂", actionTitle: "ok", viewController: self)
+            return
+        }
+
+        if let blesesame = CHBleManager.shared.getSesame(bleIdentity: (device?.bleIdentity)!) {
+            ViewHelper.showLoadingInView(view: self.view)
+            do {
+                try blesesame.connect()
+                let waitTime = blesesame.gattStatus == .established ? 0 : 5
+                Thread.sleep(forTimeInterval: TimeInterval(waitTime))
+                if blesesame.gattStatus == .established {
+                    guard user.accessId != nil else {
+                        ViewHelper.hideLoadingView(view: self.view)
+                        ViewHelper.showAlertMessage(title: "Oops", message: "incomplete user info: missing accessId", actionTitle: "ok", viewController: self)
+                        return
+                    }
+                    try blesesame.revokeKey(user.accessId!) { (result) in
+                        if result.success {
+                            self.didPressUserRefresh(self)
+                            ViewHelper.hideLoadingView(view: self.view)
+                            ViewHelper.showAlertMessage(title: "Successful", message: "You had remove this user", actionTitle: "ok", viewController: self)
+                        } else {
+                            ViewHelper.hideLoadingView(view: self.view)
+                            ViewHelper.showAlertMessage(title: "Oops", message: "Revoke the user failed: \(result.errorDescription ?? "unknown error")", actionTitle: "ok", viewController: self)
+                        }
+                    }
+                } else {
+                    ViewHelper.showAlertMessage(title: "Oops", message: "Connect to the Sesame failed, please try again", actionTitle: "ok", viewController: self)
+                    ViewHelper.hideLoadingView(view: self.view)
+                }
+            } catch let error {
+                ViewHelper.showAlertMessage(title: "Oops", message: "ble coperation error:\(error.localizedDescription)", actionTitle: "ok", viewController: self)
+                ViewHelper.hideLoadingView(view: self.view)
+            }
+        } else {
+            ViewHelper.showAlertMessage(title: "Oops", message: "Something went wrong, there is no such Sesame nearby.", actionTitle: "ok", viewController: self)
+            ViewHelper.hideLoadingView(view: self.view)
         }
     }
 }
@@ -83,10 +131,19 @@ extension MyDeviceViewController: UITableViewDataSource {
             cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
         }
         let user = userList[indexPath.row]
-        cell?.textLabel?.text = user.userId?.uuidString ?? "\(user.type.rawValue): \(user.accessId?.toHexString().prefix(5) ?? "unknown")"
+        if user.userId?.uuidString == CHAccountManager.shared.candyhouseUserId?.uuidString {
+            cell?.textLabel?.text = AWSCognitoOAuthService.shared.signedInUsername ?? "(You)"
+        } else {
+            cell?.textLabel?.text = user.userId?.uuidString ?? "\(user.type.rawValue): \(user.accessId?.toHexString().prefix(5) ?? "unknown")"
+        }
+
         return cell!
     }
-}
 
-extension MyDeviceViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let user = userList[indexPath.row]
+        if editingStyle == .delete {
+            self.deleteUser(user)
+        }
+    }
 }

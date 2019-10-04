@@ -191,7 +191,6 @@ extension UnicodeScalar {
         fatalError("\(self) not a legal hex nibble")
     }
 }
-//print("login  !!!")
 
 class L {
    static func d(_ items: Any..., file: String = #file, function: String = #function,

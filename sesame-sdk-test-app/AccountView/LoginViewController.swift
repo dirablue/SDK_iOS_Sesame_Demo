@@ -10,38 +10,14 @@ import Foundation
 import UIKit
 import SesameSDK
 
-class LoginViewController: BaseLightViewController {
+class LoginViewController: BaseViewController {
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        password.isSecureTextEntry = true
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        let service = AWSCognitoOAuthService.shared
-
-        /*
-         CH-Auth  step1
-         CHAccountManager setupLoginSession
-         */
-        CHAccountManager.shared.setupLoginSession(identityProvider: AWSCognitoOAuthService.shared)
-        if service.isSignedIn {
-            loadMenuView()
-            if !CHAccountManager.shared.isLogin() {
-                print("SesameSDK is not login yet")
-            }
-        }
-    }
-
-    func loadMenuView() {
-        DispatchQueue.main.async {
-            L.d("Login Finish")
-            self.performSegue(withIdentifier: "enterTabBarController", sender: self)
-            ViewHelper.hideLoadingView(view: self.view)
-        }
+        //        password.isSecureTextEntry = true
     }
 
     @IBAction func loginDidPress(_ sender: Any) {
@@ -49,22 +25,10 @@ class LoginViewController: BaseLightViewController {
         ViewHelper.showLoadingInView(view: self.view)
         AWSCognitoOAuthService.shared.loginWithUsernamePassword(username: (userName?.text)!, password: (password?.text)!) { (error) in
             if error == nil {
-                /*
-                 CH-Auth  step2
-                 CHAccountManager login
-                 */
-                CHAccountManager.shared.login({ (_, apiResult) in
-                    if apiResult.success {
-                        L.d("Candyhourse Auth  OK!!!!!")
-                        CHAccountManager.shared.deviceManager.flushDevices({(_, _, _) in
-                            L.d("Candyhourse Auth  GetList")
-                        })
-                    } else {
-                        let err = NSError(domain: apiResult.errorCode ?? "UNKNOWN_ERROR", code: 400, userInfo: ["detail": apiResult.errorDescription ?? "none"])
-                        print(err)
-                    }
-                })
-                self.loadMenuView()
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion:nil)
+                    ViewHelper.hideLoadingView(view: self.view)
+                }
             } else {
                 let userInfo = (error! as NSError).userInfo
                 DispatchQueue.main.async {
@@ -81,3 +45,5 @@ class LoginViewController: BaseLightViewController {
         }
     }
 }
+
+

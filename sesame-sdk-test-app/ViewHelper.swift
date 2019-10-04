@@ -37,9 +37,11 @@ class ViewHelper: NSObject {
     }
 
     class func alert(_ title: String, _ message: String, _ viewController: UIViewController) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        viewController.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            viewController.present(alert, animated: true, completion: nil)
+        }
     }
 
     class func showAlertMessage(title: String, message: String, actionTitle: String, viewController: UIViewController) {

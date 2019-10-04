@@ -10,69 +10,64 @@
 		4152907623224C2300F7E0E5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152906923224C2300F7E0E5 /* LoginViewController.swift */; };
 		4152907723224C2300F7E0E5 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152906A23224C2300F7E0E5 /* AccountViewController.swift */; };
 		4152907823224C2300F7E0E5 /* GeneralTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152906B23224C2300F7E0E5 /* GeneralTabViewController.swift */; };
-		4152907923224C2300F7E0E5 /* MyDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152906D23224C2300F7E0E5 /* MyDeviceViewController.swift */; };
-		4152907A23224C2300F7E0E5 /* MyDevicesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152906E23224C2300F7E0E5 /* MyDevicesListViewController.swift */; };
 		4152907B23224C2300F7E0E5 /* ViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152906F23224C2300F7E0E5 /* ViewHelper.swift */; };
 		4152907C23224C2300F7E0E5 /* AWSServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152907023224C2300F7E0E5 /* AWSServiceClient.swift */; };
 		4152907D23224C2300F7E0E5 /* BluetoothSesameControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152907223224C2300F7E0E5 /* BluetoothSesameControlViewController.swift */; };
 		4152907E23224C2300F7E0E5 /* BluetoothDevicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152907323224C2300F7E0E5 /* BluetoothDevicesCell.swift */; };
 		4152907F23224C2300F7E0E5 /* BluetoothDevicesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152907423224C2300F7E0E5 /* BluetoothDevicesListViewController.swift */; };
 		4152908023224C2300F7E0E5 /* Knob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152907523224C2300F7E0E5 /* Knob.swift */; };
-		4197AE0D233B4281002E2CCD /* AWSAPIGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE01233B4277002E2CCD /* AWSAPIGateway.framework */; };
-		4197AE0E233B4281002E2CCD /* AWSAPIGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE01233B4277002E2CCD /* AWSAPIGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4197AE0F233B4282002E2CCD /* AWSAuthCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197ADFD233B4277002E2CCD /* AWSAuthCore.framework */; };
-		4197AE10233B4282002E2CCD /* AWSAuthCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4197ADFD233B4277002E2CCD /* AWSAuthCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4197AE11233B4287002E2CCD /* AWSCognitoIdentityProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE03233B4277002E2CCD /* AWSCognitoIdentityProvider.framework */; };
-		4197AE12233B4287002E2CCD /* AWSCognitoIdentityProvider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE03233B4277002E2CCD /* AWSCognitoIdentityProvider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4197AE15233B428E002E2CCD /* AWSMobileClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE04233B4277002E2CCD /* AWSMobileClient.framework */; };
-		4197AE16233B428E002E2CCD /* AWSMobileClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE04233B4277002E2CCD /* AWSMobileClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4197AE17233B4290002E2CCD /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE00233B4277002E2CCD /* AWSCore.framework */; };
-		4197AE18233B4290002E2CCD /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE00233B4277002E2CCD /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4197AE19233B4291002E2CCD /* AWSCognitoIdentityProviderASF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197ADFE233B4277002E2CCD /* AWSCognitoIdentityProviderASF.framework */; };
-		4197AE1A233B4291002E2CCD /* AWSCognitoIdentityProviderASF.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4197ADFE233B4277002E2CCD /* AWSCognitoIdentityProviderASF.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4197AE27233B47E6002E2CCD /* Candyhouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197ADFF233B4277002E2CCD /* Candyhouse.framework */; };
-		4197AE28233B47E6002E2CCD /* Candyhouse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4197ADFF233B4277002E2CCD /* Candyhouse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4197AE3C233B4F91002E2CCD /* SesameSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE3A233B4F8B002E2CCD /* SesameSDK.framework */; };
-		4197AE3D233B4F91002E2CCD /* SesameSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE3A233B4F8B002E2CCD /* SesameSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4181CF9723420AD30055094D /* UnrigisterSesame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4181CF9623420AD30055094D /* UnrigisterSesame.swift */; };
+		4192F774234611DF0098750F /* AWSAPIGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7602346118C0098750F /* AWSAPIGateway.framework */; };
+		4192F775234611DF0098750F /* AWSAPIGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7602346118C0098750F /* AWSAPIGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4192F777234611E00098750F /* AWSAuthCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7692346118C0098750F /* AWSAuthCore.framework */; };
+		4192F778234611E00098750F /* AWSAuthCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7692346118C0098750F /* AWSAuthCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4192F779234611E20098750F /* AWSCognitoIdentityProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7632346118C0098750F /* AWSCognitoIdentityProvider.framework */; };
+		4192F77A234611E20098750F /* AWSCognitoIdentityProvider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7632346118C0098750F /* AWSCognitoIdentityProvider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4192F77B234611E80098750F /* AWSCognitoIdentityProviderASF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7612346118C0098750F /* AWSCognitoIdentityProviderASF.framework */; };
+		4192F77C234611E80098750F /* AWSCognitoIdentityProviderASF.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7612346118C0098750F /* AWSCognitoIdentityProviderASF.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4192F77D234611EA0098750F /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7642346118C0098750F /* AWSCore.framework */; };
+		4192F77E234611EA0098750F /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7642346118C0098750F /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4192F77F234611EC0098750F /* AWSMobileClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7662346118C0098750F /* AWSMobileClient.framework */; };
+		4192F780234611EC0098750F /* AWSMobileClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7662346118C0098750F /* AWSMobileClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4192F781234611ED0098750F /* iOSDFULibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7672346118C0098750F /* iOSDFULibrary.framework */; };
+		4192F782234611ED0098750F /* iOSDFULibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7672346118C0098750F /* iOSDFULibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4192F783234611EF0098750F /* Candyhouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7682346118C0098750F /* Candyhouse.framework */; };
+		4192F784234611EF0098750F /* Candyhouse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7682346118C0098750F /* Candyhouse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4192F785234611F00098750F /* SesameSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7652346118C0098750F /* SesameSDK.framework */; };
+		4192F786234611F00098750F /* SesameSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7652346118C0098750F /* SesameSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4192F787234611F20098750F /* ZIPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7622346118C0098750F /* ZIPFoundation.framework */; };
+		4192F788234611F20098750F /* ZIPFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4192F7622346118C0098750F /* ZIPFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4196D79023434A5F00ECC103 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196D78F23434A5F00ECC103 /* ScanViewController.swift */; };
 		41A57CE72328BED400FEFF60 /* CHBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A57CE62328BED400FEFF60 /* CHBaseViewController.swift */; };
 		41A57CEB2328D11C00FEFF60 /* QRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A57CEA2328D11C00FEFF60 /* QRData.swift */; };
 		41A57CEE2328D13600FEFF60 /* CopyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A57CEC2328D13600FEFF60 /* CopyLabel.swift */; };
 		41A57CEF2328D13600FEFF60 /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A57CED2328D13600FEFF60 /* QRScannerView.swift */; };
 		41A57CF22328DEB200FEFF60 /* DFUProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A57CF12328DEB200FEFF60 /* DFUProgress.swift */; };
-		41A57D032329014C00FEFF60 /* BLEDeviceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A57D022329014C00FEFF60 /* BLEDeviceListViewController.swift */; };
-		41A57D05232906F500FEFF60 /* BLEAutoTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A57D04232906F500FEFF60 /* BLEAutoTestViewController.swift */; };
-		41A7218E2329ED350063F188 /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A7218C2329ED350063F188 /* StateMachine.swift */; };
-		41A7218F2329ED350063F188 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A7218D2329ED350063F188 /* Transition.swift */; };
 		B13664512320DCBE00B88EFE /* DataExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13664502320DCBE00B88EFE /* DataExtention.swift */; };
 		B179690B22F7CE9300E91996 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B179690A22F7CE9300E91996 /* AppDelegate.swift */; };
 		B179691022F7CE9300E91996 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B179690E22F7CE9300E91996 /* Main.storyboard */; };
 		B179691222F7CE9400E91996 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B179691122F7CE9400E91996 /* Assets.xcassets */; };
 		B179691522F7CE9400E91996 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B179691322F7CE9400E91996 /* LaunchScreen.storyboard */; };
 		B1D4726D2327AB1B005454C5 /* sesame2_firmware.zip in Resources */ = {isa = PBXBuildFile; fileRef = B1D4726C2327AB1B005454C5 /* sesame2_firmware.zip */; };
-		ED429A93233B87BC00710FE9 /* iOSDFULibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE23233B47AC002E2CCD /* iOSDFULibrary.framework */; };
-		ED429A94233B87BC00710FE9 /* iOSDFULibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE23233B47AC002E2CCD /* iOSDFULibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		ED429A95233B87C200710FE9 /* ZIPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE1F233B4739002E2CCD /* ZIPFoundation.framework */; };
-		ED429A96233B87C200710FE9 /* ZIPFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4197AE1F233B4739002E2CCD /* ZIPFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		ED82A913233487F900FB0262 /* BaseLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82A912233487F900FB0262 /* BaseLightViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		ED29EEC122F9184A000318CD /* Embed Frameworks */ = {
+		4192F776234611DF0098750F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				ED429A94233B87BC00710FE9 /* iOSDFULibrary.framework in Embed Frameworks */,
-				4197AE0E233B4281002E2CCD /* AWSAPIGateway.framework in Embed Frameworks */,
-				4197AE1A233B4291002E2CCD /* AWSCognitoIdentityProviderASF.framework in Embed Frameworks */,
-				4197AE12233B4287002E2CCD /* AWSCognitoIdentityProvider.framework in Embed Frameworks */,
-				4197AE10233B4282002E2CCD /* AWSAuthCore.framework in Embed Frameworks */,
-				4197AE16233B428E002E2CCD /* AWSMobileClient.framework in Embed Frameworks */,
-				4197AE3D233B4F91002E2CCD /* SesameSDK.framework in Embed Frameworks */,
-				4197AE28233B47E6002E2CCD /* Candyhouse.framework in Embed Frameworks */,
-				4197AE18233B4290002E2CCD /* AWSCore.framework in Embed Frameworks */,
-				ED429A96233B87C200710FE9 /* ZIPFoundation.framework in Embed Frameworks */,
+				4192F77C234611E80098750F /* AWSCognitoIdentityProviderASF.framework in Embed Frameworks */,
+				4192F77E234611EA0098750F /* AWSCore.framework in Embed Frameworks */,
+				4192F775234611DF0098750F /* AWSAPIGateway.framework in Embed Frameworks */,
+				4192F784234611EF0098750F /* Candyhouse.framework in Embed Frameworks */,
+				4192F780234611EC0098750F /* AWSMobileClient.framework in Embed Frameworks */,
+				4192F782234611ED0098750F /* iOSDFULibrary.framework in Embed Frameworks */,
+				4192F77A234611E20098750F /* AWSCognitoIdentityProvider.framework in Embed Frameworks */,
+				4192F786234611F00098750F /* SesameSDK.framework in Embed Frameworks */,
+				4192F778234611E00098750F /* AWSAuthCore.framework in Embed Frameworks */,
+				4192F788234611F20098750F /* ZIPFoundation.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,42 +78,39 @@
 		4152906923224C2300F7E0E5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4152906A23224C2300F7E0E5 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		4152906B23224C2300F7E0E5 /* GeneralTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralTabViewController.swift; sourceTree = "<group>"; };
-		4152906D23224C2300F7E0E5 /* MyDeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDeviceViewController.swift; sourceTree = "<group>"; };
-		4152906E23224C2300F7E0E5 /* MyDevicesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDevicesListViewController.swift; sourceTree = "<group>"; };
 		4152906F23224C2300F7E0E5 /* ViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewHelper.swift; sourceTree = "<group>"; };
 		4152907023224C2300F7E0E5 /* AWSServiceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSServiceClient.swift; sourceTree = "<group>"; };
 		4152907223224C2300F7E0E5 /* BluetoothSesameControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothSesameControlViewController.swift; sourceTree = "<group>"; };
 		4152907323224C2300F7E0E5 /* BluetoothDevicesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothDevicesCell.swift; sourceTree = "<group>"; };
 		4152907423224C2300F7E0E5 /* BluetoothDevicesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothDevicesListViewController.swift; sourceTree = "<group>"; };
 		4152907523224C2300F7E0E5 /* Knob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Knob.swift; sourceTree = "<group>"; };
-		4197ADFD233B4277002E2CCD /* AWSAuthCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSAuthCore.framework; sourceTree = "<group>"; };
-		4197ADFE233B4277002E2CCD /* AWSCognitoIdentityProviderASF.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognitoIdentityProviderASF.framework; sourceTree = "<group>"; };
-		4197ADFF233B4277002E2CCD /* Candyhouse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Candyhouse.framework; sourceTree = "<group>"; };
-		4197AE00233B4277002E2CCD /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCore.framework; sourceTree = "<group>"; };
-		4197AE01233B4277002E2CCD /* AWSAPIGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSAPIGateway.framework; sourceTree = "<group>"; };
-		4197AE03233B4277002E2CCD /* AWSCognitoIdentityProvider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognitoIdentityProvider.framework; sourceTree = "<group>"; };
-		4197AE04233B4277002E2CCD /* AWSMobileClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileClient.framework; sourceTree = "<group>"; };
-		4197AE1F233B4739002E2CCD /* ZIPFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZIPFoundation.framework; sourceTree = "<group>"; };
-		4197AE23233B47AC002E2CCD /* iOSDFULibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iOSDFULibrary.framework; sourceTree = "<group>"; };
-		4197AE33233B4C06002E2CCD /* sesame-sdk-test-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sesame-sdk-test-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4197AE3A233B4F8B002E2CCD /* SesameSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SesameSDK.framework; sourceTree = "<group>"; };
+		4181CF9623420AD30055094D /* UnrigisterSesame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnrigisterSesame.swift; sourceTree = "<group>"; };
+		4192F7602346118C0098750F /* AWSAPIGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSAPIGateway.framework; sourceTree = "<group>"; };
+		4192F7612346118C0098750F /* AWSCognitoIdentityProviderASF.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognitoIdentityProviderASF.framework; sourceTree = "<group>"; };
+		4192F7622346118C0098750F /* ZIPFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZIPFoundation.framework; sourceTree = "<group>"; };
+		4192F7632346118C0098750F /* AWSCognitoIdentityProvider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognitoIdentityProvider.framework; sourceTree = "<group>"; };
+		4192F7642346118C0098750F /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCore.framework; sourceTree = "<group>"; };
+		4192F7652346118C0098750F /* SesameSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SesameSDK.framework; sourceTree = "<group>"; };
+		4192F7662346118C0098750F /* AWSMobileClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileClient.framework; sourceTree = "<group>"; };
+		4192F7672346118C0098750F /* iOSDFULibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iOSDFULibrary.framework; sourceTree = "<group>"; };
+		4192F7682346118C0098750F /* Candyhouse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Candyhouse.framework; sourceTree = "<group>"; };
+		4192F7692346118C0098750F /* AWSAuthCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSAuthCore.framework; sourceTree = "<group>"; };
+		4196D78F23434A5F00ECC103 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		41A57CE62328BED400FEFF60 /* CHBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHBaseViewController.swift; sourceTree = "<group>"; };
 		41A57CEA2328D11C00FEFF60 /* QRData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRData.swift; sourceTree = "<group>"; };
 		41A57CEC2328D13600FEFF60 /* CopyLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyLabel.swift; sourceTree = "<group>"; };
 		41A57CED2328D13600FEFF60 /* QRScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
 		41A57CF12328DEB200FEFF60 /* DFUProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFUProgress.swift; sourceTree = "<group>"; };
-		41A57D022329014C00FEFF60 /* BLEDeviceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDeviceListViewController.swift; sourceTree = "<group>"; };
-		41A57D04232906F500FEFF60 /* BLEAutoTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEAutoTestViewController.swift; sourceTree = "<group>"; };
-		41A7218C2329ED350063F188 /* StateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
-		41A7218D2329ED350063F188 /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		4B996CA325B99C632FCA404D /* Pods_sesame_sdk_test_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sesame_sdk_test_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B13664502320DCBE00B88EFE /* DataExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtention.swift; sourceTree = "<group>"; };
+		B142943F231F8EFA006AA64C /* SesameSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SesameSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B179690722F7CE9300E91996 /* sesame-sdk-test-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sesame-sdk-test-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B179690A22F7CE9300E91996 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B179690F22F7CE9300E91996 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B179691122F7CE9400E91996 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B179691422F7CE9400E91996 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B179691622F7CE9400E91996 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1D4726C2327AB1B005454C5 /* sesame2_firmware.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = sesame2_firmware.zip; sourceTree = "<group>"; };
-		ED82A912233487F900FB0262 /* BaseLightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLightViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,16 +118,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED429A93233B87BC00710FE9 /* iOSDFULibrary.framework in Frameworks */,
-				4197AE19233B4291002E2CCD /* AWSCognitoIdentityProviderASF.framework in Frameworks */,
-				4197AE17233B4290002E2CCD /* AWSCore.framework in Frameworks */,
-				4197AE0D233B4281002E2CCD /* AWSAPIGateway.framework in Frameworks */,
-				4197AE11233B4287002E2CCD /* AWSCognitoIdentityProvider.framework in Frameworks */,
-				4197AE0F233B4282002E2CCD /* AWSAuthCore.framework in Frameworks */,
-				4197AE15233B428E002E2CCD /* AWSMobileClient.framework in Frameworks */,
-				4197AE3C233B4F91002E2CCD /* SesameSDK.framework in Frameworks */,
-				4197AE27233B47E6002E2CCD /* Candyhouse.framework in Frameworks */,
-				ED429A95233B87C200710FE9 /* ZIPFoundation.framework in Frameworks */,
+				4192F77D234611EA0098750F /* AWSCore.framework in Frameworks */,
+				4192F779234611E20098750F /* AWSCognitoIdentityProvider.framework in Frameworks */,
+				4192F77F234611EC0098750F /* AWSMobileClient.framework in Frameworks */,
+				4192F777234611E00098750F /* AWSAuthCore.framework in Frameworks */,
+				4192F774234611DF0098750F /* AWSAPIGateway.framework in Frameworks */,
+				4192F77B234611E80098750F /* AWSCognitoIdentityProviderASF.framework in Frameworks */,
+				4192F785234611F00098750F /* SesameSDK.framework in Frameworks */,
+				4192F783234611EF0098750F /* Candyhouse.framework in Frameworks */,
+				4192F781234611ED0098750F /* iOSDFULibrary.framework in Frameworks */,
+				4192F787234611F20098750F /* ZIPFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,19 +146,11 @@
 		4152906823224C2300F7E0E5 /* AccountView */ = {
 			isa = PBXGroup;
 			children = (
+				4196D78F23434A5F00ECC103 /* ScanViewController.swift */,
 				4152906923224C2300F7E0E5 /* LoginViewController.swift */,
 				4152906A23224C2300F7E0E5 /* AccountViewController.swift */,
 			);
 			path = AccountView;
-			sourceTree = "<group>";
-		};
-		4152906C23224C2300F7E0E5 /* DeviceView */ = {
-			isa = PBXGroup;
-			children = (
-				4152906D23224C2300F7E0E5 /* MyDeviceViewController.swift */,
-				4152906E23224C2300F7E0E5 /* MyDevicesListViewController.swift */,
-			);
-			path = DeviceView;
 			sourceTree = "<group>";
 		};
 		4152907123224C2300F7E0E5 /* BLEView */ = {
@@ -182,19 +166,19 @@
 			path = BLEView;
 			sourceTree = "<group>";
 		};
-		4197ADFC233B4218002E2CCD /* sdk */ = {
+		4192F75F2346118C0098750F /* sdk */ = {
 			isa = PBXGroup;
 			children = (
-				4197AE3A233B4F8B002E2CCD /* SesameSDK.framework */,
-				4197AE23233B47AC002E2CCD /* iOSDFULibrary.framework */,
-				4197AE1F233B4739002E2CCD /* ZIPFoundation.framework */,
-				4197AE01233B4277002E2CCD /* AWSAPIGateway.framework */,
-				4197ADFD233B4277002E2CCD /* AWSAuthCore.framework */,
-				4197AE03233B4277002E2CCD /* AWSCognitoIdentityProvider.framework */,
-				4197ADFE233B4277002E2CCD /* AWSCognitoIdentityProviderASF.framework */,
-				4197AE00233B4277002E2CCD /* AWSCore.framework */,
-				4197AE04233B4277002E2CCD /* AWSMobileClient.framework */,
-				4197ADFF233B4277002E2CCD /* Candyhouse.framework */,
+				4192F7602346118C0098750F /* AWSAPIGateway.framework */,
+				4192F7612346118C0098750F /* AWSCognitoIdentityProviderASF.framework */,
+				4192F7622346118C0098750F /* ZIPFoundation.framework */,
+				4192F7632346118C0098750F /* AWSCognitoIdentityProvider.framework */,
+				4192F7642346118C0098750F /* AWSCore.framework */,
+				4192F7652346118C0098750F /* SesameSDK.framework */,
+				4192F7662346118C0098750F /* AWSMobileClient.framework */,
+				4192F7672346118C0098750F /* iOSDFULibrary.framework */,
+				4192F7682346118C0098750F /* Candyhouse.framework */,
+				4192F7692346118C0098750F /* AWSAuthCore.framework */,
 			);
 			path = sdk;
 			sourceTree = "<group>";
@@ -202,7 +186,6 @@
 		41A57CE32328BE9100FEFF60 /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
-				ED82A912233487F900FB0262 /* BaseLightViewController.swift */,
 				41A57CE62328BED400FEFF60 /* CHBaseViewController.swift */,
 			);
 			path = BaseViewController;
@@ -222,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				41A57CEA2328D11C00FEFF60 /* QRData.swift */,
+				4181CF9623420AD30055094D /* UnrigisterSesame.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -234,33 +218,22 @@
 			path = Toast;
 			sourceTree = "<group>";
 		};
-		41A57CFF2328FE2500FEFF60 /* AutoTest */ = {
-			isa = PBXGroup;
-			children = (
-				41A721902329FA910063F188 /* Stateful */,
-				41A57D022329014C00FEFF60 /* BLEDeviceListViewController.swift */,
-				41A57D04232906F500FEFF60 /* BLEAutoTestViewController.swift */,
-			);
-			path = AutoTest;
-			sourceTree = "<group>";
-		};
-		41A721902329FA910063F188 /* Stateful */ = {
-			isa = PBXGroup;
-			children = (
-				41A7218C2329ED350063F188 /* StateMachine.swift */,
-				41A7218D2329ED350063F188 /* Transition.swift */,
-			);
-			path = Stateful;
-			sourceTree = "<group>";
-		};
 		B17968FE22F7CE9300E91996 = {
 			isa = PBXGroup;
 			children = (
-				4197ADFC233B4218002E2CCD /* sdk */,
+				4192F75F2346118C0098750F /* sdk */,
 				B179690922F7CE9300E91996 /* sesame-sdk-test-app */,
-				4197AE33233B4C06002E2CCD /* sesame-sdk-test-app.app */,
-				ED429A90233B86A700710FE9 /* Frameworks */,
+				B179690822F7CE9300E91996 /* Products */,
+				B179693822F7CEA500E91996 /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		B179690822F7CE9300E91996 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B179690722F7CE9300E91996 /* sesame-sdk-test-app.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		B179690922F7CE9300E91996 /* sesame-sdk-test-app */ = {
@@ -271,8 +244,6 @@
 				41A57CE32328BE9100FEFF60 /* BaseViewController */,
 				4152906823224C2300F7E0E5 /* AccountView */,
 				4152907123224C2300F7E0E5 /* BLEView */,
-				41A57CFF2328FE2500FEFF60 /* AutoTest */,
-				4152906C23224C2300F7E0E5 /* DeviceView */,
 				4152906723224B9300F7E0E5 /* Storyboard */,
 				B1D4726B2327AAF3005454C5 /* Resources */,
 				B179690A22F7CE9300E91996 /* AppDelegate.swift */,
@@ -284,19 +255,21 @@
 			path = "sesame-sdk-test-app";
 			sourceTree = "<group>";
 		};
+		B179693822F7CEA500E91996 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B142943F231F8EFA006AA64C /* SesameSDK.framework */,
+				4B996CA325B99C632FCA404D /* Pods_sesame_sdk_test_app.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B1D4726B2327AAF3005454C5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				B1D4726C2327AB1B005454C5 /* sesame2_firmware.zip */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		ED429A90233B86A700710FE9 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,7 +282,7 @@
 				B179690322F7CE9300E91996 /* Sources */,
 				B179690422F7CE9300E91996 /* Frameworks */,
 				B179690522F7CE9300E91996 /* Resources */,
-				ED29EEC122F9184A000318CD /* Embed Frameworks */,
+				4192F776234611DF0098750F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -317,7 +290,7 @@
 			);
 			name = "sesame-sdk-test-app";
 			productName = "sesame-sdk-test-app";
-			productReference = 4197AE33233B4C06002E2CCD /* sesame-sdk-test-app.app */;
+			productReference = B179690722F7CE9300E91996 /* sesame-sdk-test-app.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -345,7 +318,7 @@
 				Base,
 			);
 			mainGroup = B17968FE22F7CE9300E91996;
-			productRefGroup = B17968FE22F7CE9300E91996;
+			productRefGroup = B179690822F7CE9300E91996 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -375,26 +348,21 @@
 			files = (
 				41A57CF22328DEB200FEFF60 /* DFUProgress.swift in Sources */,
 				4152907623224C2300F7E0E5 /* LoginViewController.swift in Sources */,
-				4152907A23224C2300F7E0E5 /* MyDevicesListViewController.swift in Sources */,
 				B179690B22F7CE9300E91996 /* AppDelegate.swift in Sources */,
 				4152907723224C2300F7E0E5 /* AccountViewController.swift in Sources */,
 				41A57CEB2328D11C00FEFF60 /* QRData.swift in Sources */,
 				41A57CEE2328D13600FEFF60 /* CopyLabel.swift in Sources */,
-				41A57D032329014C00FEFF60 /* BLEDeviceListViewController.swift in Sources */,
 				4152908023224C2300F7E0E5 /* Knob.swift in Sources */,
 				B13664512320DCBE00B88EFE /* DataExtention.swift in Sources */,
 				4152907D23224C2300F7E0E5 /* BluetoothSesameControlViewController.swift in Sources */,
-				4152907923224C2300F7E0E5 /* MyDeviceViewController.swift in Sources */,
 				4152907E23224C2300F7E0E5 /* BluetoothDevicesCell.swift in Sources */,
 				4152907C23224C2300F7E0E5 /* AWSServiceClient.swift in Sources */,
 				4152907B23224C2300F7E0E5 /* ViewHelper.swift in Sources */,
+				4196D79023434A5F00ECC103 /* ScanViewController.swift in Sources */,
 				4152907823224C2300F7E0E5 /* GeneralTabViewController.swift in Sources */,
-				41A7218F2329ED350063F188 /* Transition.swift in Sources */,
+				4181CF9723420AD30055094D /* UnrigisterSesame.swift in Sources */,
 				41A57CE72328BED400FEFF60 /* CHBaseViewController.swift in Sources */,
 				4152907F23224C2300F7E0E5 /* BluetoothDevicesListViewController.swift in Sources */,
-				ED82A913233487F900FB0262 /* BaseLightViewController.swift in Sources */,
-				41A57D05232906F500FEFF60 /* BLEAutoTestViewController.swift in Sources */,
-				41A7218E2329ED350063F188 /* StateMachine.swift in Sources */,
 				41A57CEF2328D13600FEFF60 /* QRScannerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +389,67 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B179692D22F7CE9500E91996 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
 		B179692E22F7CE9500E91996 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -476,6 +505,32 @@
 			};
 			name = Release;
 		};
+		B179693022F7CE9500E91996 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 59M5HB7F95;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/sdk",
+				);
+				INFOPLIST_FILE = "sesame-sdk-test-app/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "co.candyhouse.sesame-sdk-test-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		B179693122F7CE9500E91996 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -507,6 +562,7 @@
 		B179690222F7CE9300E91996 /* Build configuration list for PBXProject "sesame-sdk-test-app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
+				B179692D22F7CE9500E91996 /* Debug */,
 				B179692E22F7CE9500E91996 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -515,6 +571,7 @@
 		B179692F22F7CE9500E91996 /* Build configuration list for PBXNativeTarget "sesame-sdk-test-app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
+				B179693022F7CE9500E91996 /* Debug */,
 				B179693122F7CE9500E91996 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

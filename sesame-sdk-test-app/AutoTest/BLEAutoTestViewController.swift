@@ -43,7 +43,7 @@ class BluetoothAutoTestViewController: BaseLightViewController {
     enum EventType {
         case idle, connecting, connected, established, busy, error, underDfu//gattstatus
         case registOK, registFail//register
-        case lock, unlock, autolock, configureMech, unknown, registration, enableDFU, version, login//command
+        case lock, unlock, autolock, configureMech, unknown, registration, enableDFU, version, login,user//command
     }
     enum StateType {
         case TestConnectST
@@ -187,30 +187,52 @@ class BluetoothAutoTestViewController: BaseLightViewController {
                                                 return
                                         }
                                         try sesame.unregister()
-                                        let deviceProfile = CHAccountManager.shared.deviceManager.getDeviceByBleIdentity(bleId, withModel: sesame.model)
-                                        if let deviceProfile = deviceProfile {
-                                            deviceProfile.unregisterDeivce(deviceId: deviceProfile.deviceId, model: deviceProfile.model) { (result) in
-                                                CHLogger.debug("unregister result:\(result.success), \(result.errorDescription ?? "unknown")")
-                                                print("unregister result:\(result.success), \(result.errorDescription ?? "unknown")")
-                                                print("flushDevices~")
+                                        let deviceProfile = CHAccountManager.shared.deviceManager.getDeviceBy(bleId, sesame.model)
 
-                                                if result.success {
-
-                                                    DispatchQueue.main.async {
-                                                        self.logView.text = "test OK"
-                                                    }
-                                                    CHAccountManager.shared.deviceManager.flushDevices({ (_, result, _) in
-                                                        if result.success == true {
-                                                            sleep(2)
-                                                            print("flushDevices ok")
-//                                                            DispatchQueue.main.async {
-//                                                            self.navigationController?.popViewController(animated: true)
-//                                                            }
-                                                        }
-                                                    })
-                                                }
-                                            }
-                                        }
+                                        if let deviceProfile = sesame.deviceProfile {
+                                                   deviceProfile.unregisterDeivce() { (result) in
+                                                       CHLogger.debug("unregister result:\(result.success), \(result.errorDescription ?? "unknown")")
+                                                       print("flushDevices~")
+                                                       ViewHelper.showAlertMessage(title: "Unregister Server", message: "success", actionTitle: "ok", viewController: self)
+                                                       if result.success {
+                                                           DispatchQueue.main.async {
+                                                                                                                   self.logView.text = "test OK"
+                                                                                                               }
+                                                                                                               CHAccountManager.shared.deviceManager.flushDevices({ (_, result, _) in
+                                                                                                                   if result.success == true {
+                                                                                                                       sleep(2)
+                                                                                                                       print("flushDevices ok")
+                                                           //                                                            DispatchQueue.main.async {
+                                                           //                                                            self.navigationController?.popViewController(animated: true)
+                                                           //                                                            }
+                                                                                                                   }
+                                                                                                               })
+                                                       }
+                                                   }
+                                               }
+//                                        if let deviceProfile = deviceProfile {
+//                                            deviceProfile.unregisterDeivce(deviceId: deviceProfile.deviceId, model: deviceProfile.model) { (result) in
+//                                                CHLogger.debug("unregister result:\(result.success), \(result.errorDescription ?? "unknown")")
+//                                                print("unregister result:\(result.success), \(result.errorDescription ?? "unknown")")
+//                                                print("flushDevices~")
+//
+//                                                if result.success {
+//
+//                                                    DispatchQueue.main.async {
+//                                                        self.logView.text = "test OK"
+//                                                    }
+//                                                    CHAccountManager.shared.deviceManager.flushDevices({ (_, result, _) in
+//                                                        if result.success == true {
+//                                                            sleep(2)
+//                                                            print("flushDevices ok")
+////                                                            DispatchQueue.main.async {
+////                                                            self.navigationController?.popViewController(animated: true)
+////                                                            }
+//                                                        }
+//                                                    })
+//                                                }
+//                                            }
+//                                        }
                                     } catch {
                                         print(error)
                                         DispatchQueue.main.async {
@@ -272,11 +294,9 @@ extension BluetoothAutoTestViewController: CHSesameBleDeviceDelegate {
                 stateMachine.process(event: .autolock)
             case .configureMech:
                 stateMachine.process(event: .configureMech)
-                print("configureMech  !!!1")
             case .unknown:
                 stateMachine.process(event: .unknown)
             case .registration:
-                print("registration  !!!1")
                 stateMachine.process(event: .registration)
             case .enableDFU:
                 stateMachine.process(event: .enableDFU)
@@ -285,6 +305,9 @@ extension BluetoothAutoTestViewController: CHSesameBleDeviceDelegate {
             case .login:
                 print("login  !!!")
                 stateMachine.process(event: .login)
+            case .user:
+                                stateMachine.process(event: .user)
+
             }
         }
 
