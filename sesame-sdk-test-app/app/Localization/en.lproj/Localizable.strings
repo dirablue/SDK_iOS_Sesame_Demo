@@ -1,0 +1,17 @@
+"Menu_Scan_Friend" = "Add Contacts";
+"Menu_Scan_Devices" = "New Sesame";
+"Device List" = "Sesame";
+"Friends" = "Contacts";
+"me" = "Me";
+"logout" = "Log Out";
+"login" = "Log In";
+"name" = "name";
+"password" = "Password";
+"signup" = "Sign Up";
+"setangle" = "Configure Angles";
+"dfu" = "Sesame Firmware Update";
+"unsesame" = "Delete this Sesame";
+"autolock" = "Auto Lock";
+"manualOperated" = "Manually touched";
+"manualLock" = "Manually locked";
+"manualUnlock" = "Manually unlocked";

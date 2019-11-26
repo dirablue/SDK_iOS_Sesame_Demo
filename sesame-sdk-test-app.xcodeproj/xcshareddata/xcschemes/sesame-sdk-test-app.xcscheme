@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B179690622F7CE9300E91996"
-               BuildableName = "sesame-sdk-test-app.app"
+               BuildableName = "Sesame.app"
                BlueprintName = "sesame-sdk-test-app"
                ReferencedContainer = "container:sesame-sdk-test-app.xcodeproj">
             </BuildableReference>
@@ -27,6 +27,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B179690622F7CE9300E91996"
+            BuildableName = "Sesame.app"
+            BlueprintName = "sesame-sdk-test-app"
+            ReferencedContainer = "container:sesame-sdk-test-app.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -49,17 +58,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B179690622F7CE9300E91996"
-            BuildableName = "sesame-sdk-test-app.app"
-            BlueprintName = "sesame-sdk-test-app"
-            ReferencedContainer = "container:sesame-sdk-test-app.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -76,13 +74,18 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B179690622F7CE9300E91996"
-            BuildableName = "sesame-sdk-test-app.app"
+            BuildableName = "Sesame.app"
             BlueprintName = "sesame-sdk-test-app"
             ReferencedContainer = "container:sesame-sdk-test-app.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <AdditionalOptions>
-      </AdditionalOptions>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "OS_ACTIVITY_MODE"
+            value = "Disable"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -95,7 +98,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B179690622F7CE9300E91996"
-            BuildableName = "sesame-sdk-test-app.app"
+            BuildableName = "Sesame.app"
             BlueprintName = "sesame-sdk-test-app"
             ReferencedContainer = "container:sesame-sdk-test-app.xcodeproj">
          </BuildableReference>

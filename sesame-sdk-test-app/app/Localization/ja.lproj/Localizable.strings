@@ -1,0 +1,17 @@
+"Menu_Scan_Friend" = "連絡先の追加";
+"Menu_Scan_Devices" = "新規セサミ";
+"Device List" = "セサミ";
+"Friends" = "連絡先";
+"me" = "本人";
+"logout" = "ログアウト";
+"login" = "ログイン";
+"name" = "お名前";
+"password" = "パスワード";
+"signup" = "登録";
+"setangle" = "角度の設定";
+"dfu" = "ファームウェアのアップデート";
+"unsesame" = "セサミの削除";
+"autolock" = "自動施錠";
+"manualOperated" = "動かされた";
+"manualLock" = "手動施錠";
+"manualUnlock" = "手動解錠";
