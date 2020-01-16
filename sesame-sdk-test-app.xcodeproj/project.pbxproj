@@ -1376,7 +1376,7 @@
 				CODE_SIGN_ENTITLEMENTS = locker/Sesame.Debug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 46;
 				DEVELOPMENT_TEAM = 59M5HB7F95;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1404,7 +1404,7 @@
 				CODE_SIGN_ENTITLEMENTS = locker/locker.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 46;
 				DEVELOPMENT_TEAM = 59M5HB7F95;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1556,7 +1556,7 @@
 				CODE_SIGN_ENTITLEMENTS = "sesame-sdk-test-app/SesameDebug.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 46;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 59M5HB7F95;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1588,7 +1588,7 @@
 				CODE_SIGN_ENTITLEMENTS = "sesame-sdk-test-app/sesame-sdk-test-app.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 46;
 				DEVELOPMENT_TEAM = 59M5HB7F95;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
