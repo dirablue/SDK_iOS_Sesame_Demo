@@ -41,7 +41,7 @@ Import the following frameworks
 
 | Minimum iOS Target | Minimum Bluetooth Target | Minimum IDE |
 |:------------------:|:------------------------:|:-----------:|
-| iOS 11.4 | Bluetooth 4.0 LE | Xcode 11.2 | 
+| iOS 11.4 | Bluetooth 4.0 LE | Xcode 11.3 | 
 
 
 ## Architecture
@@ -52,14 +52,8 @@ Import the following frameworks
 Managers:
 * `CHBleManager`: Bluetooth interface
 * `CHAccountManager`: Web APIs interface
-* `CHDeviceManager`: Device profiles interface, each device could be Sesame II or any other products from Candy House.
 
-Device Info:
-* `CHDeviceProfile`
-    * `CHDeviceModel`
-    * `CHDeviceAccessLevel`
 
-BLE Device Info:
 * `CHSesameBleInterface`
     * `CHBatteryStatus`
     * `CHSesameMechStatus`
@@ -69,8 +63,6 @@ BLE Device Info:
     * `CHSesameLockPositionConfiguration`
 
 Debug:
-* `CHLogger`
-* `CHLogLevel`
 * `CHApiResult`
 * `CHBleError`: `resourceBusy`, `bleNotReady`, `deviceBusy`, `alreadyRegistered`, `noRegistered`
 * `CHSesameGattError`: `incompleteKey`, `encryptionError`, `wrongStatus`, `runtimeError`, `bleError`
@@ -97,7 +89,6 @@ To see how to implement the login process, please checkout this file. [link](htt
 class CHAccountManager {
     public static let shared
 
-    public var deviceManager: CHDeviceManager
     public var candyhouseUserId: UUID?
 
     public func setupLoginSession(identityProvider: CHLoginProvider)
@@ -121,23 +112,6 @@ class CHDeviceManager {
     public func getDevices() -> [CHDeviceProfile]
     public func getDeviceByBleIdentity(_ identity: Data, withModel: CHDeviceModel) -> CHDeviceProfile?
     public func getDeviceByUUID(uuid: UUID) -> CHDeviceProfile?
-}
-```
-
-### CHDeviceProfile
-CHDeviceProfile contains some public-get-properties such as `bleIdentity`, `deviceId`, `model`, `accessLevel`, `deviceName` and `customName`. Those are essential parameters for users to identify each Sesame.
-```swift
-class CHDeviceProfile {
-    public var bleIdentity: Data?
-    public var deviceId: UUID
-    public var model: CHDeviceModel
-    public var accessLevel: CHDeviceAccessLevel
-    public var deviceName: String?
-    public var customName: String?
-  
-    public func renameDevice(name: String, completion: @escaping (CHApiResult) -> Void) throws
-    public func renameNickname(name: String, completion: @escaping (CHApiResult) -> Void)
-    public func unregisterDeivce(deviceId: UUID, model: CHDeviceModel, completion: @escaping (CHApiResult) -> Void)
 }
 ```
 
