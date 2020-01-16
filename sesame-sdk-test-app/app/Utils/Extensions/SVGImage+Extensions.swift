@@ -1,6 +1,5 @@
 //
 //  SVGImage+Extensions.swift
-//  WeChatSwift
 //
 //  Created by xu.shuifeng on 2019/7/3.
 //  Copyright © 2019 alexiscn. All rights reserved.
@@ -14,6 +13,12 @@ extension SVGKImage {
         if let shapeLayer = caLayerTree.shapeLayer() {
             shapeLayer.fillColor = color.cgColor
         }
+    }
+}
+
+extension String{
+    func toMail() -> String {
+        return self.lowercased().replacingOccurrences(of: " ", with: "", options: .literal, range: nil)
     }
 }
 

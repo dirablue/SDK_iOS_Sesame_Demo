@@ -1,6 +1,5 @@
 //
 //  UIImage+Extensions.swift
-//  WeChatSwift
 //
 //  Created by xu.shuifeng on 2019/7/8.
 //  Copyright © 2019 alexiscn. All rights reserved.

@@ -8,78 +8,90 @@
 
 import UserNotifications
 import SesameSDK
-import Cache
+import AWSCognitoIdentityProvider
+
+let CHAppGroupApp = "group.candyhouse.widget" // the same as widget
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    static var isFrount = true
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
         launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        let center = UNUserNotificationCenter.current()
+        CHSetting.shared.setAppGroup(appGrroup: CHAppGroupApp)//if you use widget Today extention
 
+        let isNotFirstRun = UserDefaults.standard.bool(forKey: "CHisFirstRun")
+        if(isNotFirstRun == false){
+            CHAccountManager.shared.logout()
+            AWSCognitoOAuthService.shared.logout()
+        }
+        UserDefaults.standard.setValue(true, forKey: "CHisFirstRun")
+        L.d("🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱")
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
         center.requestAuthorization(options: [.alert,.badge,.sound], completionHandler: {
             granted,error in
         })
-        center.delegate = self
-
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-        AppDelegate.isFrount = false
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        CHAccountManager.shared.updateApnsDeviceToken(deviceToken: deviceToken.toHexString())
+        UserDefaults.standard.setValue(deviceToken.toHexString(), forKey: "devicePushToken")
+    }
+
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        L.d("didFailToRegisterForRemoteNotificationsWithError error",error)
+    }
+
+    func applicationWillResignActive(_ application: UIApplication) {//退出
         CHBleManager.shared.disableScan()
         CHBleManager.shared.disConnectAll()
     }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-    }
-
     func applicationDidBecomeActive(_ application: UIApplication) {//進入
-        AppDelegate.isFrount = true
         CHBleManager.shared.enableScan()
     }
 
-    func applicationWillTerminate(_ application: UIApplication) {
+}
+
+extension AppDelegate:UNUserNotificationCenterDelegate{
+
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        if let sessions = userInfo["aps"] as? [String: Any]{
+            if  let action:String =  sessions["action"] as? String {
+                if (action == "KEYCHAIN_FLUSH"){
+                    let viewController = self.window?.rootViewController as! GeneralTabViewController
+                    viewController.delegateHome?.refleshKeyChain()
+                }
+            }
+        }
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        L.d("url",url)
-        return false
-    }
-}
-extension AppDelegate:UNUserNotificationCenterDelegate{
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert,.sound])
+        completionHandler([.alert,.sound,.badge])
     }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-
         // Determine the user action
         switch response.actionIdentifier {
         case UNNotificationDismissActionIdentifier:
-            print("Dismiss Action")
+            L.d("Dismiss Action")
         case UNNotificationDefaultActionIdentifier:
-            print("Default")
+            L.d("Default",response.notification.request)
         case "Snooze":
-            print("Snooze")
+            L.d("Snooze")
         case "Delete":
-            print("Delete")
+            L.d("Delete")
         default:
-            print("Unknown action")
+            L.d("Unknown action")
         }
         completionHandler()
     }
-
 }

@@ -21,13 +21,13 @@ class SesameView: UIControl {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        L.d("init aDecoder")
+//        L.d("init aDecoder")
 
         commonInit()
     }
 
     private func commonInit() {
-        L.d("init commonInit")
+//        L.d("init commonInit")
 
         //        backgroundColor = .black
 
@@ -87,7 +87,7 @@ private class KnobRenderer {
 
 
     init() {
-        L.d("KnobRenderer init")
+//        L.d("KnobRenderer init")
         trackLayer.fillColor = UIColor.clear.cgColor
         trackLayer.strokeColor = UIColor(rgb: 0x28aeb1).cgColor
         lockLayer.fillColor = UIColor.clear.cgColor
@@ -128,7 +128,7 @@ private class KnobRenderer {
 
         let qqqq = CGFloat(Double.pi*2)  / CGFloat(360) * newPointerAngle
         let bounds = lockLayer.bounds
-        let myImage = UIImage(named: "img-lock")?.cgImage
+        let myImage = UIImage.SVGImage(named: "icon_lock")?.cgImage
 
         let ss = sin(qqqq)
         let aa = cos(qqqq)
@@ -148,7 +148,7 @@ private class KnobRenderer {
 
         let qqqq = CGFloat(Double.pi*2)  / CGFloat(360) * newPointerAngle
         let bounds = lockLayer.bounds
-        let myImage = UIImage(named: "img-unlock")?.cgImage
+        let myImage = UIImage.SVGImage(named: "icon_unlock")?.cgImage
 
         let ss = sin(qqqq)
         let aa = cos(qqqq)
@@ -168,8 +168,8 @@ private class KnobRenderer {
         //        gradientLayer.startPoint = CGPoint(x: 0, y:lockImgLyer.frame.midY)
         //        gradientLayer.endPoint = CGPoint(x: 0,y:unlockImgLyer.frame.midY)
 
-        L.d("gradientLayer.startPoint",gradientLayer.startPoint)
-        L.d("gradientLayer.endPoint",gradientLayer.endPoint)
+//        L.d("gradientLayer.startPoint",gradientLayer.startPoint)
+//        L.d("gradientLayer.endPoint",gradientLayer.endPoint)
         gradientLayer.frame = CGRect(
             x: unlockImgLyer.frame.midX ,
             y: unlockImgLyer.frame.midY,

@@ -15,5 +15,11 @@ class HistoryCell: UITableViewCell {
     @IBOutlet weak var timeLb: UILabel!
     @IBOutlet weak var eventImg: UIImageView!
     @IBOutlet weak var userLB: UILabel!
+    @IBOutlet weak var avatarImg: UIImageView!
+}
 
+
+class HistoryHeader: UITableViewCell {
+
+    @IBOutlet weak var userLB: UILabel!
 }

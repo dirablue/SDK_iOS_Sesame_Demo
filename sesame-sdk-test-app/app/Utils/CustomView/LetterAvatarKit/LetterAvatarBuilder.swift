@@ -56,6 +56,9 @@ open class LetterAvatarBuilder: NSObject {
             colorIndex %= colors.count - 1
         }
         let backgroundColor = colors[colorIndex].cgColor
+//        let backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1).cgColor
+
+
         return drawAvatar(
             with: configuration,
             letters: usernameInfo.letters,
@@ -164,7 +167,6 @@ private class UsernameInfo {
                     lettersASCIIValue += letter.ASCIIValue
                     // If single Letter is passed as false but the string is a single char,
                     // this line fails due to out of bounds exception.
-                    // https://github.com/vpeschenkov/LetterAvatarKit/issues/11
                     if !isSingleLettered && component.count >= 2 {
                         // Process the second name letter
                         let startIndex = component.index(after: component.startIndex)

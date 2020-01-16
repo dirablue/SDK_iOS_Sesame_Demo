@@ -133,10 +133,10 @@ extension Data {
         static let upperCase = HexEncodingOptions(rawValue: 1 << 0)
     }
 
-    func hexEncodedString(options: HexEncodingOptions = []) -> String {
-        let format = options.contains(.upperCase) ? "%02hhX" : "%02hhx"
-        return map { String(format: format, $0) }.joined()
-    }
+    //    func hexEncodedString(options: HexEncodingOptions = []) -> String {
+    //        let format = options.contains(.upperCase) ? "%02hhX" : "%02hhx"
+    //        return map { String(format: format, $0) }.joined()
+    //    }
 
     var uint16: UInt16 {
         return self.unpackValue()
@@ -198,19 +198,19 @@ extension UnicodeScalar {
 
 class L {
     static func d(_ items: Any..., file: String = #file, function: String = #function,
-                 line: Int = #line, tag: String = "hcia") {
+                  line: Int = #line, tag: String = "hcia") {
+        
         #if DEBUG
         let fileName = (file as NSString).lastPathComponent
         let ismain  = (Thread.isMainThread)
         let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "mm:ss.SSSS"
-//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        //        dateFormatter.dateFormat = "mm:ss.SSSS"
+        //        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSS"
-
-        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        dateFormatter.timeZone = TimeZone.current
         dateFormatter.locale = Locale(identifier: "ja_JP")
         dateFormatter.string(from: Date())
-        print("\(fileName):\(line) \(function)):", items, tag,ismain ? "主":"副",dateFormatter.string(from: Date()))
+        print(dateFormatter.string(from: Date()),"\(fileName):\(line):", items ,ismain ? "主":"副")
         #endif
     }
 }
@@ -258,8 +258,8 @@ extension URL {
     func getQuery(name:String) -> String {
         let components = URLComponents(url: self, resolvingAgainstBaseURL: true)
         let value = components?.queryItems?.filter({
-                 return $0.name == name
-             })
+            return $0.name == name
+        })
         return value?.first?.value ?? "NOdata"
 
     }
@@ -271,5 +271,4 @@ extension URL {
         components.queryItems = queryItems + (components.queryItems ?? [])
         return components.url
     }
-
 }

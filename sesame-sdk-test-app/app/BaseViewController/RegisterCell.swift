@@ -14,14 +14,15 @@ import CoreBluetooth
 class RegisterCell: UITableViewCell {
 
 
+    @IBOutlet weak var modelLb: UILabel!
     @IBOutlet weak var ssi: UILabel!
 
-     public var ssm:CHSesameBleInterface?{
+    @IBOutlet weak var bluetoothImg: UIImageView!
+    public var ssm:CHSesameBleInterface?{
             didSet{
-    //            L.d(ssm?.customNickname, ssm?.identifier)
-
-
-                ssi.text = "\(ssm!.rssi) -\(ssm!.model.rawValue.localStr)"//todo 多語言 devices
+                ssi.text = "\(ssm!.rssi.intValue + 100)%"
+                bluetoothImg.image = UIImage.SVGImage(named: "bluetooth",fillColor: Colors.tintColor)
+                modelLb.text = "\(ssm!.model.rawValue.localStr)"
             }
         }
 }

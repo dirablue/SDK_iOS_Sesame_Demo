@@ -12,9 +12,6 @@ import CoreBluetooth
 extension BluetoothSesameControlViewController {
     override func viewWillAppear(_ animated: Bool) {
         CHBleManager.shared.enableScan()
-        if #available(iOS 13.0, *) {
-            overrideUserInterfaceStyle = .light
-        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -31,7 +28,6 @@ extension BluetoothSesameControlViewController {
         gattStatus = sesame!.gattStatus
         
         deviceIDLB.text = "accessLevel:\(sesame!.accessLevel.rawValue)"
-        
         bleIDLB.text = "BleId:\(sesame!.bleIdStr)"
         nicknameLB.text="customNickname:\(sesame!.customNickname)"
         shareKeyImg.image = UIImage(named: "refresh")
@@ -43,7 +39,6 @@ extension BluetoothSesameControlViewController {
     }
     
     func issueAnQRCodeKey(imgv:UIImageView , level:CHDeviceAccessLevel) {
-        L.d("issueAnQRCodeKey",level.rawValue)
         sesame!.issueKey(accessLevel: level, { (result, invitation) in
             if result.success {
                 imgv.image = self.generateQRCode(from: invitation?.absoluteString ?? "error")!
@@ -56,6 +51,13 @@ extension BluetoothSesameControlViewController {
     }
 }
 class BluetoothSesameControlViewController: BaseViewController {
+    var timer: Timer?
+    var userList = [Operater]()
+    var sesame: CHSesameBleInterface?{
+        didSet{
+            sesame?.delegate = self
+        }
+    }
     @IBOutlet weak var shareKeyImg: UIImageView!
     @IBOutlet weak var lockIntention: UILabel!
     @IBOutlet weak var Interval: UITextField!
@@ -77,13 +79,8 @@ class BluetoothSesameControlViewController: BaseViewController {
     @IBOutlet weak var powerLB: UILabel!
     @IBOutlet weak var fwVersionLB: UILabel!
     @IBOutlet weak var autolockLB: UILabel!
-    var timer: Timer?
-    var userList = [Client]()
-    var sesame: CHSesameBleInterface?{
-        didSet{
-            sesame?.delegate = self
-        }
-    }
+    @IBOutlet weak var userTable: UITableView!
+
     @IBAction func lockdegree(_ sender: Any) {
         lockDegree = nowDegree
     }
@@ -100,24 +97,18 @@ class BluetoothSesameControlViewController: BaseViewController {
         shareKeyImg.image = UIImage(named: "loading")
         
     }
-    @IBOutlet weak var userTable: UITableView!
-    
+
     @IBAction func refreshUserList(_ sender: Any) {
-        
-        CHAccountManager.shared.deviceManager.getDeviceMembers(self.sesame!) { (_, result, users) in
-            if result.success {
-                if let users = users {
-                    DispatchQueue.main.async {
-                        self.userList = users
-                        self.userTable.reloadData()
-                    }
-                }
-            } else {
-                DispatchQueue.main.async {
-                    ViewHelper.alert("Ooops", "Get device user list failed. \(result.errorCode!)", self)
-                }
-            }
-        }
+        self.sesame?.getDeviceMembers(){result ,users in
+//                   L.d("新成員 ＡＰＩ result.success",result.success)
+                   if result.success {
+                       DispatchQueue.main.async {
+                           self.userList =  users
+                           self.userTable.reloadData()
+                       }
+                   }
+               }
+
     }
     @objc func timerUpdate() {
         guard let status = self.mechStatus else {
@@ -149,13 +140,9 @@ class BluetoothSesameControlViewController: BaseViewController {
     
     @IBAction func versionTagClick(_ sender: UIButton) {
         let  err = self.sesame!.getVersionTag { (version, _) -> Void in
-            
-            
             DispatchQueue.main.async {
-                
                 sender.setTitle(version, for: .normal)
             }
-            
         }
         L.d(err.description())
     }
@@ -175,12 +162,11 @@ class BluetoothSesameControlViewController: BaseViewController {
     
     @IBAction func dufClick(_ sender: UIButton) {
         do {
-            if let filePath = Bundle.main.url(forResource: "sesame2_firmware", withExtension: ".zip") {
-                let zipData = try Data(contentsOf: filePath)
-                L.d(self.sesame!.updateFirmware(zipData: zipData, delegate: TemporaryFirmwareUpdateClass(self)).description())
-            } else {
-                ViewHelper.alert("Error", "Can not open firmware file", self)
-            }
+            let zipData = try Data(contentsOf: Bundle.main.url(forResource: Constants.DFU_Tag, withExtension: ".zip")!)
+            _ = self.sesame!.updateFirmware(zipData: zipData,
+                                            delegate: TemporaryFirmwareUpdateClass(self){ succuss in
+                }
+            )
         } catch {
             ViewHelper.alert("Error", "Update Error: \(error)", self)
         }
@@ -195,8 +181,7 @@ class BluetoothSesameControlViewController: BaseViewController {
         })
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
             if let second = alert.textFields?.first?.text {
-                //                L.d(self.sesame!.enableAutolock(delay: Int(second)!).description())
-                self.sesame!.enableAutolock(delay:  Int(second)!){ (delay) -> Void in
+                _ = self.sesame?.enableAutolock(delay:  Int(second)!){ (delay) -> Void in
                 }
                 
             }
@@ -205,26 +190,19 @@ class BluetoothSesameControlViewController: BaseViewController {
     }
     
     @IBAction func disableAutolock(_ sender: Any) {
-        //        L.d(sesame!.disableAutolock().description())
-        
         self.sesame!.disableAutolock(){ (delay) -> Void in
         }
     }
     
     @IBAction func unregisterServer(_ sender: Any) {
-        if let deviceProfile = self.sesame!.deviceProfile {
-            deviceProfile.unregisterDeivce() { (result) in
-                CHLogger.debug("unregister result:\(result.success), \(result.errorDescription ?? "unknown")")
-                ViewHelper.showAlertMessage(title: "Unregister Server", message: "success", actionTitle: "ok", viewController: self)
-                if result.success {
-                    CHAccountManager.shared.deviceManager.flushDevices({ ( result, _) in
-                        if result.success == true {
-                            print("flushDevices ok")
-                        }
-                    })
-                }
-            }
-        }
+        self.sesame?.unregisterServer(){ result in
+                  if(result.success){
+                      _ = self.sesame?.unregister()
+                  }else{
+                      ViewHelper.alert("Error", result.errorCode!, self)
+                                         ViewHelper.hideLoadingView(view: self.view)
+                  }
+              }
     }
     @IBAction func unregisterClick(_ sender: UIButton) {
         L.d(self.sesame!.unregister().description())
@@ -252,7 +230,6 @@ class BluetoothSesameControlViewController: BaseViewController {
     }
     
     @IBAction func registerBtn(_ sender: Any) {
-        weak var weakSelf = self
         let alert = UIAlertController(title: "sesame name", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addTextField(configurationHandler: { textField in
@@ -263,13 +240,13 @@ class BluetoothSesameControlViewController: BaseViewController {
                 
                 let err  = self.sesame!.register(nickname: name, {(result) in
                     if result.success {
-                        CHAccountManager.shared.deviceManager.flushDevices({ ( result, _) in
+                        CHAccountManager.shared.flushDevices({  result in
                             if result.success == true {
                                 ViewHelper.showAlertMessage(title: "flushDevices", message: "success", actionTitle: "ok", viewController: self)
                             }
                         })
                     } else {
-                        ViewHelper.showAlertMessage(title: "Ooops", message: "register ssm failed:\(result.errorDescription ?? "Unknown error") code:\(result.errorCode ?? "unknown_code")", actionTitle: "OK", viewController: weakSelf!)
+                        ViewHelper.showAlertMessage(title: "Ooops", message: "register ssm failed:\(result.errorDescription ?? "Unknown error") code:\(result.errorCode ?? "unknown_code")", actionTitle: "OK", viewController: self)
                     }
                 })
                 L.d(err.description())
@@ -277,8 +254,7 @@ class BluetoothSesameControlViewController: BaseViewController {
         }))
         self.present(alert, animated: true)
     }
-    
-    
+
     var mechStatus: CHSesameMechStatus? {
         didSet {
             guard let status = mechStatus else {
@@ -379,11 +355,11 @@ extension BluetoothSesameControlViewController: CHSesameBleDeviceDelegate {
     }
     
     func onBleGattStatusChanged(device: CHSesameBleInterface, status: CHBleGattStatus, error: CHSesameGattError?) {
-        weak var weakSelf = self
+//        weak var weakSelf = self
         DispatchQueue.main.async {
             self.gattStatus = status
             if let error = error {
-                ViewHelper.showAlertMessage(title: "BLE Error", message: error.description(), actionTitle: "OK", viewController: weakSelf!)
+                ViewHelper.showAlertMessage(title: "BLE Error", message: error.description(), actionTitle: "OK", viewController: self)
             }
         }
     }
@@ -426,7 +402,7 @@ extension BluetoothSesameControlViewController: UITableViewDataSource {
             cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
         }
         let user = userList[indexPath.row]
-        cell?.textLabel?.text = user.roleType.rawValue
+        cell?.textLabel?.text = user.roleType
         
         return cell!
     }
@@ -437,7 +413,7 @@ extension BluetoothSesameControlViewController: UITableViewDataSource {
             self.deleteUser(user)
         }
     }
-    func deleteUser(_ user: Client) {
+    func deleteUser(_ user: Operater) {
         self.sesame!.revokeKey(user) { (result) in
             if result.success {
                 self.refreshUserList(self)

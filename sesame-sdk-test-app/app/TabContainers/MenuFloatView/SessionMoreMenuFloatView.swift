@@ -1,6 +1,5 @@
 //
 //  SessionMoreMenuFloatView.swift
-//  WeChatSwift
 //
 //  Created by xu.shuifeng on 2019/7/18.
 //  Copyright © 2019 alexiscn. All rights reserved.
@@ -25,11 +24,11 @@ class SessionMoreFrameFloatView: UIButton {
         super.init(frame: frame)
         
         let groupChatMenu = SessionMoreItem(type: .addFriends,
-                                            title: LocalizedString("Menu_Scan_Friend"),
+                                            title: LocalizedString("Add Contacts"),
                                             icon: "icons_filled_add-friends")
 
         let addFriendMenu = SessionMoreItem(type: .addDevices,
-                                            title: LocalizedString("Menu_Scan_Devices"),
+                                            title: LocalizedString("New Sesame"),
                                             icon: "icons_filled_favorites")
 
 

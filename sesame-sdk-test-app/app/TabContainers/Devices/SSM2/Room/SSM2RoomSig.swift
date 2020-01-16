@@ -17,13 +17,6 @@ extension SSM2RoomMainVC{
                 controller.sesame = sesameDevice
             }
         }
-//        if segue.identifier == "users"{
-//             if let controller = segue.destination as? UsersVC {
-//                 let members = sender as? [Client]
-//                controller.userList = members!
-//                controller.sesame = self.sesame
-//             }
-//         }
     }
 }
 

@@ -11,45 +11,59 @@ import CoreBluetooth
 import SesameSDK
 
 class SSM2SettingVC: BaseViewController {
-    var memberList = [Client]()
+    var memberList = [Operater]()
+    var sesame: CHSesameBleInterface!{
+        didSet{
+            sesame?.delegate = self
+        }
+    }
+    @IBOutlet weak var memberCollectionView: UICollectionView!
 
+    @IBOutlet weak var arrowImg: UIImageView!
+    @IBOutlet weak var auleftHintLB: UILabel!
+    @IBOutlet weak var auRightHintLB: UILabel!
+    @IBOutlet weak var changenameLb: UILabel!
     @IBOutlet weak var angleLb: UILabel!
     @IBOutlet weak var dfuLB: UILabel!
     @IBOutlet weak var autolockLb: UILabel!
     @IBOutlet weak var unsesameBtn: UIButton!
-
     @IBOutlet weak var autolockSwitch: UISwitch!
     @IBOutlet weak var version: UILabel!
     @IBOutlet weak var autolockScend: UILabel!
     @IBOutlet weak var secondPicker: UIPickerView!
     @IBAction func AutolockSwitch(_ sender: UISwitch) {
         _ = sender.isOn ?
-            self.sesame!.enableAutolock(delay: Int(2)){ (delay) -> Void in
+            self.sesame.enableAutolock(delay: Int(2)){ (delay) -> Void in
                 DispatchQueue.main.async {
                     self.autolockScend.text = String(delay)
                 }
             }.description():
-            self.sesame!.disableAutolock(){ (delay) -> Void in
+            self.sesame.disableAutolock(){ (delay) -> Void in
                 DispatchQueue.main.async {
-
+                    
                     self.autolockScend.text = String(delay)
                 }
             }.description()
         secondPicker.isHidden = !sender.isOn
+        autolockScend.isHidden = !sender.isOn
+        auleftHintLB.isHidden = !sender.isOn
+        auRightHintLB.isHidden = !sender.isOn
     }
     @IBAction func defClick(_ sender: Any) {
-        do {
-            if let filePath = Bundle.main.url(forResource: "sesame2_firmware", withExtension: ".zip") {
-                let zipData = try Data(contentsOf: filePath)
-                self.sesame!.updateFirmware(zipData: zipData, delegate: TemporaryFirmwareUpdateClass(self)).description()
-            } else {
-                ViewHelper.alert("Error", "Can not open firmware file", self)
+        let check = UIAlertAction.addAction(title: "SesameOS Update".localStr, style: .destructive) { (action) in
+            do {
+                if let filePath = Bundle.main.url(forResource: Constants.DFU_Tag, withExtension: ".zip") {
+                    let zipData = try Data(contentsOf: filePath)
+                    _ = self.sesame.updateFirmware(zipData: zipData, delegate: TemporaryFirmwareUpdateClass(self){ succuss in
+                    })
+                }
+            } catch {
+                ViewHelper.alert("Error", "Update Error: \(error)", self)
             }
-        } catch {
-            ViewHelper.alert("Error", "Update Error: \(error)", self)
         }
+        UIAlertController.showAlertController(style: .actionSheet, actions: [check])
     }
-
+    
     @IBAction func autolockSecond(_ sender: Any) {
         if( self.autolockScend.text == "0"){
             secondPicker.isHidden  =   true
@@ -58,83 +72,110 @@ class SSM2SettingVC: BaseViewController {
         secondPicker.isHidden = !secondPicker.isHidden
     }
     @IBAction func unRegister(_ sender: UIButton) {
-        ViewHelper.showLoadingInView(view: self.view)
-        
-        if let deviceProfile = self.sesame!.deviceProfile {
-            deviceProfile.unregisterDeivce() { (result) in
+        let check = UIAlertAction.addAction(title: "Delete this Sesame".localStr, style: .destructive) { (action) in
+            ViewHelper.showLoadingInView(view: self.view)
+            self.sesame.unregisterServer(){ result in
                 DispatchQueue.main.async {
-
-                    if(result.success){
-                        self.sesame?.deviceProfile?.deleteAllHistory()
-                        self.sesame?.unregister()
-                        let tb =  self.tabBarController as! GeneralTabViewController
-                        tb.deviceReflesh()
-
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                            self.navigationController?.popToRootViewController(animated: true)
-                        }
-                    }else{
-                        ViewHelper.alert("Error", result.errorCode!, self)
-                        ViewHelper.hideLoadingView(view: self.view)
-                    }
+                    ViewHelper.hideLoadingView(view: self.view)
                 }
-            }
-
-        }
-    }
-    var sesame: CHSesameBleInterface?{
-        didSet{
-            sesame?.delegate = self
-        }
-    }
-    @IBAction func angleSet(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "angle", sender: sesame!)
-    }
-
-
-    @IBOutlet weak var memberCollectionView: UICollectionView!
-    override func viewWillAppear(_ animated: Bool) {
-        CHAccountManager.shared.deviceManager.getDeviceMembers(self.sesame!) { (_, result, users) in
-            if result.success {
-                if let users = users {
+                if(result.success){
+                    _ = self.sesame.unregister()
                     DispatchQueue.main.async {
-                        self.memberList =  users
-                        self.memberCollectionView.reloadData()
+                        let tb =  self.tabBarController as! GeneralTabViewController
+                        self.navigationController?.popToRootViewController(animated: true)
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.2) {
+                            tb.delegateHome?.refleshKeyChain()
+                        }
                     }
                 }
             }
         }
+        UIAlertController.showAlertController(style: .actionSheet, actions: [check])
     }
+    
+    @IBAction func angleSet(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "angle", sender: sesame)
+    }
+    @IBAction func changeName(_ sender: UIButton) {
 
+        CHSSMChangeNameDialog.show(){ name in
+            L.d(name)
+            if name == "" {
+                self.view.makeToast("Enter Sesame name".localStr)
+                return
+            }
+            self.sesame.renameDevice(name:name){result in
+                L.d(result.success)
+                if(result.success){
+                    DispatchQueue.main.async {
+                        (self.tabBarController as! GeneralTabViewController).delegateHome?.refleshKeyChain()
+                        (self.tabBarController as! GeneralTabViewController).delegateHome?.refleshRoomBackTitle(name: name)
+                        self.title = name
+                    }
+                }
+            }
+        }
+
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        autolockSwitch.isOn = false
+        self.sesame.getDeviceMembers(){result ,users in
+            if result.success {
+                DispatchQueue.main.async {
+                    self.memberList =  users
+                    self.memberCollectionView.reloadData()
+                }
+            }
+        }
+        CHBleManager.shared.delegate = self
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = sesame?.customNickname
-
-
-        angleLb.text = "setangle".localStr
-        dfuLB.text = "dfu".localStr
+        self.title = sesame.customNickname
+        L.d("詳細設定頁面")
+        self.autolockScend.isHidden = true
+        self.auleftHintLB.isHidden = true
+        self.auRightHintLB.isHidden = true
+        changenameLb.text = "Change Sesame Name".localStr
+        angleLb.text = "Configure Angles".localStr
+        dfuLB.text = "SesameOS Update".localStr
         autolockLb.text = "autolock".localStr
-        unsesameBtn.setTitle("unsesame".localStr, for: .normal)
+        unsesameBtn.setTitle("Delete this Sesame".localStr, for: .normal)
+        auleftHintLB.text = "After".localStr
+        auRightHintLB.text = "sec".localStr
+        arrowImg.image = UIImage.SVGImage(named: "arrow")
 
         let flowLayout = memberCollectionView?.collectionViewLayout as? AlignedCollectionViewFlowLayout
         flowLayout?.horizontalAlignment = .justified
-
+        
         secondPicker.isHidden = true
-        _ =  self.sesame!.getAutolockSetting { (delay) -> Void in
-            DispatchQueue.main.async {
-
-                self.autolockScend.text = String(delay)
-                self.autolockSwitch.isOn = (Int(delay) > 0)
-                let _ = self.sesame!.getVersionTag { (version, _) -> Void in
-                    self.version.text = version
-                }
-            }
+        _ =  self.sesame.getAutolockSetting { (delay) -> Void in
+            self.autolockScend.text = String(delay)
+            self.autolockSwitch.isOn = (Int(delay) > 0)
+            self.autolockScend.isHidden = !self.autolockSwitch.isOn
+            self.auleftHintLB.isHidden = !self.autolockSwitch.isOn
+            self.auRightHintLB.isHidden = !self.autolockSwitch.isOn
         }
+        _ = self.sesame.getVersionTag { (version, _) -> Void in
+            self.version.text = version
+        }
+
+        refleshUI()
     }
 }
 
-
-
-
-
-
+extension SSM2SettingVC:CHBleManagerDelegate{
+    func didDiscoverSesame(device: CHSesameBleInterface) {
+        if device.bleIdStr ==  self.sesame?.bleIdStr {
+            self.sesame = device
+            self.sesame.connect()
+        }
+    }
+    func refleshUI()  {
+        autolockSwitch.isEnabled = sesame.connectStatus == CBPeripheralState.connected
+    }
+    
+}

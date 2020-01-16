@@ -10,52 +10,50 @@ import Foundation
 import UIKit
 import CoreBluetooth
 import SesameSDK
+
 class RegisterDeviceListVC: BaseViewController  {
+    var sesameDevicesMap: [String: CHSesameBleInterface] = [:]
+
     var tabVC:GeneralTabViewController?
-    
+    @IBOutlet weak var backMenuBtn: UIButton!
+
+    @IBOutlet weak var deviceTableView: UITableView!
+
     @IBAction func backClick(_ sender: Any) {
         DispatchQueue.main.async {
             self.dismiss(animated: true, completion:nil)
         }
     }
-    //    @IBOutlet weak var backBtn: UIButton!
-    @IBOutlet weak var deviceTableView: UITableView!
-    
-    var sesameDevicesMap: [String: CHSesameBleInterface] = [:]
+
     var devices = [CHSesameBleInterface]()
     
     
     override func viewWillAppear(_ animated: Bool) {
-        CHBleManager.shared.enableScan()
+        CHBleManager.shared.enableScan(true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         CHBleManager.shared.disableScan()
     }
     
-    @IBOutlet weak var backMenuBtn: UIButton!
     override func viewDidLoad() {
         CHBleManager.shared.delegate = self
-        //        backMenuBtn.setImage( UIImage.SVGImage(named: "icons_filled_close"), for: .normal)
+        deviceTableView.tableFooterView = UIView(frame: .zero)
     }
 }
 extension RegisterDeviceListVC: CHBleManagerDelegate {
     func didDiscoverSesame(device: CHSesameBleInterface) {
         DispatchQueue.main.async {
             self.sesameDevicesMap.updateValue(device, forKey: device.bleIdStr)
-            self.reloadTable()
-        }
-    }
-    func reloadTable() {
-        DispatchQueue.main.async {
             self.devices.removeAll()
-            self.sesameDevicesMap.forEach({//todo crash
-                self.devices.append($1)}
-            )
-            self.devices = self.devices.filter {return !$0.isRegistered  }
-            self.deviceTableView.reloadData()
+                     self.sesameDevicesMap.forEach({//todo crash
+                         self.devices.append($1)}
+                     )
+                     self.devices = self.devices.filter {return !$0.isRegistered  }
+                     self.deviceTableView.reloadData()
         }
     }
+
 }
 extension RegisterDeviceListVC{
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -69,9 +67,14 @@ extension RegisterDeviceListVC: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(devices.count == 0){
+            tableView.setEmptyMessage("No Scanable Devices".localStr)
+        }else{
+            tableView.restore()
+        }
         return devices.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let ssm = devices[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "SSMCellR", for: indexPath) as! RegisterCell
@@ -80,21 +83,7 @@ extension RegisterDeviceListVC: UITableViewDataSource {
         return cell
     }
     
-    
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        CHBleManager.shared.disableScan()
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if decelerate {
-        }else {
-            CHBleManager.shared.enableScan()
-        }
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        CHBleManager.shared.enableScan()
-    }
+
 }
 
 extension RegisterDeviceListVC: UITableViewDelegate {

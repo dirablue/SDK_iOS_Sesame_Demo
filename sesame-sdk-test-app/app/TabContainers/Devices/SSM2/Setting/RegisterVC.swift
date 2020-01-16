@@ -11,15 +11,18 @@ import UIKit
 import SesameSDK
 import CoreBluetooth
 class RegisterVC: BaseViewController  {
+
+    @IBOutlet weak var TitelhintLB: UILabel!
+    @IBOutlet weak var sesameNAmeLB: UILabel!
+
     override func viewDidAppear(_ animated: Bool) {
         L.d("viewDidAppear")
         CHBleManager.shared.enableScan()
         CHBleManager.shared.delegate = self
-
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        L.d("viewWillDisappear")
+        (self.tabBarController as! GeneralTabViewController).delegateHome?.refleshRoomBackTitle(name: "")
         CHBleManager.shared.disableScan()
     }
     var sesame: CHSesameBleInterface?{
@@ -30,15 +33,9 @@ class RegisterVC: BaseViewController  {
     }
     @IBOutlet weak var deviceName: UITextField!
     override func viewDidLoad() {
-//        CHBleManager.shared.delegate = self
-
+        TitelhintLB.text = "Give your Sesame a cooool name ! 😎".localStr
+        sesameNAmeLB.text = "Sesame Name".localStr
         deviceName.delegate = self
-        let tapGes = UITapGestureRecognizer(target: self, action: #selector(tapGesAction(_:)))
-        tapGes.addTarget(self, action: #selector(tapGesAction))
-        self.view.addGestureRecognizer(tapGes)
-    }
-    @objc func tapGesAction(_ tapGes : UITapGestureRecognizer){
-        self.view.endEditing(true)
     }
 }
 
@@ -46,47 +43,39 @@ extension RegisterVC:CHSesameBleDeviceDelegate{
     func onBleConnectStatusChanged(device: CHSesameBleInterface, status: CBPeripheralState) {
         //        L.d("status",status.rawValue)
         deviceName.isHidden = (status != .connected)
-        //        status == .connected
     }
     
     func onBleGattStatusChanged(device: CHSesameBleInterface, status: CHBleGattStatus, error: CHSesameGattError?) {
-        
     }
     
-    func onSesameLogin(device: CHSesameBleInterface, setting: CHSesameMechSettings, status: CHSesameMechStatus) {
-        
-    }
+    func onSesameLogin(device: CHSesameBleInterface, setting: CHSesameMechSettings, status: CHSesameMechStatus) {}
     
-    func onBleCommandResult(device: CHSesameBleInterface, command: CHSesameCommand, returnCode: CHSesameCommandResult) {
-        
-    }
+    func onBleCommandResult(device: CHSesameBleInterface, command: CHSesameCommand, returnCode: CHSesameCommandResult) {}
     
-    func onMechStatusChanged(device: CHSesameBleInterface, status: CHSesameMechStatus, intention: CHSesameIntention) {
-        
-    }
+    func onMechStatusChanged(device: CHSesameBleInterface, status: CHSesameMechStatus, intention: CHSesameIntention) {}
     
     func onMechSettingChanged(device: CHSesameBleInterface, setting: CHSesameMechSettings) {
-        
     }
     
 }
 extension RegisterVC:UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        weak var weakSelf = self
+        if deviceName.text == "" {
+            self.view.makeToast("Enter Sesame name".localStr,position: .center)
+            return true
+        }
         _ = self.sesame!.register(nickname: deviceName.text!, {(result) in
-            L.d("result.success",result.success)
             if result.success {
                 DispatchQueue.main.async {
                     self.dismiss(animated: false, completion: nil)
 
                     let tb =  self.tabBarController as! GeneralTabViewController
-                    tb.deviceReflesh()
+                    tb.delegateHome?.refleshKeyChain()
                     self.navigationController?.popViewController(animated: true)
                     self.performSegue(withIdentifier:  "setting", sender: self.sesame)
                 }
             }else{
                 DispatchQueue.main.async {
-
                     let okAction = UIAlertAction(title:"ok", style: UIAlertAction.Style.default) {
                         UIAlertAction in
                         DispatchQueue.main.async {
@@ -111,7 +100,6 @@ extension RegisterVC: CHBleManagerDelegate {
     func didDiscoverSesame(device: CHSesameBleInterface) {
         DispatchQueue.main.async {
             if device.bleIdStr ==  self.sesame?.bleIdStr {
-                L.d("RegisterVC")
                 self.sesame = device
             }
         }

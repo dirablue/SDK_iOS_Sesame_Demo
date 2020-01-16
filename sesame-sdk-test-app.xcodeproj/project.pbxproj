@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4102FAF323C2E17A00ECA735 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102FAF223C2E17A00ECA735 /* ScanView.swift */; };
+		4102FAF723C3203600ECA735 /* icons_filled_add-friends_black.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4102FAF623C3203600ECA735 /* icons_filled_add-friends_black.svg */; };
 		4103032D2379024600785311 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4103032C2379024600785311 /* Colors.swift */; };
 		41030330237902D400785311 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4103032F237902D400785311 /* UIColor+Extensions.swift */; };
 		4103033C23790CB800785311 /* SessionMoreMenuFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4103033B23790CB800785311 /* SessionMoreMenuFloatView.swift */; };
@@ -89,32 +91,6 @@
 		4103049323791BCA00785311 /* icons_filled_me.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4103049123791BC900785311 /* icons_filled_me.svg */; };
 		4103049423791BCA00785311 /* icons_outlined_me.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4103049223791BCA00785311 /* icons_outlined_me.svg */; };
 		4103049A237968A800785311 /* MyQrVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41030499237968A800785311 /* MyQrVC.swift */; };
-		4126DE70238CC836007A3652 /* AWSAPIGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE5C238CC816007A3652 /* AWSAPIGateway.framework */; };
-		4126DE71238CC836007A3652 /* AWSAPIGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE5C238CC816007A3652 /* AWSAPIGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4126DE72238CC838007A3652 /* AWSCognitoIdentityProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE5E238CC816007A3652 /* AWSCognitoIdentityProvider.framework */; };
-		4126DE73238CC838007A3652 /* AWSCognitoIdentityProvider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE5E238CC816007A3652 /* AWSCognitoIdentityProvider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4126DE74238CC839007A3652 /* AWSAuthCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE5F238CC817007A3652 /* AWSAuthCore.framework */; };
-		4126DE75238CC839007A3652 /* AWSAuthCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE5F238CC817007A3652 /* AWSAuthCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4126DE76238CC83B007A3652 /* AWSCognitoIdentityProviderASF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE5D238CC816007A3652 /* AWSCognitoIdentityProviderASF.framework */; };
-		4126DE77238CC83B007A3652 /* AWSCognitoIdentityProviderASF.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE5D238CC816007A3652 /* AWSCognitoIdentityProviderASF.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4126DE78238CC83D007A3652 /* AWSMobileClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE5B238CC816007A3652 /* AWSMobileClient.framework */; };
-		4126DE79238CC83D007A3652 /* AWSMobileClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE5B238CC816007A3652 /* AWSMobileClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4126DE7A238CC83F007A3652 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE61238CC817007A3652 /* AWSCore.framework */; };
-		4126DE7B238CC83F007A3652 /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE61238CC817007A3652 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4126DE7C238CC840007A3652 /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE60238CC817007A3652 /* Cache.framework */; };
-		4126DE7D238CC840007A3652 /* Cache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE60238CC817007A3652 /* Cache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4126DE7E238CC842007A3652 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE62238CC817007A3652 /* CocoaLumberjack.framework */; };
-		4126DE7F238CC842007A3652 /* CocoaLumberjack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE62238CC817007A3652 /* CocoaLumberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4126DE80238CC843007A3652 /* iOSDFULibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE63238CC817007A3652 /* iOSDFULibrary.framework */; };
-		4126DE81238CC843007A3652 /* iOSDFULibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE63238CC817007A3652 /* iOSDFULibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4126DE84238CC848007A3652 /* SVGKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE5A238CC816007A3652 /* SVGKit.framework */; };
-		4126DE85238CC848007A3652 /* SVGKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE5A238CC816007A3652 /* SVGKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4126DE86238CC84A007A3652 /* ZIPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE64238CC817007A3652 /* ZIPFoundation.framework */; };
-		4126DE87238CC84A007A3652 /* ZIPFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE64238CC817007A3652 /* ZIPFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4126DE89238CCF6D007A3652 /* Candyhouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE88238CCF6D007A3652 /* Candyhouse.framework */; };
-		4126DE90238CD496007A3652 /* SesameSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE8E238CD491007A3652 /* SesameSDK.framework */; };
-		4126DE91238CD4AC007A3652 /* SesameSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE8E238CD491007A3652 /* SesameSDK.framework */; };
-		4126DE92238CD4AC007A3652 /* SesameSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4126DE8E238CD491007A3652 /* SesameSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		412D236F2355DAD800D1B51B /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412D236E2355DAD800D1B51B /* DeviceCell.swift */; };
 		412D23702355E4F700D1B51B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B179691122F7CE9400E91996 /* Assets.xcassets */; };
 		412D23712355E75000D1B51B /* Knob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152907523224C2300F7E0E5 /* Knob.swift */; };
@@ -122,13 +98,18 @@
 		4130A3702358379D0025A31E /* SSM2RoomBle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130A36F2358379D0025A31E /* SSM2RoomBle.swift */; };
 		4130A372235838C10025A31E /* SSM2RoomHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130A371235838C10025A31E /* SSM2RoomHistory.swift */; };
 		4130A3742358390F0025A31E /* SSM2RoomSig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130A3732358390F0025A31E /* SSM2RoomSig.swift */; };
-		4130A37623583E2E0025A31E /* SSM2RoomUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130A37523583E2E0025A31E /* SSM2RoomUsers.swift */; };
 		4130A37B23585B170025A31E /* AlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130A37A23585B170025A31E /* AlignedCollectionViewFlowLayout.swift */; };
 		4137C8CA2350201100211F43 /* SetLockVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137C8C92350201100211F43 /* SetLockVC.swift */; };
 		4137C8CC2350276300211F43 /* SesameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137C8CB2350276300211F43 /* SesameView.swift */; };
+		4142AB3423AB962E0088B7B4 /* UserPoolConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4142AB3323AB962E0088B7B4 /* UserPoolConstant.swift */; };
 		4147508F2387FCD600BCDB5E /* icons_outlined_addfriends_white.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4147508E2387FCD600BCDB5E /* icons_outlined_addfriends_white.svg */; };
 		414750912387FF0F00BCDB5E /* icons_outlined_addoutline_black.svg in Resources */ = {isa = PBXBuildFile; fileRef = 414750902387FF0F00BCDB5E /* icons_outlined_addoutline_black.svg */; };
 		4148CB42236D8A4C009D5D9E /* AddFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4148CB41236D8A4C009D5D9E /* AddFriendVC.swift */; };
+		4148D48B23CDA9DF0055E337 /* bt100.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4148D48A23CDA9DF0055E337 /* bt100.svg */; };
+		4148D49523CDC7080055E337 /* bt0.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4148D49423CDC7080055E337 /* bt0.svg */; };
+		4148D49623CDC7080055E337 /* bt0.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4148D49423CDC7080055E337 /* bt0.svg */; };
+		414E30E623D0568A00AD36FA /* AWSAuthCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 414E30E423D0567D00AD36FA /* AWSAuthCore.framework */; };
+		414E30E723D0568A00AD36FA /* AWSAuthCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 414E30E423D0567D00AD36FA /* AWSAuthCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4152907623224C2300F7E0E5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152906923224C2300F7E0E5 /* LoginViewController.swift */; };
 		4152907823224C2300F7E0E5 /* GeneralTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152906B23224C2300F7E0E5 /* GeneralTabViewController.swift */; };
 		4152907B23224C2300F7E0E5 /* ViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152906F23224C2300F7E0E5 /* ViewHelper.swift */; };
@@ -137,7 +118,20 @@
 		4152907E23224C2300F7E0E5 /* BluetoothDevicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152907323224C2300F7E0E5 /* BluetoothDevicesCell.swift */; };
 		4152907F23224C2300F7E0E5 /* BluetoothDevicesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152907423224C2300F7E0E5 /* BluetoothDevicesListViewController.swift */; };
 		4152908023224C2300F7E0E5 /* Knob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152907523224C2300F7E0E5 /* Knob.swift */; };
+		4155E80A23CC473F00CA093E /* CHSSMChangeNameDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155E80923CC473F00CA093E /* CHSSMChangeNameDialog.swift */; };
 		416BCD8A23828EA1002871D2 /* RegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416BCD8923828EA1002871D2 /* RegisterCell.swift */; };
+		4176ED9F23C574C800F312F9 /* VC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176ED9E23C574C800F312F9 /* VC+Extension.swift */; };
+		4176EDA523C5ADCB00F312F9 /* icon_lock.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4176EDA423C5ADCB00F312F9 /* icon_lock.svg */; };
+		4176EDA723C5ADDF00F312F9 /* icon_unlock.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4176EDA623C5ADDF00F312F9 /* icon_unlock.svg */; };
+		4176EDA923C5AE0200F312F9 /* icon_white.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4176EDA823C5AE0200F312F9 /* icon_white.svg */; };
+		4176EDAD23C5EC7F00F312F9 /* 6c801cdc.zip in Resources */ = {isa = PBXBuildFile; fileRef = 4176EDAC23C5EC7F00F312F9 /* 6c801cdc.zip */; };
+		4176EDAF23C5F2B200F312F9 /* handmove.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4176EDAE23C5F2B200F312F9 /* handmove.svg */; };
+		4176EDB123C5F38C00F312F9 /* autolock.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4176EDB023C5F38C00F312F9 /* autolock.svg */; };
+		4176EDB323C5FA1800F312F9 /* bluetooth.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4176EDB223C5FA1700F312F9 /* bluetooth.svg */; };
+		417A245023C4320D00230071 /* UserPoolConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4142AB3323AB962E0088B7B4 /* UserPoolConstant.swift */; };
+		417A245623C4A11D00230071 /* keychain.svg in Resources */ = {isa = PBXBuildFile; fileRef = 417A245523C4A11D00230071 /* keychain.svg */; };
+		417A245923C4A23C00230071 /* icon_add.svg in Resources */ = {isa = PBXBuildFile; fileRef = 417A245723C4A23C00230071 /* icon_add.svg */; };
+		417A245A23C4A23C00230071 /* icon_delete.svg in Resources */ = {isa = PBXBuildFile; fileRef = 417A245823C4A23C00230071 /* icon_delete.svg */; };
 		417E4FDB234F40D2005BB230 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417E4FDA234F40D2005BB230 /* RegisterVC.swift */; };
 		4185AB962388FCBA00D25395 /* icons_filled_more_b.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4185AB952388FCBA00D25395 /* icons_filled_more_b.svg */; };
 		4185AB98238941F300D25395 /* icons_outlined_qr-code_b.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4185AB97238941F300D25395 /* icons_outlined_qr-code_b.svg */; };
@@ -154,18 +148,26 @@
 		41A57CE72328BED400FEFF60 /* CHBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A57CE62328BED400FEFF60 /* CHBaseViewController.swift */; };
 		41A57CEF2328D13600FEFF60 /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A57CED2328D13600FEFF60 /* QRScannerView.swift */; };
 		41A57CF22328DEB200FEFF60 /* DFUProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A57CF12328DEB200FEFF60 /* DFUProgress.swift */; };
-		41AA8EF1237A51BB00489179 /* DeleteFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8EF0237A51BB00489179 /* DeleteFriend.swift */; };
+		41AA8EF1237A51BB00489179 /* DeleteFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8EF0237A51BB00489179 /* DeleteFriendVC.swift */; };
 		41AA8EF3237A67D600489179 /* SSM2AutoLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8EF2237A67D600489179 /* SSM2AutoLock.swift */; };
 		41AA8EF5237A68DF00489179 /* SSM2SettingSig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8EF4237A68DF00489179 /* SSM2SettingSig.swift */; };
 		41AA8EF7237A6A6500489179 /* SSM2SettingBle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8EF6237A6A6500489179 /* SSM2SettingBle.swift */; };
 		41AA8EF9237A6B0700489179 /* SSM2SettingMembers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8EF8237A6B0700489179 /* SSM2SettingMembers.swift */; };
+		41AB857D23B1B982006DBD37 /* UITableView+Exten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AB857C23B1B982006DBD37 /* UITableView+Exten.swift */; };
+		41B9C02023C6F7F100E57F58 /* loginlogo.svg in Resources */ = {isa = PBXBuildFile; fileRef = 41B9C01F23C6F7F100E57F58 /* loginlogo.svg */; };
+		41B9C02B23C715CC00E57F58 /* CHTFDialogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B9C02A23C715CC00E57F58 /* CHTFDialogVC.swift */; };
+		41B9C02E23C7305200E57F58 /* keychain_original.svg in Resources */ = {isa = PBXBuildFile; fileRef = 41B9C02C23C7305200E57F58 /* keychain_original.svg */; };
+		41B9C02F23C7305200E57F58 /* keychain_tint.svg in Resources */ = {isa = PBXBuildFile; fileRef = 41B9C02D23C7305200E57F58 /* keychain_tint.svg */; };
+		41B9C03123C7359300E57F58 /* loginsubhint.svg in Resources */ = {isa = PBXBuildFile; fileRef = 41B9C03023C7359300E57F58 /* loginsubhint.svg */; };
+		41BE39BC239B3C0F008A7E47 /* ForgetPassWordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BE39BB239B3C0F008A7E47 /* ForgetPassWordVC.swift */; };
 		41C9488B238B6D58009469B0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41C94889238B6D58009469B0 /* Localizable.strings */; };
 		41C9488D238B6F72009469B0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 418FA1EC237C04EF00C7C408 /* InfoPlist.strings */; };
 		41C9488E238B6F7A009469B0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 418FA1F2237C04EF00C7C408 /* InfoPlist.strings */; };
 		41C94890238B6FC2009469B0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41C94886238B6CB2009469B0 /* Localizable.strings */; };
 		41C94892238B9842009469B0 /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C94891238B9842009469B0 /* Tracker.swift */; };
 		41C94894238BB7B6009469B0 /* icons_filled_close_b.svg in Resources */ = {isa = PBXBuildFile; fileRef = 41C94893238BB7B5009469B0 /* icons_filled_close_b.svg */; };
-		41C94896238BC576009469B0 /* WebRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C94895238BC576009469B0 /* WebRegisterVC.swift */; };
+		41C94896238BC576009469B0 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C94895238BC576009469B0 /* SignupVC.swift */; };
+		41C9CA3423C85E9B00293235 /* arrow.svg in Resources */ = {isa = PBXBuildFile; fileRef = 41C9CA3323C85E9B00293235 /* arrow.svg */; };
 		41CD2A29235731E80050C42D /* LetterAvatarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD2A1E235731E80050C42D /* LetterAvatarBuilder.swift */; };
 		41CD2A2A235731E80050C42D /* LetterAvatarMakerExtendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD2A20235731E80050C42D /* LetterAvatarMakerExtendable.swift */; };
 		41CD2A2B235731E80050C42D /* UIImage+LetterAvatarKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD2A22235731E80050C42D /* UIImage+LetterAvatarKit.swift */; };
@@ -174,6 +176,34 @@
 		41CD2A2E235731E80050C42D /* UIColor+LetterAvatarKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD2A25235731E80050C42D /* UIColor+LetterAvatarKit.swift */; };
 		41CD2A2F235731E80050C42D /* LetterAvatarMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD2A26235731E80050C42D /* LetterAvatarMaker.swift */; };
 		41CD2A30235731E80050C42D /* LetterAvatarBuilderConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD2A27235731E80050C42D /* LetterAvatarBuilderConfiguration.swift */; };
+		41D0C59223CFF892001EC085 /* EmptyDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D0C58D23CFF892001EC085 /* EmptyDataSet.swift */; };
+		41D0C59323CFF892001EC085 /* EmptyDataSetSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D0C58E23CFF892001EC085 /* EmptyDataSetSource.swift */; };
+		41D0C59423CFF892001EC085 /* EmptyDataSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D0C58F23CFF892001EC085 /* EmptyDataSetDelegate.swift */; };
+		41D0C59523CFF892001EC085 /* EmptyDataSetView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D0C59023CFF892001EC085 /* EmptyDataSetView+Extension.swift */; };
+		41D0C59623CFF892001EC085 /* EmptyDataSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D0C59123CFF892001EC085 /* EmptyDataSetView.swift */; };
+		41D0C5B523D02F3E001EC085 /* AWSAPIGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C5A223D02E5F001EC085 /* AWSAPIGateway.framework */; };
+		41D0C5B623D02F3E001EC085 /* AWSAPIGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C5A223D02E5F001EC085 /* AWSAPIGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41D0C5B923D02F41001EC085 /* AWSCognitoIdentityProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C59C23D02E5C001EC085 /* AWSCognitoIdentityProvider.framework */; };
+		41D0C5BA23D02F41001EC085 /* AWSCognitoIdentityProvider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C59C23D02E5C001EC085 /* AWSCognitoIdentityProvider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41D0C5BB23D02F42001EC085 /* AWSCognitoIdentityProviderASF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C59D23D02E5D001EC085 /* AWSCognitoIdentityProviderASF.framework */; };
+		41D0C5BC23D02F42001EC085 /* AWSCognitoIdentityProviderASF.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C59D23D02E5D001EC085 /* AWSCognitoIdentityProviderASF.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41D0C5BD23D02F43001EC085 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C59923D02E5B001EC085 /* AWSCore.framework */; };
+		41D0C5BE23D02F43001EC085 /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C59923D02E5B001EC085 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41D0C5BF23D02F44001EC085 /* AWSMobileClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C59B23D02E5C001EC085 /* AWSMobileClient.framework */; };
+		41D0C5C023D02F44001EC085 /* AWSMobileClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C59B23D02E5C001EC085 /* AWSMobileClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41D0C5C323D02F47001EC085 /* Candyhouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C59E23D02E5D001EC085 /* Candyhouse.framework */; };
+		41D0C5C423D02F47001EC085 /* Candyhouse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C59E23D02E5D001EC085 /* Candyhouse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41D0C5C523D02F48001EC085 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C59823D02E5A001EC085 /* CocoaLumberjack.framework */; };
+		41D0C5C623D02F48001EC085 /* CocoaLumberjack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C59823D02E5A001EC085 /* CocoaLumberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41D0C5C723D02F4A001EC085 /* iOSDFULibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C5A323D02E60001EC085 /* iOSDFULibrary.framework */; };
+		41D0C5C823D02F4A001EC085 /* iOSDFULibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C5A323D02E60001EC085 /* iOSDFULibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41D0C5C923D02F4D001EC085 /* ZIPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C5A023D02E5E001EC085 /* ZIPFoundation.framework */; };
+		41D0C5CA23D02F4D001EC085 /* ZIPFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C5A023D02E5E001EC085 /* ZIPFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41D0C5CB23D02F4E001EC085 /* SVGKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C59A23D02E5B001EC085 /* SVGKit.framework */; };
+		41D0C5CC23D02F4E001EC085 /* SVGKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C59A23D02E5B001EC085 /* SVGKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41D0C5CF23D02FB7001EC085 /* SesameSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C5CD23D02FB2001EC085 /* SesameSDK.framework */; };
+		41D0C5D123D03274001EC085 /* SesameSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C5CD23D02FB2001EC085 /* SesameSDK.framework */; };
+		41D0C5D223D03274001EC085 /* SesameSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41D0C5CD23D02FB2001EC085 /* SesameSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		41E6850A235597380042B159 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E68509235597380042B159 /* NotificationCenter.framework */; };
 		41E6850D235597380042B159 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6850C235597380042B159 /* TodayViewController.swift */; };
 		41E68510235597380042B159 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41E6850E235597380042B159 /* MainInterface.storyboard */; };
@@ -188,7 +218,6 @@
 		B179691022F7CE9300E91996 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B179690E22F7CE9300E91996 /* Main.storyboard */; };
 		B179691222F7CE9400E91996 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B179691122F7CE9400E91996 /* Assets.xcassets */; };
 		B179691522F7CE9400E91996 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B179691322F7CE9400E91996 /* LaunchScreen.storyboard */; };
-		B1D4726D2327AB1B005454C5 /* sesame2_firmware.zip in Resources */ = {isa = PBXBuildFile; fileRef = B1D4726C2327AB1B005454C5 /* sesame2_firmware.zip */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,16 +231,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		4126DE8D238CD458007A3652 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		41E68515235597380042B159 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -229,18 +248,18 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4126DE85238CC848007A3652 /* SVGKit.framework in Embed Frameworks */,
-				4126DE71238CC836007A3652 /* AWSAPIGateway.framework in Embed Frameworks */,
-				4126DE7F238CC842007A3652 /* CocoaLumberjack.framework in Embed Frameworks */,
-				4126DE7B238CC83F007A3652 /* AWSCore.framework in Embed Frameworks */,
-				4126DE73238CC838007A3652 /* AWSCognitoIdentityProvider.framework in Embed Frameworks */,
-				4126DE79238CC83D007A3652 /* AWSMobileClient.framework in Embed Frameworks */,
-				4126DE77238CC83B007A3652 /* AWSCognitoIdentityProviderASF.framework in Embed Frameworks */,
-				4126DE92238CD4AC007A3652 /* SesameSDK.framework in Embed Frameworks */,
-				4126DE75238CC839007A3652 /* AWSAuthCore.framework in Embed Frameworks */,
-				4126DE81238CC843007A3652 /* iOSDFULibrary.framework in Embed Frameworks */,
-				4126DE87238CC84A007A3652 /* ZIPFoundation.framework in Embed Frameworks */,
-				4126DE7D238CC840007A3652 /* Cache.framework in Embed Frameworks */,
+				41D0C5D223D03274001EC085 /* SesameSDK.framework in Embed Frameworks */,
+				41D0C5B623D02F3E001EC085 /* AWSAPIGateway.framework in Embed Frameworks */,
+				41D0C5C623D02F48001EC085 /* CocoaLumberjack.framework in Embed Frameworks */,
+				414E30E723D0568A00AD36FA /* AWSAuthCore.framework in Embed Frameworks */,
+				41D0C5C023D02F44001EC085 /* AWSMobileClient.framework in Embed Frameworks */,
+				41D0C5CA23D02F4D001EC085 /* ZIPFoundation.framework in Embed Frameworks */,
+				41D0C5CC23D02F4E001EC085 /* SVGKit.framework in Embed Frameworks */,
+				41D0C5C423D02F47001EC085 /* Candyhouse.framework in Embed Frameworks */,
+				41D0C5BC23D02F42001EC085 /* AWSCognitoIdentityProviderASF.framework in Embed Frameworks */,
+				41D0C5BA23D02F41001EC085 /* AWSCognitoIdentityProvider.framework in Embed Frameworks */,
+				41D0C5BE23D02F43001EC085 /* AWSCore.framework in Embed Frameworks */,
+				41D0C5C823D02F4A001EC085 /* iOSDFULibrary.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,6 +267,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4102FAF223C2E17A00ECA735 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		4102FAF623C3203600ECA735 /* icons_filled_add-friends_black.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "icons_filled_add-friends_black.svg"; sourceTree = "<group>"; };
 		4103032C2379024600785311 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		4103032F237902D400785311 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		4103033B23790CB800785311 /* SessionMoreMenuFloatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionMoreMenuFloatView.swift; sourceTree = "<group>"; };
@@ -330,30 +351,20 @@
 		4103049123791BC900785311 /* icons_filled_me.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_me.svg; sourceTree = "<group>"; };
 		4103049223791BCA00785311 /* icons_outlined_me.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_me.svg; sourceTree = "<group>"; };
 		41030499237968A800785311 /* MyQrVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQrVC.swift; sourceTree = "<group>"; };
-		4126DE5A238CC816007A3652 /* SVGKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SVGKit.framework; sourceTree = "<group>"; };
-		4126DE5B238CC816007A3652 /* AWSMobileClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileClient.framework; sourceTree = "<group>"; };
-		4126DE5C238CC816007A3652 /* AWSAPIGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSAPIGateway.framework; sourceTree = "<group>"; };
-		4126DE5D238CC816007A3652 /* AWSCognitoIdentityProviderASF.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognitoIdentityProviderASF.framework; sourceTree = "<group>"; };
-		4126DE5E238CC816007A3652 /* AWSCognitoIdentityProvider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognitoIdentityProvider.framework; sourceTree = "<group>"; };
-		4126DE5F238CC817007A3652 /* AWSAuthCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSAuthCore.framework; sourceTree = "<group>"; };
-		4126DE60238CC817007A3652 /* Cache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Cache.framework; sourceTree = "<group>"; };
-		4126DE61238CC817007A3652 /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCore.framework; sourceTree = "<group>"; };
-		4126DE62238CC817007A3652 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaLumberjack.framework; sourceTree = "<group>"; };
-		4126DE63238CC817007A3652 /* iOSDFULibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iOSDFULibrary.framework; sourceTree = "<group>"; };
-		4126DE64238CC817007A3652 /* ZIPFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZIPFoundation.framework; sourceTree = "<group>"; };
-		4126DE88238CCF6D007A3652 /* Candyhouse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Candyhouse.framework; sourceTree = "<group>"; };
-		4126DE8E238CD491007A3652 /* SesameSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SesameSDK.framework; sourceTree = "<group>"; };
 		412D236E2355DAD800D1B51B /* DeviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
 		4130A36F2358379D0025A31E /* SSM2RoomBle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSM2RoomBle.swift; sourceTree = "<group>"; };
 		4130A371235838C10025A31E /* SSM2RoomHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSM2RoomHistory.swift; sourceTree = "<group>"; };
 		4130A3732358390F0025A31E /* SSM2RoomSig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSM2RoomSig.swift; sourceTree = "<group>"; };
-		4130A37523583E2E0025A31E /* SSM2RoomUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSM2RoomUsers.swift; sourceTree = "<group>"; };
 		4130A37A23585B170025A31E /* AlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		4137C8C92350201100211F43 /* SetLockVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLockVC.swift; sourceTree = "<group>"; };
 		4137C8CB2350276300211F43 /* SesameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesameView.swift; sourceTree = "<group>"; };
+		4142AB3323AB962E0088B7B4 /* UserPoolConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPoolConstant.swift; sourceTree = "<group>"; };
 		4147508E2387FCD600BCDB5E /* icons_outlined_addfriends_white.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_addfriends_white.svg; sourceTree = "<group>"; };
 		414750902387FF0F00BCDB5E /* icons_outlined_addoutline_black.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_addoutline_black.svg; sourceTree = "<group>"; };
 		4148CB41236D8A4C009D5D9E /* AddFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendVC.swift; sourceTree = "<group>"; };
+		4148D48A23CDA9DF0055E337 /* bt100.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bt100.svg; sourceTree = "<group>"; };
+		4148D49423CDC7080055E337 /* bt0.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bt0.svg; sourceTree = "<group>"; };
+		414E30E423D0567D00AD36FA /* AWSAuthCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSAuthCore.framework; sourceTree = "<group>"; };
 		4152906923224C2300F7E0E5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4152906B23224C2300F7E0E5 /* GeneralTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralTabViewController.swift; sourceTree = "<group>"; };
 		4152906F23224C2300F7E0E5 /* ViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewHelper.swift; sourceTree = "<group>"; };
@@ -362,7 +373,19 @@
 		4152907323224C2300F7E0E5 /* BluetoothDevicesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothDevicesCell.swift; sourceTree = "<group>"; };
 		4152907423224C2300F7E0E5 /* BluetoothDevicesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothDevicesListViewController.swift; sourceTree = "<group>"; };
 		4152907523224C2300F7E0E5 /* Knob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Knob.swift; sourceTree = "<group>"; };
+		4155E80923CC473F00CA093E /* CHSSMChangeNameDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHSSMChangeNameDialog.swift; sourceTree = "<group>"; };
 		416BCD8923828EA1002871D2 /* RegisterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCell.swift; sourceTree = "<group>"; };
+		4176ED9E23C574C800F312F9 /* VC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC+Extension.swift"; sourceTree = "<group>"; };
+		4176EDA423C5ADCB00F312F9 /* icon_lock.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_lock.svg; sourceTree = "<group>"; };
+		4176EDA623C5ADDF00F312F9 /* icon_unlock.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_unlock.svg; sourceTree = "<group>"; };
+		4176EDA823C5AE0200F312F9 /* icon_white.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_white.svg; sourceTree = "<group>"; };
+		4176EDAC23C5EC7F00F312F9 /* 6c801cdc.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = 6c801cdc.zip; sourceTree = "<group>"; };
+		4176EDAE23C5F2B200F312F9 /* handmove.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = handmove.svg; sourceTree = "<group>"; };
+		4176EDB023C5F38C00F312F9 /* autolock.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = autolock.svg; sourceTree = "<group>"; };
+		4176EDB223C5FA1700F312F9 /* bluetooth.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bluetooth.svg; sourceTree = "<group>"; };
+		417A245523C4A11D00230071 /* keychain.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = keychain.svg; sourceTree = "<group>"; };
+		417A245723C4A23C00230071 /* icon_add.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_add.svg; sourceTree = "<group>"; };
+		417A245823C4A23C00230071 /* icon_delete.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_delete.svg; sourceTree = "<group>"; };
 		417E4FDA234F40D2005BB230 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		4185AB952388FCBA00D25395 /* icons_filled_more_b.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_more_b.svg; sourceTree = "<group>"; };
 		4185AB97238941F300D25395 /* icons_outlined_qr-code_b.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "icons_outlined_qr-code_b.svg"; sourceTree = "<group>"; };
@@ -379,16 +402,26 @@
 		41A57CE62328BED400FEFF60 /* CHBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHBaseViewController.swift; sourceTree = "<group>"; };
 		41A57CED2328D13600FEFF60 /* QRScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
 		41A57CF12328DEB200FEFF60 /* DFUProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFUProgress.swift; sourceTree = "<group>"; };
-		41AA8EF0237A51BB00489179 /* DeleteFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFriend.swift; sourceTree = "<group>"; };
+		41A7E4B523B5A30100752C99 /* SesameDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SesameDebug.entitlements; sourceTree = "<group>"; };
+		41A7E4B623B5A39E00752C99 /* Sesame.Debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sesame.Debug.entitlements; sourceTree = "<group>"; };
+		41AA8EF0237A51BB00489179 /* DeleteFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFriendVC.swift; sourceTree = "<group>"; };
 		41AA8EF2237A67D600489179 /* SSM2AutoLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSM2AutoLock.swift; sourceTree = "<group>"; };
 		41AA8EF4237A68DF00489179 /* SSM2SettingSig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSM2SettingSig.swift; sourceTree = "<group>"; };
 		41AA8EF6237A6A6500489179 /* SSM2SettingBle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSM2SettingBle.swift; sourceTree = "<group>"; };
 		41AA8EF8237A6B0700489179 /* SSM2SettingMembers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSM2SettingMembers.swift; sourceTree = "<group>"; };
+		41AB857C23B1B982006DBD37 /* UITableView+Exten.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Exten.swift"; sourceTree = "<group>"; };
+		41B9C01F23C6F7F100E57F58 /* loginlogo.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = loginlogo.svg; sourceTree = "<group>"; };
+		41B9C02A23C715CC00E57F58 /* CHTFDialogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHTFDialogVC.swift; sourceTree = "<group>"; };
+		41B9C02C23C7305200E57F58 /* keychain_original.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = keychain_original.svg; sourceTree = "<group>"; };
+		41B9C02D23C7305200E57F58 /* keychain_tint.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = keychain_tint.svg; sourceTree = "<group>"; };
+		41B9C03023C7359300E57F58 /* loginsubhint.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = loginsubhint.svg; sourceTree = "<group>"; };
+		41BE39BB239B3C0F008A7E47 /* ForgetPassWordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPassWordVC.swift; sourceTree = "<group>"; };
 		41C94887238B6CB2009469B0 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localizable.strings; sourceTree = "<group>"; };
 		41C9488A238B6D58009469B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		41C94891238B9842009469B0 /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		41C94893238BB7B5009469B0 /* icons_filled_close_b.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_close_b.svg; sourceTree = "<group>"; };
-		41C94895238BC576009469B0 /* WebRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRegisterVC.swift; sourceTree = "<group>"; };
+		41C94895238BC576009469B0 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
+		41C9CA3323C85E9B00293235 /* arrow.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = arrow.svg; sourceTree = "<group>"; };
 		41CD2A1E235731E80050C42D /* LetterAvatarBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterAvatarBuilder.swift; sourceTree = "<group>"; };
 		41CD2A1F235731E80050C42D /* LetterAvatarKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetterAvatarKit.h; sourceTree = "<group>"; };
 		41CD2A20235731E80050C42D /* LetterAvatarMakerExtendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterAvatarMakerExtendable.swift; sourceTree = "<group>"; };
@@ -398,6 +431,22 @@
 		41CD2A25235731E80050C42D /* UIColor+LetterAvatarKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+LetterAvatarKit.swift"; sourceTree = "<group>"; };
 		41CD2A26235731E80050C42D /* LetterAvatarMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterAvatarMaker.swift; sourceTree = "<group>"; };
 		41CD2A27235731E80050C42D /* LetterAvatarBuilderConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterAvatarBuilderConfiguration.swift; sourceTree = "<group>"; };
+		41D0C58D23CFF892001EC085 /* EmptyDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyDataSet.swift; sourceTree = "<group>"; };
+		41D0C58E23CFF892001EC085 /* EmptyDataSetSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyDataSetSource.swift; sourceTree = "<group>"; };
+		41D0C58F23CFF892001EC085 /* EmptyDataSetDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyDataSetDelegate.swift; sourceTree = "<group>"; };
+		41D0C59023CFF892001EC085 /* EmptyDataSetView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EmptyDataSetView+Extension.swift"; sourceTree = "<group>"; };
+		41D0C59123CFF892001EC085 /* EmptyDataSetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyDataSetView.swift; sourceTree = "<group>"; };
+		41D0C59823D02E5A001EC085 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaLumberjack.framework; sourceTree = "<group>"; };
+		41D0C59923D02E5B001EC085 /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCore.framework; sourceTree = "<group>"; };
+		41D0C59A23D02E5B001EC085 /* SVGKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SVGKit.framework; sourceTree = "<group>"; };
+		41D0C59B23D02E5C001EC085 /* AWSMobileClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileClient.framework; sourceTree = "<group>"; };
+		41D0C59C23D02E5C001EC085 /* AWSCognitoIdentityProvider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognitoIdentityProvider.framework; sourceTree = "<group>"; };
+		41D0C59D23D02E5D001EC085 /* AWSCognitoIdentityProviderASF.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognitoIdentityProviderASF.framework; sourceTree = "<group>"; };
+		41D0C59E23D02E5D001EC085 /* Candyhouse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Candyhouse.framework; sourceTree = "<group>"; };
+		41D0C5A023D02E5E001EC085 /* ZIPFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZIPFoundation.framework; sourceTree = "<group>"; };
+		41D0C5A223D02E5F001EC085 /* AWSAPIGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSAPIGateway.framework; sourceTree = "<group>"; };
+		41D0C5A323D02E60001EC085 /* iOSDFULibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iOSDFULibrary.framework; sourceTree = "<group>"; };
+		41D0C5CD23D02FB2001EC085 /* SesameSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SesameSDK.framework; sourceTree = "<group>"; };
 		41E68508235597380042B159 /* Sesame..appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Sesame..appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		41E68509235597380042B159 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		41E6850C235597380042B159 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -412,13 +461,13 @@
 		41F1CC33234DB66E00652D12 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		4B996CA325B99C632FCA404D /* Pods_sesame_sdk_test_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sesame_sdk_test_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B13664502320DCBE00B88EFE /* DataExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtention.swift; sourceTree = "<group>"; };
+		B142943F231F8EFA006AA64C /* SesameSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SesameSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B179690722F7CE9300E91996 /* Sesame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sesame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B179690A22F7CE9300E91996 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B179690F22F7CE9300E91996 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B179691122F7CE9400E91996 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B179691422F7CE9400E91996 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B179691622F7CE9400E91996 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B1D4726C2327AB1B005454C5 /* sesame2_firmware.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = sesame2_firmware.zip; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -427,7 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41E6850A235597380042B159 /* NotificationCenter.framework in Frameworks */,
-				4126DE90238CD496007A3652 /* SesameSDK.framework in Frameworks */,
+				41D0C5CF23D02FB7001EC085 /* SesameSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,19 +484,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4126DE7E238CC842007A3652 /* CocoaLumberjack.framework in Frameworks */,
-				4126DE91238CD4AC007A3652 /* SesameSDK.framework in Frameworks */,
-				4126DE74238CC839007A3652 /* AWSAuthCore.framework in Frameworks */,
-				4126DE7C238CC840007A3652 /* Cache.framework in Frameworks */,
-				4126DE78238CC83D007A3652 /* AWSMobileClient.framework in Frameworks */,
-				4126DE7A238CC83F007A3652 /* AWSCore.framework in Frameworks */,
-				4126DE84238CC848007A3652 /* SVGKit.framework in Frameworks */,
-				4126DE72238CC838007A3652 /* AWSCognitoIdentityProvider.framework in Frameworks */,
-				4126DE80238CC843007A3652 /* iOSDFULibrary.framework in Frameworks */,
-				4126DE76238CC83B007A3652 /* AWSCognitoIdentityProviderASF.framework in Frameworks */,
-				4126DE86238CC84A007A3652 /* ZIPFoundation.framework in Frameworks */,
-				4126DE70238CC836007A3652 /* AWSAPIGateway.framework in Frameworks */,
-				4126DE89238CCF6D007A3652 /* Candyhouse.framework in Frameworks */,
+				41D0C5C523D02F48001EC085 /* CocoaLumberjack.framework in Frameworks */,
+				41D0C5D123D03274001EC085 /* SesameSDK.framework in Frameworks */,
+				41D0C5BF23D02F44001EC085 /* AWSMobileClient.framework in Frameworks */,
+				414E30E623D0568A00AD36FA /* AWSAuthCore.framework in Frameworks */,
+				41D0C5BD23D02F43001EC085 /* AWSCore.framework in Frameworks */,
+				41D0C5CB23D02F4E001EC085 /* SVGKit.framework in Frameworks */,
+				41D0C5B923D02F41001EC085 /* AWSCognitoIdentityProvider.framework in Frameworks */,
+				41D0C5C723D02F4A001EC085 /* iOSDFULibrary.framework in Frameworks */,
+				41D0C5BB23D02F42001EC085 /* AWSCognitoIdentityProviderASF.framework in Frameworks */,
+				41D0C5B523D02F3E001EC085 /* AWSAPIGateway.framework in Frameworks */,
+				41D0C5C923D02F4D001EC085 /* ZIPFoundation.framework in Frameworks */,
+				41D0C5C323D02F47001EC085 /* Candyhouse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,17 +505,34 @@
 		410303262379012500785311 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				4148D49423CDC7080055E337 /* bt0.svg */,
+				4148D48A23CDA9DF0055E337 /* bt100.svg */,
+				41C9CA3323C85E9B00293235 /* arrow.svg */,
+				41B9C03023C7359300E57F58 /* loginsubhint.svg */,
+				41B9C02C23C7305200E57F58 /* keychain_original.svg */,
+				41B9C02D23C7305200E57F58 /* keychain_tint.svg */,
+				41B9C01F23C6F7F100E57F58 /* loginlogo.svg */,
+				4176EDB223C5FA1700F312F9 /* bluetooth.svg */,
+				4176EDB023C5F38C00F312F9 /* autolock.svg */,
+				4176EDAE23C5F2B200F312F9 /* handmove.svg */,
+				417A245523C4A11D00230071 /* keychain.svg */,
 				4185AB952388FCBA00D25395 /* icons_filled_more_b.svg */,
 				414750902387FF0F00BCDB5E /* icons_outlined_addoutline_black.svg */,
 				4147508E2387FCD600BCDB5E /* icons_outlined_addfriends_white.svg */,
 				4103049123791BC900785311 /* icons_filled_me.svg */,
 				4103049223791BCA00785311 /* icons_outlined_me.svg */,
+				4176EDA823C5AE0200F312F9 /* icon_white.svg */,
+				4176EDA623C5ADDF00F312F9 /* icon_unlock.svg */,
+				4176EDA423C5ADCB00F312F9 /* icon_lock.svg */,
 				4103040023791AD700785311 /* icon_filled_timelineop.svg */,
 				4103041523791ADA00785311 /* icon_filled_timelineophl.svg */,
+				417A245723C4A23C00230071 /* icon_add.svg */,
+				417A245823C4A23C00230071 /* icon_delete.svg */,
 				4103040723791AD800785311 /* icons_filled_add-friends.svg */,
 				4103041623791ADA00785311 /* icons_filled_add.svg */,
 				4103042823791ADC00785311 /* icons_filled_album.svg */,
 				4103041923791ADA00785311 /* icons_filled_back.svg */,
+				4102FAF623C3203600ECA735 /* icons_filled_add-friends_black.svg */,
 				4103043623791ADE00785311 /* icons_filled_camera.svg */,
 				4103041423791ADA00785311 /* icons_filled_chats.svg */,
 				4103040323791AD800785311 /* icons_filled_close.svg */,
@@ -540,6 +605,7 @@
 		4103032B2379023300785311 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B179691322F7CE9400E91996 /* LaunchScreen.storyboard */,
 				410303672379169F00785311 /* Constants.swift */,
 				4103032C2379024600785311 /* Colors.swift */,
 			);
@@ -553,6 +619,8 @@
 				410303632379164C00785311 /* UIImage+Extensions.swift */,
 				4103034C2379108D00785311 /* UIImage+SVG.swift */,
 				4103032F237902D400785311 /* UIColor+Extensions.swift */,
+				41AB857C23B1B982006DBD37 /* UITableView+Exten.swift */,
+				4176ED9E23C574C800F312F9 /* VC+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -608,32 +676,12 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		4126DE8A238CD3FC007A3652 /* sdk */ = {
-			isa = PBXGroup;
-			children = (
-				4126DE8E238CD491007A3652 /* SesameSDK.framework */,
-				4126DE88238CCF6D007A3652 /* Candyhouse.framework */,
-				4126DE5C238CC816007A3652 /* AWSAPIGateway.framework */,
-				4126DE5F238CC817007A3652 /* AWSAuthCore.framework */,
-				4126DE5E238CC816007A3652 /* AWSCognitoIdentityProvider.framework */,
-				4126DE5D238CC816007A3652 /* AWSCognitoIdentityProviderASF.framework */,
-				4126DE61238CC817007A3652 /* AWSCore.framework */,
-				4126DE5B238CC816007A3652 /* AWSMobileClient.framework */,
-				4126DE60238CC817007A3652 /* Cache.framework */,
-				4126DE62238CC817007A3652 /* CocoaLumberjack.framework */,
-				4126DE63238CC817007A3652 /* iOSDFULibrary.framework */,
-				4126DE5A238CC816007A3652 /* SVGKit.framework */,
-				4126DE64238CC817007A3652 /* ZIPFoundation.framework */,
-			);
-			path = sdk;
-			sourceTree = "<group>";
-		};
 		4130A36D235818610025A31E /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				418D73BB2354222900278380 /* SSM2SettingVC.swift */,
 				417E4FDA234F40D2005BB230 /* RegisterVC.swift */,
 				4137C8C92350201100211F43 /* SetLockVC.swift */,
-				418D73BB2354222900278380 /* SSM2SettingVC.swift */,
 				41AA8EF2237A67D600489179 /* SSM2AutoLock.swift */,
 				41AA8EF4237A68DF00489179 /* SSM2SettingSig.swift */,
 				41AA8EF6237A6A6500489179 /* SSM2SettingBle.swift */,
@@ -646,11 +694,10 @@
 			isa = PBXGroup;
 			children = (
 				418D73B723540EBD00278380 /* SSM2RoomMainVC.swift */,
-				4130A36F2358379D0025A31E /* SSM2RoomBle.swift */,
 				4130A371235838C10025A31E /* SSM2RoomHistory.swift */,
+				4130A36F2358379D0025A31E /* SSM2RoomBle.swift */,
 				418D73B92354192900278380 /* SSM2HistoryCell.swift */,
 				4130A3732358390F0025A31E /* SSM2RoomSig.swift */,
-				4130A37523583E2E0025A31E /* SSM2RoomUsers.swift */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -660,7 +707,7 @@
 			children = (
 				4130A37A23585B170025A31E /* AlignedCollectionViewFlowLayout.swift */,
 				4148CB41236D8A4C009D5D9E /* AddFriendVC.swift */,
-				41AA8EF0237A51BB00489179 /* DeleteFriend.swift */,
+				41AA8EF0237A51BB00489179 /* DeleteFriendVC.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -668,8 +715,6 @@
 		4152906723224B9300F7E0E5 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				B179691322F7CE9400E91996 /* LaunchScreen.storyboard */,
-				B179690E22F7CE9300E91996 /* Main.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -677,11 +722,9 @@
 		4152906823224C2300F7E0E5 /* AccountView */ = {
 			isa = PBXGroup;
 			children = (
-				41F1CC31234D8ABD00652D12 /* MeViewController.swift */,
-				4152906923224C2300F7E0E5 /* LoginViewController.swift */,
-				4152907023224C2300F7E0E5 /* AWSServiceClient.swift */,
-				41030499237968A800785311 /* MyQrVC.swift */,
-				41C94895238BC576009469B0 /* WebRegisterVC.swift */,
+				417A244F23C42F9500230071 /* AWS */,
+				417A244E23C42F6400230071 /* ME */,
+				417A244D23C42F4100230071 /* Account */,
 			);
 			path = AccountView;
 			sourceTree = "<group>";
@@ -689,12 +732,15 @@
 		41650F26236A6F8E005BDEF1 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				41D0C58C23CFF880001EC085 /* EmptyView */,
+				41B9C02123C7067F00E57F58 /* AlertView */,
 				41CD2A1D235731E80050C42D /* LetterAvatarKit */,
 				41A57CED2328D13600FEFF60 /* QRScannerView.swift */,
 				4152907523224C2300F7E0E5 /* Knob.swift */,
 				4137C8CB2350276300211F43 /* SesameView.swift */,
 				418FA1E7237BD2C100C7C408 /* SesameCircle.swift */,
 				41C94891238B9842009469B0 /* Tracker.swift */,
+				4102FAF223C2E17A00ECA735 /* ScanView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -715,6 +761,36 @@
 				4152907223224C2300F7E0E5 /* BluetoothSesameControlViewController.swift */,
 			);
 			path = test;
+			sourceTree = "<group>";
+		};
+		417A244D23C42F4100230071 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				4152906923224C2300F7E0E5 /* LoginViewController.swift */,
+				41C94895238BC576009469B0 /* SignupVC.swift */,
+				41BE39BB239B3C0F008A7E47 /* ForgetPassWordVC.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		417A244E23C42F6400230071 /* ME */ = {
+			isa = PBXGroup;
+			children = (
+				41030499237968A800785311 /* MyQrVC.swift */,
+				41F1CC31234D8ABD00652D12 /* MeViewController.swift */,
+				41B9C02A23C715CC00E57F58 /* CHTFDialogVC.swift */,
+				4155E80923CC473F00CA093E /* CHSSMChangeNameDialog.swift */,
+			);
+			path = ME;
+			sourceTree = "<group>";
+		};
+		417A244F23C42F9500230071 /* AWS */ = {
+			isa = PBXGroup;
+			children = (
+				4142AB3323AB962E0088B7B4 /* UserPoolConstant.swift */,
+				4152907023224C2300F7E0E5 /* AWSServiceClient.swift */,
+			);
+			path = AWS;
 			sourceTree = "<group>";
 		};
 		418D73B623540E8D00278380 /* SSM2 */ = {
@@ -788,6 +864,13 @@
 			path = Toast;
 			sourceTree = "<group>";
 		};
+		41B9C02123C7067F00E57F58 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AlertView;
+			sourceTree = "<group>";
+		};
 		41CD2A1D235731E80050C42D /* LetterAvatarKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -812,9 +895,41 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		41D0C58C23CFF880001EC085 /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				41D0C58D23CFF892001EC085 /* EmptyDataSet.swift */,
+				41D0C58F23CFF892001EC085 /* EmptyDataSetDelegate.swift */,
+				41D0C58E23CFF892001EC085 /* EmptyDataSetSource.swift */,
+				41D0C59123CFF892001EC085 /* EmptyDataSetView.swift */,
+				41D0C59023CFF892001EC085 /* EmptyDataSetView+Extension.swift */,
+			);
+			path = EmptyView;
+			sourceTree = "<group>";
+		};
+		41D0C59723D02E3A001EC085 /* sdk */ = {
+			isa = PBXGroup;
+			children = (
+				414E30E423D0567D00AD36FA /* AWSAuthCore.framework */,
+				41D0C5CD23D02FB2001EC085 /* SesameSDK.framework */,
+				41D0C5A223D02E5F001EC085 /* AWSAPIGateway.framework */,
+				41D0C59C23D02E5C001EC085 /* AWSCognitoIdentityProvider.framework */,
+				41D0C59D23D02E5D001EC085 /* AWSCognitoIdentityProviderASF.framework */,
+				41D0C59923D02E5B001EC085 /* AWSCore.framework */,
+				41D0C59B23D02E5C001EC085 /* AWSMobileClient.framework */,
+				41D0C59E23D02E5D001EC085 /* Candyhouse.framework */,
+				41D0C59823D02E5A001EC085 /* CocoaLumberjack.framework */,
+				41D0C5A323D02E60001EC085 /* iOSDFULibrary.framework */,
+				41D0C59A23D02E5B001EC085 /* SVGKit.framework */,
+				41D0C5A023D02E5E001EC085 /* ZIPFoundation.framework */,
+			);
+			path = sdk;
+			sourceTree = "<group>";
+		};
 		41E6850B235597380042B159 /* locker */ = {
 			isa = PBXGroup;
 			children = (
+				41A7E4B623B5A39E00752C99 /* Sesame.Debug.entitlements */,
 				41E6851B23559C030042B159 /* locker.entitlements */,
 				41E6850C235597380042B159 /* TodayViewController.swift */,
 				41E6850E235597380042B159 /* MainInterface.storyboard */,
@@ -837,7 +952,7 @@
 		B17968FE22F7CE9300E91996 = {
 			isa = PBXGroup;
 			children = (
-				4126DE8A238CD3FC007A3652 /* sdk */,
+				41D0C59723D02E3A001EC085 /* sdk */,
 				B179690922F7CE9300E91996 /* sesame-sdk-test-app */,
 				41E6850B235597380042B159 /* locker */,
 				B179690822F7CE9300E91996 /* Products */,
@@ -857,6 +972,7 @@
 		B179690922F7CE9300E91996 /* sesame-sdk-test-app */ = {
 			isa = PBXGroup;
 			children = (
+				41A7E4B523B5A30100752C99 /* SesameDebug.entitlements */,
 				41E6851C23559C0C0042B159 /* sesame-sdk-test-app.entitlements */,
 				B179691622F7CE9400E91996 /* Info.plist */,
 				B179691122F7CE9400E91996 /* Assets.xcassets */,
@@ -864,6 +980,7 @@
 				4152906723224B9300F7E0E5 /* Storyboard */,
 				B1D4726B2327AAF3005454C5 /* Resources */,
 				B179690A22F7CE9300E91996 /* AppDelegate.swift */,
+				B179690E22F7CE9300E91996 /* Main.storyboard */,
 			);
 			path = "sesame-sdk-test-app";
 			sourceTree = "<group>";
@@ -871,6 +988,7 @@
 		B179693822F7CEA500E91996 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B142943F231F8EFA006AA64C /* SesameSDK.framework */,
 				4B996CA325B99C632FCA404D /* Pods_sesame_sdk_test_app.framework */,
 				41E68509235597380042B159 /* NotificationCenter.framework */,
 			);
@@ -880,9 +998,9 @@
 		B1D4726B2327AAF3005454C5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4176EDAC23C5EC7F00F312F9 /* 6c801cdc.zip */,
 				410303262379012500785311 /* Icons */,
 				419F15562363E46D00C09D62 /* Sound */,
-				B1D4726C2327AB1B005454C5 /* sesame2_firmware.zip */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -897,7 +1015,6 @@
 				41E68504235597380042B159 /* Sources */,
 				41E68505235597380042B159 /* Frameworks */,
 				41E68506235597380042B159 /* Resources */,
-				4126DE8D238CD458007A3652 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -973,6 +1090,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				412D23702355E4F700D1B51B /* Assets.xcassets in Resources */,
+				4148D49623CDC7080055E337 /* bt0.svg in Resources */,
 				41C9488E238B6F7A009469B0 /* InfoPlist.strings in Resources */,
 				41C9488D238B6F72009469B0 /* InfoPlist.strings in Resources */,
 				41E68510235597380042B159 /* MainInterface.storyboard in Resources */,
@@ -985,6 +1103,8 @@
 			files = (
 				4103044923791AE100785311 /* icons_filled_mobile-contacts.svg in Resources */,
 				4103047223791AE100785311 /* icons_filled_sticker.svg in Resources */,
+				417A245923C4A23C00230071 /* icon_add.svg in Resources */,
+				4176EDAD23C5EC7F00F312F9 /* 6c801cdc.zip in Resources */,
 				4103047323791AE100785311 /* icons_outlined_wechatpay.svg in Resources */,
 				4103045823791AE100785311 /* icons_outlined_arrow.svg in Resources */,
 				4103045023791AE100785311 /* icons_outlined_addfriends.svg in Resources */,
@@ -1001,6 +1121,7 @@
 				414750912387FF0F00BCDB5E /* icons_outlined_addoutline_black.svg in Resources */,
 				4103046C23791AE100785311 /* icons_outlined_scan.svg in Resources */,
 				4103047F23791AE100785311 /* icons_outlined_back.svg in Resources */,
+				41B9C02E23C7305200E57F58 /* keychain_original.svg in Resources */,
 				4103046623791AE100785311 /* icons_outlined_colorful_game.svg in Resources */,
 				4103047523791AE100785311 /* icons_outlined_qr-code.svg in Resources */,
 				4103045E23791AE100785311 /* icons_filled_add.svg in Resources */,
@@ -1008,17 +1129,23 @@
 				4103046123791AE100785311 /* icons_filled_back.svg in Resources */,
 				4103046323791AE100785311 /* ui-resources_checkbox_unselected.svg in Resources */,
 				4103046223791AE100785311 /* icons_filled_more.svg in Resources */,
+				4176EDB323C5FA1800F312F9 /* bluetooth.svg in Resources */,
 				4103046023791AE100785311 /* icons_outlined_mini-program.svg in Resources */,
+				4148D48B23CDA9DF0055E337 /* bt100.svg in Resources */,
 				4103049323791BCA00785311 /* icons_filled_me.svg in Resources */,
 				419F15582363E48400C09D62 /* bee.mp3 in Resources */,
 				4103046423791AE100785311 /* icons_filled_group-detail.svg in Resources */,
 				4103048923791AE100785311 /* red_envelopes_detail_top_bg.svg in Resources */,
 				4103046523791AE100785311 /* icons_outlined_radar.svg in Resources */,
+				4176EDA923C5AE0200F312F9 /* icon_white.svg in Resources */,
 				4103047023791AE100785311 /* icons_filled_album.svg in Resources */,
 				4103046A23791AE100785311 /* icons_filled_done.svg in Resources */,
+				4148D49523CDC7080055E337 /* bt0.svg in Resources */,
+				4176EDA723C5ADDF00F312F9 /* icon_unlock.svg in Resources */,
 				4103044F23791AE100785311 /* icons_filled_add-friends.svg in Resources */,
 				B179691022F7CE9300E91996 /* Main.storyboard in Resources */,
 				4103045A23791AE100785311 /* icons_filled_radar.svg in Resources */,
+				41C9CA3423C85E9B00293235 /* arrow.svg in Resources */,
 				4103045323791AE100785311 /* icons_outlined_at.svg in Resources */,
 				4147508F2387FCD600BCDB5E /* icons_outlined_addfriends_white.svg in Resources */,
 				4185AB962388FCBA00D25395 /* icons_filled_more_b.svg in Resources */,
@@ -1026,16 +1153,19 @@
 				4103045623791AE100785311 /* icons_filled_search-logo.svg in Resources */,
 				4103044E23791AE100785311 /* ui-resources_checkbox_selected.svg in Resources */,
 				4103049423791BCA00785311 /* icons_outlined_me.svg in Resources */,
+				417A245623C4A11D00230071 /* keychain.svg in Resources */,
 				4103047123791AE100785311 /* icons_filled_pay.svg in Resources */,
 				B179691222F7CE9400E91996 /* Assets.xcassets in Resources */,
 				4103045B23791AE100785311 /* icons_filled_discover.svg in Resources */,
 				4103048523791AE100785311 /* icons_filled_contacts.svg in Resources */,
 				4103048123791AE100785311 /* icons_outlined_miniprogram.svg in Resources */,
 				4103045523791AE100785311 /* icons_outlined_location.svg in Resources */,
+				4176EDA523C5ADCB00F312F9 /* icon_lock.svg in Resources */,
 				4103048B23791AE100785311 /* icons_filled_favorites.svg in Resources */,
 				418FA1F9237C04EF00C7C408 /* InfoPlist.strings in Resources */,
 				4103048823791AE100785311 /* icons_outlined_takephoto_nor.svg in Resources */,
 				4103044C23791AE100785311 /* icons_outlined_pay.svg in Resources */,
+				41B9C02F23C7305200E57F58 /* keychain_tint.svg in Resources */,
 				4103045D23791AE100785311 /* icon_filled_timelineophl.svg in Resources */,
 				4103047D23791AE100785311 /* icons_filled_official-accounts.svg in Resources */,
 				4103048C23791AE100785311 /* icons_outlined_addoutline.svg in Resources */,
@@ -1046,7 +1176,6 @@
 				4103047723791AE100785311 /* icons_outlined_news.svg in Resources */,
 				4103047923791AE100785311 /* icons_filled_transfer.svg in Resources */,
 				4103046B23791AE100785311 /* icons_outlined_album.svg in Resources */,
-				B1D4726D2327AB1B005454C5 /* sesame2_firmware.zip in Resources */,
 				4103044B23791AE100785311 /* icons_filled_close.svg in Resources */,
 				4103044623791AE100785311 /* icons_outlined_mute.svg in Resources */,
 				4103047423791AE100785311 /* icons_filled_folder.svg in Resources */,
@@ -1055,11 +1184,17 @@
 				4103045723791AE100785311 /* icons_filled_wallet.svg in Resources */,
 				4103044823791AE100785311 /* icon_filled_timelineop.svg in Resources */,
 				4103044D23791AE100785311 /* icons_outlined_wallet.svg in Resources */,
+				4176EDAF23C5F2B200F312F9 /* handmove.svg in Resources */,
 				4103045223791AE100785311 /* icons_outlined_comment.svg in Resources */,
 				41C9488B238B6D58009469B0 /* Localizable.strings in Resources */,
+				4176EDB123C5F38C00F312F9 /* autolock.svg in Resources */,
 				41C94890238B6FC2009469B0 /* Localizable.strings in Resources */,
 				4103048723791AE100785311 /* icons_outlined_keyboard.svg in Resources */,
 				4103048A23791AE100785311 /* icons_outlined_camera.svg in Resources */,
+				41B9C02023C6F7F100E57F58 /* loginlogo.svg in Resources */,
+				417A245A23C4A23C00230071 /* icon_delete.svg in Resources */,
+				4102FAF723C3203600ECA735 /* icons_filled_add-friends_black.svg in Resources */,
+				41B9C03123C7359300E57F58 /* loginsubhint.svg in Resources */,
 				4103048023791AE100785311 /* icons_outlined_contacts.svg in Resources */,
 				4103047623791AE100785311 /* icons_outlined_voice.svg in Resources */,
 				4103044523791AE100785311 /* icons_outlined_share.svg in Resources */,
@@ -1082,6 +1217,7 @@
 				41E6850D235597380042B159 /* TodayViewController.swift in Sources */,
 				412D236F2355DAD800D1B51B /* DeviceCell.swift in Sources */,
 				412D23712355E75000D1B51B /* Knob.swift in Sources */,
+				417A245023C4320D00230071 /* UserPoolConstant.swift in Sources */,
 				412D23722355E81A00D1B51B /* DataExtention.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1096,20 +1232,25 @@
 				4148CB42236D8A4C009D5D9E /* AddFriendVC.swift in Sources */,
 				418D73BC2354222900278380 /* SSM2SettingVC.swift in Sources */,
 				41ED3BD52376A98700CBC5D0 /* RegisterDeviceListVC.swift in Sources */,
-				41C94896238BC576009469B0 /* WebRegisterVC.swift in Sources */,
+				41BE39BC239B3C0F008A7E47 /* ForgetPassWordVC.swift in Sources */,
+				41C94896238BC576009469B0 /* SignupVC.swift in Sources */,
+				41D0C59223CFF892001EC085 /* EmptyDataSet.swift in Sources */,
 				41F1CC32234D8ABD00652D12 /* MeViewController.swift in Sources */,
 				B179690B22F7CE9300E91996 /* AppDelegate.swift in Sources */,
 				41CD2A29235731E80050C42D /* LetterAvatarBuilder.swift in Sources */,
 				4137C8CC2350276300211F43 /* SesameView.swift in Sources */,
 				418D73BA2354192900278380 /* SSM2HistoryCell.swift in Sources */,
 				4152908023224C2300F7E0E5 /* Knob.swift in Sources */,
+				4102FAF323C2E17A00ECA735 /* ScanView.swift in Sources */,
 				B13664512320DCBE00B88EFE /* DataExtention.swift in Sources */,
 				41ED3BD32376968D00CBC5D0 /* ArrayChoiceTableViewController.swift in Sources */,
 				418FA1E8237BD2C100C7C408 /* SesameCircle.swift in Sources */,
 				4152907D23224C2300F7E0E5 /* BluetoothSesameControlViewController.swift in Sources */,
+				41B9C02B23C715CC00E57F58 /* CHTFDialogVC.swift in Sources */,
 				417E4FDB234F40D2005BB230 /* RegisterVC.swift in Sources */,
 				410303642379164D00785311 /* UIImage+Extensions.swift in Sources */,
 				4103034D2379108D00785311 /* UIImage+SVG.swift in Sources */,
+				41D0C59523CFF892001EC085 /* EmptyDataSetView+Extension.swift in Sources */,
 				41AA8EF3237A67D600489179 /* SSM2AutoLock.swift in Sources */,
 				41CD2A2E235731E80050C42D /* UIColor+LetterAvatarKit.swift in Sources */,
 				41CD2A2C235731E80050C42D /* Character+LetterAvatarKit.swift in Sources */,
@@ -1134,20 +1275,26 @@
 				4196D79023434A5F00ECC103 /* ScanViewController.swift in Sources */,
 				41F1CC34234DB66E00652D12 /* FriendsViewController.swift in Sources */,
 				4103033C23790CB800785311 /* SessionMoreMenuFloatView.swift in Sources */,
+				41D0C59423CFF892001EC085 /* EmptyDataSetDelegate.swift in Sources */,
+				4176ED9F23C574C800F312F9 /* VC+Extension.swift in Sources */,
+				4142AB3423AB962E0088B7B4 /* UserPoolConstant.swift in Sources */,
+				4155E80A23CC473F00CA093E /* CHSSMChangeNameDialog.swift in Sources */,
 				4152907823224C2300F7E0E5 /* GeneralTabViewController.swift in Sources */,
-				41AA8EF1237A51BB00489179 /* DeleteFriend.swift in Sources */,
+				41AA8EF1237A51BB00489179 /* DeleteFriendVC.swift in Sources */,
 				4130A3702358379D0025A31E /* SSM2RoomBle.swift in Sources */,
 				41AA8EF7237A6A6500489179 /* SSM2SettingBle.swift in Sources */,
 				41AA8EF5237A68DF00489179 /* SSM2SettingSig.swift in Sources */,
-				4130A37623583E2E0025A31E /* SSM2RoomUsers.swift in Sources */,
 				4137C8CA2350201100211F43 /* SetLockVC.swift in Sources */,
 				4130A372235838C10025A31E /* SSM2RoomHistory.swift in Sources */,
 				4130A37B23585B170025A31E /* AlignedCollectionViewFlowLayout.swift in Sources */,
 				41AA8EF9237A6B0700489179 /* SSM2SettingMembers.swift in Sources */,
 				4130A3742358390F0025A31E /* SSM2RoomSig.swift in Sources */,
 				418D73B823540EBD00278380 /* SSM2RoomMainVC.swift in Sources */,
+				41D0C59623CFF892001EC085 /* EmptyDataSetView.swift in Sources */,
 				41A57CE72328BED400FEFF60 /* CHBaseViewController.swift in Sources */,
+				41AB857D23B1B982006DBD37 /* UITableView+Exten.swift in Sources */,
 				4152907F23224C2300F7E0E5 /* BluetoothDevicesListViewController.swift in Sources */,
+				41D0C59323CFF892001EC085 /* EmptyDataSetSource.swift in Sources */,
 				41CD2A2D235731E80050C42D /* String+LetterAvatarKit.swift in Sources */,
 				41A57CEF2328D13600FEFF60 /* QRScannerView.swift in Sources */,
 			);
@@ -1226,13 +1373,13 @@
 		41E68516235597380042B159 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = locker/locker.entitlements;
+				CODE_SIGN_ENTITLEMENTS = locker/Sesame.Debug.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 44;
 				DEVELOPMENT_TEAM = 59M5HB7F95;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/sdk",
 				);
 				INFOPLIST_FILE = locker/Info.plist;
@@ -1244,7 +1391,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "co.candyhouse.sesame-sdk-test-app.locker";
 				PRODUCT_NAME = Sesame.;
-				SKIP_INSTALL = YES;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1254,12 +1402,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = locker/locker.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 44;
 				DEVELOPMENT_TEAM = 59M5HB7F95;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/sdk",
 				);
 				INFOPLIST_FILE = locker/Info.plist;
@@ -1271,7 +1419,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "co.candyhouse.sesame-sdk-test-app.locker";
 				PRODUCT_NAME = Sesame.;
-				SKIP_INSTALL = YES;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1310,7 +1459,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CANDY HOUSE, Inc. (59M5HB7F95)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = YES;
@@ -1374,7 +1523,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CANDY HOUSE, Inc. (59M5HB7F95)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = YES;
@@ -1404,16 +1553,16 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "sesame-sdk-test-app/sesame-sdk-test-app.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "sesame-sdk-test-app/SesameDebug.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 44;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 59M5HB7F95;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/sesame-sdk-test-app/app/ThirdPartLibs",
 					"$(PROJECT_DIR)/sesame-sdk-test-app/app",
-					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/sdk",
 				);
 				INFOPLIST_FILE = "sesame-sdk-test-app/Info.plist";
@@ -1424,6 +1573,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "co.candyhouse.sesame-sdk-test-app";
 				PRODUCT_NAME = Sesame;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1436,14 +1586,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "sesame-sdk-test-app/sesame-sdk-test-app.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 44;
 				DEVELOPMENT_TEAM = 59M5HB7F95;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/sesame-sdk-test-app/app/ThirdPartLibs",
 					"$(PROJECT_DIR)/sesame-sdk-test-app/app",
-					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/sdk",
 				);
 				INFOPLIST_FILE = "sesame-sdk-test-app/Info.plist";
@@ -1454,6 +1604,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "co.candyhouse.sesame-sdk-test-app";
 				PRODUCT_NAME = Sesame;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

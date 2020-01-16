@@ -14,13 +14,17 @@ class TemporaryFirmwareUpdateClass: CHFirmwareUpdateInterface {
     var alertView: UIAlertController
     var abortFunc: (() -> Void)?
     var isFinished: Bool = false
+    var callBack:(_ from:String)->Void = {from in
+        L.d("test 閉包")
+    }
 
-    init(_ mainView: BaseViewController) {
+    init(_ mainView: BaseViewController , callBack :@escaping (_ from:String)->Void ) {
+        self.callBack =  callBack
         self.view = mainView
         abortFunc = nil
+        alertView = UIAlertController(title: "SesameOS Update".localStr, message: "Starting soon…".localStr, preferredStyle: .alert)
+        alertView.addAction(UIAlertAction(title: "Close".localStr, style: .default, handler: self.onAbortClick))
 
-        alertView = UIAlertController(title: "DFU", message: "Please wait...", preferredStyle: .alert)
-        alertView.addAction(UIAlertAction(title: "Close", style: .default, handler: self.onAbortClick))
         mainView.present(self.alertView, animated: true, completion: nil)
     }
 
@@ -37,28 +41,26 @@ class TemporaryFirmwareUpdateClass: CHFirmwareUpdateInterface {
         if isFinished {
             abort()
         } else {
-            alertView.message = "dfu Init"
+            alertView.message = "Initializing…".localStr
             abortFunc = abort
         }
     }
 
     func dfuStarted() {
-        alertView.message = "dfu Start"
+        alertView.message = "Start".localStr
     }
 
     func dfuSuccessed() {
-        alertView.message = "dfu Successed\n||||||||||||||||||||||||||||||||"
+        alertView.message = "Succeeded".localStr
+        //        alertView.dismiss(animated: true, completion: nil)
+        callBack("Successed")
     }
 
     func dfuError(message: String) {
-        alertView.message = "dfu Error"
+        alertView.message =  "Error".localStr + ":" + message 
     }
 
     func dfuProgressDidChange(progress: Int) {
-        let prog = Double(progress) / (100.0 / 30.0)
-
-        let left = String(repeating: "|", count: Int(prog))
-        let right = String(repeating: ".", count: 30 - Int(prog))
-        alertView.message = "progress \(progress)\n|\(left)>\(right)|"
+        alertView.message = "\(progress)%"
     }
 }

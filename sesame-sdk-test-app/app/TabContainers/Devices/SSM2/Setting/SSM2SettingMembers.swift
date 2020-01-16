@@ -12,11 +12,9 @@ extension SSM2SettingVC:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
         if(indexPath.row == self.memberList.count){
-            L.d("\(indexPath.section)\(indexPath.row)")
             self.performSegue(withIdentifier:  "addfriend", sender: nil)
         }
         if(indexPath.row == self.memberList.count + 1){
-            L.d("\(indexPath.section)\(indexPath.row)")
             self.performSegue(withIdentifier:  "deletefriend", sender: nil)
         }    }
 }
@@ -25,19 +23,18 @@ extension SSM2SettingVC:UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellIdentifer", for: indexPath) as! UserCell
 
         if(indexPath.row == self.memberList.count ){
-//                   cell.avatar.image = UIImage.makeLetterAvatar(withUsername: "＋")
-            cell.avatar.image = UIImage(named: "img-add-guest")
-                   return cell
-               }
-               else if(indexPath.row == (self.memberList.count + 1)){//todo bad name
-//                   cell.avatar.image = UIImage.makeLetterAvatar(withUsername: "-")
-            cell.avatar.image = UIImage(named: "img-delete-guest")
-                   return cell
-               }else{
-                   let client = self.memberList[indexPath.row]
-                   cell.avatar.image = UIImage.makeLetterAvatar(withUsername: client.nickname)
-               }
-               return cell
+            cell.avatar.image = UIImage.SVGImage(named:"icon_add")
+            return cell
+        }
+        else if(indexPath.row == (self.memberList.count + 1)){//todo bad name
+            cell.avatar.image = UIImage.SVGImage(named:"icon_delete")
+            return cell
+        }else{
+            let client = self.memberList[indexPath.row]
+            cell.avatar.image = UIImage.makeLetterAvatar(withUsername: client.firstname)
+        }
+        
+        return cell
 
     }
 
@@ -45,4 +42,7 @@ extension SSM2SettingVC:UICollectionViewDataSource{
         return self.memberList.count + 2
     }
 
+}
+class UserCell: UICollectionViewCell {
+    @IBOutlet weak var avatar: UIImageView!
 }

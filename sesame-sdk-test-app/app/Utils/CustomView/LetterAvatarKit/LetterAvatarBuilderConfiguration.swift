@@ -44,7 +44,8 @@ open class LetterAvatarBuilderConfiguration: NSObject {
     open var lettersFont: UIFont?
     /// The colors are used to draw image.
     @objc(lettersColor)
-    open var lettersColor: UIColor = LKUIColorByRGB(red: 236, green: 240, blue: 241)
+//    open var lettersColor: UIColor = LKUIColorByRGB(red: 0, green: 0, blue: 0)
+     open var lettersColor: UIColor = LKUIColorByRGB(red: 236, green: 240, blue: 241)
     /// The background colors of the image.
     @objc(backgroundColors)
     open var backgroundColors: [UIColor] = UIColor.colors
