@@ -1,5 +1,5 @@
 <p align="center" >
-  <img src="https://cdn.shopify.com/s/files/1/0016/1870/6495/files/SesameSDK_iOS.png" alt="CANDY HOUSE Sesame SDK" title="SesameSDK">
+  <img src="https://github.com/CANDY-HOUSE/SDK_iOS_Sesame_Demo/raw/master/SesameSDK_Swift.png" alt="CANDY HOUSE Sesame SDK" title="SesameSDK">
 </p>
 
 
@@ -16,7 +16,7 @@ SesameSDK on iOS is a delightful Bluetooth library for your iOS app. The officia
 - Configure angles
 - Get battery status
 
-with your app.<br>Please note, SesameSDK currently only supports ___Sesame 2___ and ___Sesame 2 mini___ which will be available in late 2019.
+with your app.<br>Please note, SesameSDK currently only supports ___Sesame 2___ and ___Sesame 2 mini___ which will be available in late 2020.
 
 
 ## Quick Start
