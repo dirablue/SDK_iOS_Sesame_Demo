@@ -57,15 +57,12 @@ Managers:
 * `CHSesameBleInterface`
     * `CHBatteryStatus`
     * `CHSesameMechStatus`
-    * `CHBleGattStatus`
     * `CHSesameCommand`
     * `CHSesameCommandResult`
     * `CHSesameLockPositionConfiguration`
 
 Debug:
 * `CHApiResult`
-* `CHBleError`: `resourceBusy`, `bleNotReady`, `deviceBusy`, `alreadyRegistered`, `noRegistered`
-* `CHSesameGattError`: `incompleteKey`, `encryptionError`, `wrongStatus`, `runtimeError`, `bleError`
 * `CHAccountError`: `notLogin`, `permissionDeny`, `masterUserKeyNotExist`
 
 ## Account Login Process
@@ -76,14 +73,7 @@ Example (Google) (https://accounts.google.com/.well-known/openid-configuration)
 
 
 ### CHAccountManager
-`CHAccountManager` creates a Singleton to handle all Login-Related API calls. It also manages a `CHDeviceManager` which is the top manager of all Sesame devices. 
 
-For the login process, a protocol conforming to `<CHLoginProvider>` is required. Use `setupLoginSession` to pass the protocol to AccountManager. Whenever the `CHOauthToken` in `CHLoginProvider` protocol is valid for Candy House, `CHAccountManager` will create a `Credential` to sign each API request. 
-
-The Credentail expires in every two hours or so. Normally, Candy House SDK refreshes the `Credential` in background. To check the `Credential` is valid or not, please use `func ensureCredentials`. If `ensureCredentials` returns any error, You may have to go through Login prcoess again, to provide a valid `CHOauthToken` to Candy House.
-
-
-To see how to implement the login process, please checkout this file. [link](https://github.com/CANDY-HOUSE/SDK_iOS_SSM2_DEMO/blob/master/Sesame2SDKDemo/AWSServiceClient.swift)
 
 ```swift
 class CHAccountManager {
@@ -94,15 +84,9 @@ class CHAccountManager {
 }
 ```
 
-<p align="center" >
-  <img src="https://cdn.shopify.com/s/files/1/0939/4828/files/candyhouse_login_diagram.png?909" alt="CANDY HOUSE Sesame SDK login" title="SesameSDK">
-</p>
-
 
 ### CHBleManager
 
-`CHBleManager` creates and manages `Bluetooth-related` objects based on a `CBCentralManager`, which conforms to `<CBCentralManagerDelegate>`, `<CBPeripheralDelegate>`.
-CHBLEManager has a delegate extension `CHBleManagerDelegate`, which gets called whenever nearby Sesame is scanned.
 ```swift
 class CHBleManager {
     public func enableScan()
@@ -118,11 +102,7 @@ class CHBleManager {
 ```
 
 ### CHSesameBleInterface
-Each Bluetooth object under the CHBleManager follows the interface `CHSesameBleInterface`. Users can identify the bluetooth device by its deviceId or deviceBleId, and also check if the Sesame had been registered or not (`isRegistered`) and so on.
 
-`connectStatus` follows the `CBPeripheralState`, it returns CBBLE connection status, such as `disconnected`, `connecting`, `connected` or `disconnecting`. However, Candy House also provides its own connection status `CHBleGattStatus` for developers to debug. only when `CHBleGattStatus` is equal to `established` can the user do further ble operations such as lock or unlock.
-
-After the connection is fully established, the Sesame Mechanical status will be revealed (`CHSesameMechStatus`), which allows users to grab the update-to-date Sesame battery voltage or the angle of thumb turn.
 
 ```swift
 public protocol CHSesameBleInterface : AnyObject {
