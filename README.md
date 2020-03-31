@@ -58,8 +58,6 @@ Managers:
     * `CHSesameCommandResult`
     * `CHSesameLockPositionConfiguration`
 
-Debug:
-* `CHApiResult`
 
 ## Account Login Process
 <p align="center" >
@@ -131,7 +129,6 @@ public protocol CHSesameBleInterface : AnyObject {
     func configureLockPosition(configure: SesameSDK.CHSesameLockPositionConfiguration) 
     func register(nickname: String, _ callback: @escaping (CHApiResult) -> Void) 
     func unregister() 
-    func lastSeen() -> Date
 }
 ```
 
