@@ -45,9 +45,6 @@ Import the following frameworks
 
 
 ## Architecture
-<p align="center" >
-  <img src="https://cdn.shopify.com/s/files/1/0939/4828/files/sdk_architecture.001.png?902" alt="CANDY HOUSE Sesame SDK architecture" title="SesameSDK">
-</p>
 
 Managers:
 * `CHBleManager`: Bluetooth interface
@@ -63,7 +60,6 @@ Managers:
 
 Debug:
 * `CHApiResult`
-* `CHAccountError`: `notLogin`, `permissionDeny`, `masterUserKeyNotExist`
 
 ## Account Login Process
 <p align="center" >
