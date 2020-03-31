@@ -140,7 +140,7 @@ public protocol CHSesameBleInterface : AnyObject {
     
     // Status
     var connectStatus: CBPeripheralState?
-    var gattDealStatus: SesameSDK.CHBleGattStatus?
+    var deviceStatus: CHDeviceStatus
     var mechStatus: CHSesameMechStatus?
     var mechSetting: CHSesameMechSettings?
     var rssi: NSNumber
