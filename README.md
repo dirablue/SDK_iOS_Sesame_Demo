@@ -88,14 +88,9 @@ To see how to implement the login process, please checkout this file. [link](htt
 ```swift
 class CHAccountManager {
     public static let shared
-
-    public var candyhouseUserId: UUID?
-
     public func setupLoginSession(identityProvider: CHLoginProvider)
     public func login(result: @escaping (CHAccountManager, CHApiResult) -> Void)
     public func logout()
-    public func isLogin() -> Bool
-    public func ensureCredentials(_ result: @escaping (CHAccountManager, CHApiResult) -> Void)
 }
 ```
 
@@ -103,17 +98,6 @@ class CHAccountManager {
   <img src="https://cdn.shopify.com/s/files/1/0939/4828/files/candyhouse_login_diagram.png?909" alt="CANDY HOUSE Sesame SDK login" title="SesameSDK">
 </p>
 
-### CHDeviceManager
-`CHDeviceManager` is under the `CHAccountManager`, where is responsible for fetching device list from server. (`func flushDevices`).
-
-```swift
-class CHDeviceManager {
-    public func flushDevices(_ result: @escaping (CHDeviceManager?, CHApiResult, [CHDeviceProfile]?) -> Void)
-    public func getDevices() -> [CHDeviceProfile]
-    public func getDeviceByBleIdentity(_ identity: Data, withModel: CHDeviceModel) -> CHDeviceProfile?
-    public func getDeviceByUUID(uuid: UUID) -> CHDeviceProfile?
-}
-```
 
 ### CHBleManager
 
@@ -124,7 +108,9 @@ class CHBleManager {
     public func enableScan()
     public func disableScan()
     public func getSesame(identifier: String) -> CHSesameBleInterface?
-
+    public func discoverALLDevices() { result in 
+     if case .success(let devices) = result {}
+    }
     public protocol CHBleManagerDelegate : AnyObject {
         func didDiscoverSesame(device: CHSesameBleInterface)
     }
@@ -160,15 +146,15 @@ public protocol CHSesameBleInterface : AnyObject {
     var rssi: NSNumber
     
     // Connect / disconnect
-    func connect() throws
+    func connect() 
     func disconnect()
 
     // Bluetooth operations
-    func lock() throws
-    func unlock() throws
-    func configureLockPosition(configure: SesameSDK.CHSesameLockPositionConfiguration) throws
-    func register(nickname: String, _ callback: @escaping (CHApiResult) -> Void) throws
-    func unregister() throws
+    func lock() 
+    func unlock() 
+    func configureLockPosition(configure: SesameSDK.CHSesameLockPositionConfiguration) 
+    func register(nickname: String, _ callback: @escaping (CHApiResult) -> Void) 
+    func unregister() 
     func lastSeen() -> Date
 }
 ```
