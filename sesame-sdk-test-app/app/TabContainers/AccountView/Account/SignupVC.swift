@@ -11,7 +11,7 @@ import SesameSDK
 import WebKit
 import AWSCognitoIdentityProvider
 
-class WEbRegisterVC: BaseViewController , WKNavigationDelegate, WKUIDelegate{
+class WEbRegisterVC: CHBaseVC , WKNavigationDelegate, WKUIDelegate{
 
     var loginVC:LoginViewController? = nil
     @IBAction func back(_ sender: Any) {
@@ -43,11 +43,9 @@ class WEbRegisterVC: BaseViewController , WKNavigationDelegate, WKUIDelegate{
             guard self != nil else { return nil }
             DispatchQueue.main.async(execute: {
                 if let error = task.error as NSError?{
-
 //                    L.d("message",error.code,(error.userInfo["message"] as? String))
                     self?.view.makeToast((error.userInfo["message"] as? String)?.localStr)
 //                    L.d("task.result",task.result)
-
                 } else if let result = task.result  {
 
                     if(result.user.confirmedStatus  == .confirmed){

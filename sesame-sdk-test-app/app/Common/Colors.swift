@@ -8,5 +8,8 @@
 import UIKit
 
 struct Colors {
-    static let tintColor = UIColor(hexString: "#68c6c8")//
+    static let tintColor = UIColor(hexString: "#28aeb1")//
+    static let bg2 = UIColor.rgba(red: 242, green: 242, blue: 247, alpha: 1)
+
+
 }

@@ -14,8 +14,8 @@ extension SSM2SettingVC{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "angle"{
             if let controller = segue.destination as? setLockVC {
-                let sesameDevice = sender as? CHSesameBleInterface
-                controller.sesame = sesameDevice
+//                let sesameDevice = sender as? CHSesameBleInterface
+                controller.sesame = self.sesame
             }
         }
         if segue.identifier == "addfriend"{

@@ -33,11 +33,11 @@ extension SSM2SettingVC:UIPickerViewDelegate,UIPickerViewDataSource{
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print(String(row)+"-"+String(component))
-        _ = self.sesame!.enableAutolock(delay: Int(second[row])){ (delay) -> Void in
+        self.sesame!.enableAutolock(delay: Int(second[row])){ (delay) -> Void in
             DispatchQueue.main.async {
                 self.autolockScend.text = String(delay)
             }
-        }.description()
+        }
         secondPicker.isHidden = true
     }
 }

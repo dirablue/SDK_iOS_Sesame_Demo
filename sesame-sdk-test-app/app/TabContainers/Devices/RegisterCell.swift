@@ -18,11 +18,19 @@ class RegisterCell: UITableViewCell {
     @IBOutlet weak var ssi: UILabel!
 
     @IBOutlet weak var bluetoothImg: UIImageView!
+
+    public var  registerVC:RegisterDeviceListVC?
     public var ssm:CHSesameBleInterface?{
             didSet{
-                ssi.text = "\(ssm!.rssi.intValue + 100)%"
+
+                
+
+                ssi.text = "\(ssm!.rssi.intValue + 130)%"
+//                ssi.text = "\(ssm!.rssi.intValue + 130)% \(ssm!.identifier)"
                 bluetoothImg.image = UIImage.SVGImage(named: "bluetooth",fillColor: Colors.tintColor)
+//                modelLb.text = "\(ssm!.model.rawValue.localStr) \(ssm!.deviceStatus.description())"
                 modelLb.text = "\(ssm!.model.rawValue.localStr)"
+
             }
         }
 }

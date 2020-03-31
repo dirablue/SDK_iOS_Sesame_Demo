@@ -25,7 +25,6 @@ extension FriendsViewController: SessionMoreMenuViewDelegate {
         case .addFriends:
             (self.tabBarController as! GeneralTabViewController).scanQR(){ name in
                 self.refreshFriendPage()
-                L.d("測試回傳")
             }
         case .addDevices:
             (self.tabBarController as! GeneralTabViewController).goRegisterList()
@@ -40,7 +39,7 @@ extension FriendsViewController{
         navigationItem.rightBarButtonItem = rightButtonItem
     }
 }
-class FriendsViewController: BaseViewController {
+class FriendsViewController: CHBaseVC {
     private var menuFloatView: SessionMoreFrameFloatView?
     private func showMoreMenu() {
         if menuFloatView == nil {
@@ -60,8 +59,8 @@ class FriendsViewController: BaseViewController {
     var refreshControl:UIRefreshControl = UIRefreshControl()
     var mFriends = [CHFriend](){
         didSet {
-            L.d("變動")
-            if(self.mFriends.count == 0) {                          self.friendsTables.setEmptyMessage("No Friends".localStr)//todo i18n
+            //            L.d("變動")
+            if(self.mFriends.count == 0) {                          self.friendsTables.setEmptyMessage("No Contacts".localStr)//todo i18n
             }else{
                 self.friendsTables.restore()
             }
@@ -77,13 +76,17 @@ class FriendsViewController: BaseViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        L.d("好友列表頁面!!")
+        if #available(iOS 13.0, *) {
+                  self.navigationController?.navigationBar.standardAppearance.shadowColor = .clear
+              } else {
+                  // Fallback on earlier versions
+              }
+//        L.d("好友列表頁面!! 設定好代理調用")
         (self.tabBarController as! GeneralTabViewController).delegateFriend = self
         
         refreshFriendPage()
         
         friendsTables.tableFooterView = UIView(frame: .zero)
-        
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh".localStr)
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         self.friendsTables.addSubview(refreshControl)
@@ -109,16 +112,9 @@ extension FriendsViewController: UITableViewDataSource {
 extension FriendsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let alertController = UIAlertController(title: self.mFriends[indexPath.row].nickname, message: nil, preferredStyle: .actionSheet)
-        let cancelAction = UIAlertAction(title: "Cancel".localStr, style: .cancel, handler: nil)
-        let deleteAction = UIAlertAction(title: "DeleteFriend".localStr, style: .destructive){
-            UIAlertAction in
-            //            L.d("self.mFriends",self.mFriends.count)
-            //            L.d("indexPath.row",indexPath.row)
-            //            L.d("indexPath.row",self.mFriends[indexPath.row])
-            //            L.d("self.mFriends[indexPath.row].id!",self.mFriends[indexPath.row].id!)
-            
+
+        let check = UIAlertAction.addAction(title: "DeleteFriend".localStr, style: .destructive) { (action) in
+
             CHAccountManager.shared.unfriend(fdId: self.mFriends[indexPath.row].id!.uuidString){ isSuccess in
                 DispatchQueue.main.async {
                     if(isSuccess){
@@ -129,9 +125,8 @@ extension FriendsViewController: UITableViewDelegate {
                 }
             }
         }
-        alertController.addAction(cancelAction)
-        alertController.addAction(deleteAction)
-        self.present(alertController, animated: true, completion: nil)
+        UIAlertController.showAlertController(tableView.cellForRow(at: indexPath)!,title:self.mFriends[indexPath.row].nickname,style: .actionSheet, actions: [check])
+
     }
     
 }
@@ -142,13 +137,23 @@ extension FriendsViewController:FriendDelegate{
             self.mFriends.removeAll()
             self.friendsTables.reloadData()
         }
-        CHAccountManager.shared.myFriends(){ friends in
-            DispatchQueue.main.async {
-                self.mFriends = friends.sorted { $0.nickname! < $1.nickname!}
-                self.friendsTables.reloadData()
-                self.refreshControl.endRefreshing()
 
+        CHAccountManager.shared.myFriends(){result in
+            if case .success(let result) = result {
+//                L.d("🦁",result.isCache)
+//                L.d("🦁",result.data.first?.nickname)
+                DispatchQueue.main.async {
+                    self.mFriends = result.data.sorted { $0.nickname! < $1.nickname!}
+                    self.friendsTables.reloadData()
+                }
+            }
+            if case .failure(let error) = result{
+//                L.d("🦁",error)
+            }
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
             }
         }
+
     }
 }

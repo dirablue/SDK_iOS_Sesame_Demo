@@ -46,7 +46,7 @@ class ScanViewController: BaseViewController {
         cameraEnable()
     }
     override func viewDidLoad() {
-        L.d("掃碼畫面加載")
+//        L.d("掃碼畫面加載")
         scanViewSp.scanAnimationImage = UIImage(named: "ScanLine")!
         hintLb.text = "Scan the QR code".localStr
 
@@ -73,6 +73,7 @@ extension ScanViewController: QRScannerViewDelegate {
 
     func qrScanningSucceededWithCode(_ QRCode: String?) {
         playSound()
+
         CHAccountManager.shared.receiveQRCode(qrcode:QRCode ?? "error"){ (result,event,param) in
             switch event{
             case .getKeyFromOwner:
@@ -97,7 +98,6 @@ extension ScanViewController: QRScannerViewDelegate {
 extension ScanViewController{
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-//        back.setImage( UIImage.SVGImage(named:isDarkMode() ?"icons_filled_close_b" : "icons_filled_close"), for: .normal)
         back.setImage( UIImage.SVGImage(named: "icons_filled_close_b"), for: .normal)
     }
 }

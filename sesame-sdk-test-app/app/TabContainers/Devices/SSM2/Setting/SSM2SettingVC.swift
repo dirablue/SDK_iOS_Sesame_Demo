@@ -12,11 +12,11 @@ import SesameSDK
 
 class SSM2SettingVC: BaseViewController {
     var memberList = [Operater]()
-    var sesame: CHSesameBleInterface!{
-        didSet{
-            sesame?.delegate = self
-        }
-    }
+//    var sesame: CHSesameBleInterface!{
+//        didSet{
+//            sesame?.delegate = self
+//        }
+//    }
     @IBOutlet weak var memberCollectionView: UICollectionView!
 
     @IBOutlet weak var arrowImg: UIImageView!
@@ -32,18 +32,18 @@ class SSM2SettingVC: BaseViewController {
     @IBOutlet weak var autolockScend: UILabel!
     @IBOutlet weak var secondPicker: UIPickerView!
     @IBAction func AutolockSwitch(_ sender: UISwitch) {
-        _ = sender.isOn ?
+        sender.isOn ?
             self.sesame.enableAutolock(delay: Int(2)){ (delay) -> Void in
                 DispatchQueue.main.async {
                     self.autolockScend.text = String(delay)
                 }
-            }.description():
+            }:
             self.sesame.disableAutolock(){ (delay) -> Void in
                 DispatchQueue.main.async {
                     
                     self.autolockScend.text = String(delay)
                 }
-            }.description()
+        }
         secondPicker.isHidden = !sender.isOn
         autolockScend.isHidden = !sender.isOn
         auleftHintLB.isHidden = !sender.isOn
@@ -52,7 +52,7 @@ class SSM2SettingVC: BaseViewController {
     @IBAction func defClick(_ sender: Any) {
         let check = UIAlertAction.addAction(title: "SesameOS Update".localStr, style: .destructive) { (action) in
             do {
-                if let filePath = Bundle.main.url(forResource: Constants.DFU_Tag, withExtension: ".zip") {
+                if let filePath = Bundle.main.url(forResource: nil, withExtension: ".zip") {
                     let zipData = try Data(contentsOf: filePath)
                     _ = self.sesame.updateFirmware(zipData: zipData, delegate: TemporaryFirmwareUpdateClass(self){ succuss in
                     })
@@ -61,10 +61,11 @@ class SSM2SettingVC: BaseViewController {
                 ViewHelper.alert("Error", "Update Error: \(error)", self)
             }
         }
-        UIAlertController.showAlertController(style: .actionSheet, actions: [check])
+        UIAlertController.showAlertController(sender as! UIView,style: .actionSheet, actions: [check])
     }
     
     @IBAction func autolockSecond(_ sender: Any) {
+
         if( self.autolockScend.text == "0"){
             secondPicker.isHidden  =   true
             return
@@ -83,6 +84,7 @@ class SSM2SettingVC: BaseViewController {
                     DispatchQueue.main.async {
                         let tb =  self.tabBarController as! GeneralTabViewController
                         self.navigationController?.popToRootViewController(animated: true)
+                        //todo kill this delay
                         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.2) {
                             tb.delegateHome?.refleshKeyChain()
                         }
@@ -90,7 +92,7 @@ class SSM2SettingVC: BaseViewController {
                 }
             }
         }
-        UIAlertController.showAlertController(style: .actionSheet, actions: [check])
+        UIAlertController.showAlertController(sender,style: .actionSheet, actions: [check])
     }
     
     @IBAction func angleSet(_ sender: UIButton) {
@@ -98,8 +100,7 @@ class SSM2SettingVC: BaseViewController {
     }
     @IBAction func changeName(_ sender: UIButton) {
 
-        CHSSMChangeNameDialog.show(){ name in
-            L.d(name)
+        CHSSMChangeNameDialog.show(self.sesame.customNickname){ name in
             if name == "" {
                 self.view.makeToast("Enter Sesame name".localStr)
                 return
@@ -120,11 +121,13 @@ class SSM2SettingVC: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(animated)
         autolockSwitch.isOn = false
         self.sesame.getDeviceMembers(){result ,users in
             if result.success {
+
                 DispatchQueue.main.async {
-                    self.memberList =  users
+                    self.memberList =  users.sorted(by: {$0.roleType! > $1.roleType!})
                     self.memberCollectionView.reloadData()
                 }
             }
@@ -152,30 +155,42 @@ class SSM2SettingVC: BaseViewController {
         flowLayout?.horizontalAlignment = .justified
         
         secondPicker.isHidden = true
-        _ =  self.sesame.getAutolockSetting { (delay) -> Void in
+        self.sesame.getAutolockSetting { (delay) -> Void in
             self.autolockScend.text = String(delay)
             self.autolockSwitch.isOn = (Int(delay) > 0)
             self.autolockScend.isHidden = !self.autolockSwitch.isOn
             self.auleftHintLB.isHidden = !self.autolockSwitch.isOn
             self.auRightHintLB.isHidden = !self.autolockSwitch.isOn
         }
-        _ = self.sesame.getVersionTag { (version, _) -> Void in
+        self.sesame.getVersionTag { (version, _) -> Void in
             self.version.text = version
         }
 
         refleshUI()
     }
+    func refleshUI()  {
+        autolockSwitch.isEnabled = (sesame.deviceStatus.loginStatus() == .login)
+    }
+
+   override func onBleConnectStatusChanged(device: CHSesameBleInterface, status: CBPeripheralState) {
+         //        L.d("設定頁面連線變化",status == CBPeripheralState.connected)
+         refleshUI()
+         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // Change `2.0` to the desired
+             _ = device.getVersionTag { (version, _) -> Void in
+                 self.version.text = version
+                 self.view.makeToast(version)
+             }
+         }
+     }
 }
 
-extension SSM2SettingVC:CHBleManagerDelegate{
-    func didDiscoverSesame(device: CHSesameBleInterface) {
-        if device.bleIdStr ==  self.sesame?.bleIdStr {
-            self.sesame = device
-            self.sesame.connect()
-        }
-    }
-    func refleshUI()  {
-        autolockSwitch.isEnabled = sesame.connectStatus == CBPeripheralState.connected
-    }
-    
+extension SSM2SettingVC{
+//    func didDiscoverSesame(device: CHSesameBleInterface) {
+//        if device.bleIdStr ==  self.sesame?.bleIdStr {
+//            self.sesame = device
+//            device.delegate = self
+//
+//            self.sesame.connect()
+//        }
+//    }
 }

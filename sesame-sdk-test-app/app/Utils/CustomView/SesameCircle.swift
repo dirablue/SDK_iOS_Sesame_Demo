@@ -33,6 +33,8 @@ class SesameCircle: UIControl {
     }
 
     func setLock(_ ssm:CHSesameBleInterface)  {
+        self.isHidden  = (ssm.deviceStatus.loginStatus() == .unlogin )
+
         guard let status = ssm.mechStatus else {
             return
         }
@@ -41,6 +43,8 @@ class SesameCircle: UIControl {
         let isinLockrange = status.isInLockRange() ?? false
 
         renderer.updateunLockImg(CGFloat(angle2degree(angle: nowDegree)), isInLockrange: isinLockrange)
+
+
     }
 
     func angle2degree(angle: Int16) -> Float {

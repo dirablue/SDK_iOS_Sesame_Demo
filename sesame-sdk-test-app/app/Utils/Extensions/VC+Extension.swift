@@ -43,7 +43,7 @@ extension UIAlertAction {
 
 extension UIAlertController {
 
-    class func  showAlertController(title:String? = nil,msg:String? = nil,style:UIAlertController.Style, actions:[UIAlertAction]) {
+    class func  showAlertController(_ sender:UIView,title:String? = nil,msg:String? = nil,style:UIAlertController.Style, actions:[UIAlertAction]) {
 
         let close = UIAlertAction.addAction(title: "Cancel".localStr, style: .cancel) { (action) in
 
@@ -54,7 +54,8 @@ extension UIAlertController {
             alertController.addAction(action)
         }
         alertController.addAction(close)
-
+        alertController.popoverPresentationController?.sourceView = sender
+        alertController.popoverPresentationController?.sourceRect = sender.frame
         VC?.present(alertController, animated: true, completion: nil);
     }
 }

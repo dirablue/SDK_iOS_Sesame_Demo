@@ -12,19 +12,22 @@ import UIKit
 let loadingViewTag = 999
 
 class ViewHelper: NSObject {
-    class func showLoadingInView(view: UIView) {
-        if view.viewWithTag(loadingViewTag) != nil && view.frame.size.width < 20 {
+    class func showLoadingInView(view: UIView?) {
+        if(view == nil){
+            return
+        }
+        if view!.viewWithTag(loadingViewTag) != nil && view!.frame.size.width < 20 {
             return
         }
 
-        let loadingView = UIView(frame: view.bounds)
+        let loadingView = UIView(frame: view!.bounds)
         loadingView.tag = loadingViewTag
 //        loadingView.backgroundColor = UIColor.init(white: 1, alpha: 0.6)
         let indicator = UIActivityIndicatorView(style: .gray)
         indicator.center = loadingView.center
         indicator.startAnimating()
         loadingView.addSubview(indicator)
-        view.addSubview(loadingView)
+        view!.addSubview(loadingView)
     }
 
     class func hideLoadingView(view: UIView?) {

@@ -18,11 +18,9 @@ class SesameView: UIControl {
 
     private let renderer = KnobRenderer()
 
-
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 //        L.d("init aDecoder")
-
         commonInit()
     }
 
@@ -30,10 +28,8 @@ class SesameView: UIControl {
 //        L.d("init commonInit")
 
         //        backgroundColor = .black
-
         //        layer.addSublayer(renderer.trackLayer)
         //        layer.addSublayer(renderer.gradientLayer)
-
         //        layer.addSublayer(renderer.lockLayer)
         layer.addSublayer(renderer.centerBigLayer)
         layer.addSublayer(renderer.lockImgLyer)
@@ -83,7 +79,7 @@ private class KnobRenderer {
     let centerBigLayer = CALayer()
     let lockImgLyer = CALayer()
     let unlockImgLyer = CALayer()
-    let gradientLayer = CAGradientLayer()
+//    let gradientLayer = CAGradientLayer()
 
 
     init() {
@@ -93,7 +89,7 @@ private class KnobRenderer {
         lockLayer.fillColor = UIColor.clear.cgColor
         lockLayer.strokeColor = UIColor(rgb: 0x28aeb1).cgColor
         trackLayer.lineWidth = 20
-        gradientLayer.colors = [UIColor.blue.cgColor,UIColor.red.cgColor]
+//        gradientLayer.colors = [UIColor.blue.cgColor,UIColor.red.cgColor]
     }
 
     func updateBounds(_ bounds: CGRect) {
@@ -115,7 +111,7 @@ private class KnobRenderer {
 
         //        gradient.bounds = bounds
         //        gradient.position = CGPoint(x: bounds.midX, y: bounds.midY)
-        gradientLayer.frame = bounds
+//        gradientLayer.frame = bounds
         //        gradientLayer.apply(angle: 45.0)
         //        gradientLayer.mask = trackLayer
 
@@ -162,6 +158,7 @@ private class KnobRenderer {
             width: imageW,
             height: imageW)
         unlockImgLyer.contents = myImage
+        unlockImgLyer.backgroundColor = UIColor.clear.cgColor
 
 
         //        gradientLayer.frame = bounds
@@ -170,21 +167,19 @@ private class KnobRenderer {
 
 //        L.d("gradientLayer.startPoint",gradientLayer.startPoint)
 //        L.d("gradientLayer.endPoint",gradientLayer.endPoint)
-        gradientLayer.frame = CGRect(
-            x: unlockImgLyer.frame.midX ,
-            y: unlockImgLyer.frame.midY,
-            width: trackLayer.frame.width,
-            height: lockImgLyer.frame.midY - unlockImgLyer.frame.midY )
-
-        gradientLayer.mask = trackLayer
+//        gradientLayer.frame = CGRect(
+//            x: unlockImgLyer.frame.midX ,
+//            y: unlockImgLyer.frame.midY,
+//            width: trackLayer.frame.width,
+//            height: lockImgLyer.frame.midY - unlockImgLyer.frame.midY )
+//
+//        gradientLayer.mask = trackLayer
 
     }
 
     private func updateCentLock() {
         let bounds = centerBigLayer.bounds
         let myImage = UIImage(named: "img-knob")?.cgImage
-
-
 
         let  widthRatial = CGFloat(5)/6
         let partialInd =  CGFloat(1)/2 - CGFloat(widthRatial)/2
@@ -232,16 +227,3 @@ private class KnobRenderer {
     }
 
 }
-//extension CAGradientLayer {
-//    func apply(angle : Double) {
-//        let x: Double! = angle / 360.0
-//        let a = pow(sinf(Float(2.0 * Double.pi * ((x + 0.75) / 2.0))),2.0);
-//        let b = pow(sinf(Float(2*Double.pi*((x+0.0)/2))),2);
-//
-//        let c = pow(sinf(Float(2*Double.pi*((x+0.25)/2))),2);
-//        let d = pow(sinf(Float(2*Double.pi*((x+0.5)/2))),2);
-//
-//        startPoint = CGPoint(x: CGFloat(a),y:CGFloat(b))
-//        endPoint = CGPoint(x: CGFloat(c),y: CGFloat(d))
-//    }
-//}

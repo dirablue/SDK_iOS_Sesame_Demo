@@ -10,11 +10,11 @@ import SesameSDK
 import UIKit
 
 class AddFriendVC: BaseViewController {
-    var sesame: CHSesameBleInterface?
+//    var sesame: CHSesameBleInterface?
     var refreshControl:UIRefreshControl = UIRefreshControl()
     var mFriends = [CHFriend](){
         didSet {
-            if(self.mFriends.count == 0) {                          self.friendTable.setEmptyMessage("No Friends".localStr)//todo i18n
+            if(self.mFriends.count == 0) {                          self.friendTable.setEmptyMessage("No Contacts".localStr)//todo i18n
             }else{
                 self.friendTable.restore()
             }
@@ -25,14 +25,7 @@ class AddFriendVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Contacts".localStr
-        CHAccountManager.shared.myFriends(){ friends in
-            DispatchQueue.main.async {
-                self.mFriends = friends.sorted { $0.nickname! < $1.nickname!}
-                self.friendTable.reloadData()
-                self.refreshControl.endRefreshing()
-
-            }
-        }
+        refresh(sender: "" as AnyObject)
         friendTable.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         friendTable.tableFooterView = UIView(frame: .zero)
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh".localStr)
@@ -41,12 +34,21 @@ class AddFriendVC: BaseViewController {
     }
 
     @objc func refresh(sender:AnyObject) {
-        CHAccountManager.shared.myFriends(){ friends in
-            DispatchQueue.main.async {
-                self.mFriends = friends.sorted { $0.nickname! < $1.nickname!}
-                self.friendTable.reloadData()
-                self.refreshControl.endRefreshing()
 
+        CHAccountManager.shared.myFriends(){result in
+            if case .success(let result) = result {
+                L.d("🦁",result.isCache)
+                L.d("🦁",result.data.first?.nickname)
+                DispatchQueue.main.async {
+                    self.mFriends = result.data.sorted { $0.nickname! < $1.nickname!}
+                    self.friendTable.reloadData()
+                }
+            }
+            if case .failure(let error) = result{
+                L.d("🦁",error)
+            }
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
             }
         }
     }
@@ -67,21 +69,33 @@ extension AddFriendVC: UITableViewDataSource {
 }
 extension AddFriendVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let alertController = UIAlertController(title: self.mFriends[indexPath.row].nickname, message: nil, preferredStyle: .actionSheet)
-        let cancelAction = UIAlertAction(title: "Cancel".localStr, style: .cancel, handler: nil)
-        let deleteAction = UIAlertAction(title: "Add Member".localStr, style: .destructive){
-            UIAlertAction in
-            ViewHelper.showLoadingInView(view: self.view)
 
-            self.sesame?.addKeyByFriend(accessLevel: .manager,uuidStr: self.mFriends[indexPath.row].id!.uuidString, { (result, _) in
-                if result.success {
-                    self.navigationController?.popViewController(animated: true)
+        let check = UIAlertAction.addAction(title: "Add Member".localStr, style: .destructive) { (action) in
+            DispatchQueue.main.async {
+                ViewHelper.showLoadingInView(view: self.view)
+            }
+
+            self.sesame?.addKeyByFriend(accessLevel: .manager,uuidStr: self.mFriends[indexPath.row].id!.uuidString, { (result) in
+                switch result {
+                case .success(let _):
+                    L.d("UI  ok!")
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                case .failure(let error):
+                    DispatchQueue.main.async {
+
+                        self.view.makeToast(error.localizedDescription)
+                    }
+                    L.d("UI!!!!!",error.localizedDescription)
+                }
+                DispatchQueue.main.async {
+                    ViewHelper.hideLoadingView(view: self.view)
                 }
             })
         }
-        alertController.addAction(cancelAction)
-        alertController.addAction(deleteAction)
-        self.present(alertController, animated: true, completion: nil)
+        UIAlertController.showAlertController(tableView.cellForRow(at: indexPath)!,title: self.mFriends[indexPath.row].nickname,style: .actionSheet, actions: [check])
+
     }
 }
 extension AddFriendVC{
@@ -90,9 +104,14 @@ extension AddFriendVC{
             DispatchQueue.main.async {
                 ViewHelper.showLoadingInView(view: self.view)
             }
-            self.sesame?.addKeyByFriend(accessLevel: .manager,uuidStr: name, { (result, _) in
-                if result.success {
-                    self.navigationController?.popViewController(animated: true)
+            self.sesame?.addKeyByFriend(accessLevel: .manager,uuidStr: name, { result in
+                switch result {
+                case .success(let message):
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                case .failure(let error):
+                    L.d("!!!!!",error.localizedDescription)
                 }
             })
         }

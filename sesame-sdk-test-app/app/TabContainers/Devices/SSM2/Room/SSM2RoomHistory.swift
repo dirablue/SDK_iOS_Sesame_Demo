@@ -10,9 +10,7 @@ import UIKit
 import SesameSDK
 
 extension SSM2RoomMainVC: UITableViewDataSource, UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 60
-//    }
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let title = groupHistory[section].first?.timestamp?.toYMD()
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryHeader") as! HistoryHeader
@@ -31,7 +29,7 @@ extension SSM2RoomMainVC: UITableViewDataSource, UITableViewDelegate {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath) as! HistoryCell
 
-        let history = groupHistory[indexPath.section][indexPath.row]
+        let history = groupHistory[indexPath.section][indexPath.row]//todo  Thread 1: Fatal error: Index out of range
 
         let f = DateFormatter()
         f.dateFormat = "HH:mm:ss a"
@@ -44,16 +42,16 @@ extension SSM2RoomMainVC: UITableViewDataSource, UITableViewDelegate {
         cell.timeLb.text = "\(f.string(from: now!))"
         cell.userLB.text = title
 
-        if let opname = history.operater?.name{
-            cell.avatarImg.image = UIImage.makeLetterAvatar(withUsername: history.operater?.firstname)
-        }else{
-            cell.avatarImg.image = UIImage.SVGImage(named: history.eventType == .autolock ? "autolock":"handmove")
-        }
+//        if let _ = history.operater?.name{
+//            cell.avatarImg.image = UIImage.makeLetterAvatar(withUsername: history.operater?.firstname)
+//        }else{
+//            cell.avatarImg.image = UIImage.SVGImage(named: history.eventType == .autolock ? "autolock":"handmove")
+//        }
 
-        cell.eventImg.image = UIImage.SVGImage(named: CHHistoryEventType.isLockType(history.eventType) ? "icon_lock":"icon_unlock")
+//        cell.avatarImg.backgroundColor = .darkGray
+        cell.avatarImg.image = UIImage.SVGImage(named: CHHistoryEventType.isLockType(history.eventType) ? "icon_lock":"icon_unlock")
 
-
-
+        cell.eventImg.isHidden = true
 
         return cell
     }

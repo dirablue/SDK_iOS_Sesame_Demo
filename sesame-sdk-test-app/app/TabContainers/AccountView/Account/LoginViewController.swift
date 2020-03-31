@@ -5,7 +5,7 @@
 //  Created by Yiling on 2019/08/05.
 //  Copyright © 2019 Cerberus. All rights reserved.
 //
-
+import AWSAPIGateway
 import UIKit
 import SesameSDK
 extension LoginViewController:UITextFieldDelegate{
@@ -13,7 +13,8 @@ extension LoginViewController:UITextFieldDelegate{
         self.view.endEditing(true)
     }
 }
-class LoginViewController: BaseViewController {
+class LoginViewController: CHBaseVC {
+    var tabVC:GeneralTabViewController?
 
     @IBOutlet weak var subloginImg: UIImageView!
     @IBOutlet weak var logImg: UIImageView!
@@ -31,7 +32,7 @@ class LoginViewController: BaseViewController {
 
     @IBOutlet weak var forgetpasswordBtn: UIButton!
     @IBAction func testJerming(_ sender: Any) {
-        userName.text = "jerming+1@candyhouse.co"
+        userName.text = "tse@candyhouse.co"
         password.text = "111111"
         loginDidPress("")
     }
@@ -81,7 +82,7 @@ class LoginViewController: BaseViewController {
         nameLb.text = "Email".localStr
         passwordLb.text = "Password".localStr
         signupBtn.setTitle("Sign up".localStr, for: .normal)
-        forgetpasswordBtn.setTitle("Forget password".localStr, for: .normal)
+        forgetpasswordBtn.setTitle("Forgot password".localStr, for: .normal)
     }
     
     @IBAction func loginDidPress(_ sender: Any) {
@@ -101,12 +102,64 @@ class LoginViewController: BaseViewController {
                     ViewHelper.hideLoadingView(view: self.view)
                 }
             } else {
+                L.d("帳號密碼登入成功")
                 self.userisNotConfirm = false
-                DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion:nil)
-                    ViewHelper.hideLoadingView(view: self.view)
-                }
+                self.checkNameAndBindCHServer()
+                self.loginSDK()
+
             }
+        }
+    }
+    func checkNameAndBindCHServer(){
+        AWSCognitoOAuthService.shared.pool.currentUser()?.getDetails().continueWith(){ task in
+
+            var givenNameLb = "-"
+            var familyNameLB = "-"
+
+            if let attributes = task.result?.userAttributes {
+                for attribute in attributes {
+                    //                    L.d("屬性 ",attribute.name!, attribute.value!)
+                    if attribute.name == "family_name",let familyName = attribute.value {
+                        familyNameLB = familyName
+                        UserDefaults.standard.setValue(familyName, forKey: "family_name")
+                    }
+
+                    if attribute.name == "given_name",let username = attribute.value {
+                        givenNameLb = username
+                        UserDefaults.standard.setValue(username, forKey: "given_name")
+                    }
+
+                    if attribute.name == "email",let email = attribute.value {
+                        UserDefaults.standard.setValue(email, forKey: "email")
+                    }
+                }
+                // Last Name = Family Name = 姓;
+                // First Name = Given Name = 名
+                CHAccountManager.shared.updateMyProfile(
+                    first_name:givenNameLb,
+                    last_name:familyNameLB
+                ){ _ in}
+
+            }
+
+            return nil
+        }
+
+    }
+    func loginSDK()  {
+
+        CHAccountManager.shared.setupLoginSession(identityProvider: AWSCognitoOAuthService.shared)
+        DispatchQueue.main.async {
+            UIApplication.shared.registerForRemoteNotifications()
+            L.d("登入成功調用名字")
+         
+            self.tabVC?.delegateMe?.setLoginName()
+            self.tabVC?.delegateFriend?.refreshFriendPage()
+            self.tabVC?.delegateHome?.refleshKeyChain()
+        }
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion:nil)
+            ViewHelper.hideLoadingView(view: self.view)
         }
     }
     

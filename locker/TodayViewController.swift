@@ -26,32 +26,33 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         if case .compact = activeDisplayMode {
             preferredContentSize = maxSize
         } else {
-
-                preferredContentSize.height = CGFloat((devices.count) * 110)
+            preferredContentSize.height = CGFloat((devices.count) * 110)
         }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-//        L.d("viewWillDisappear")
-        CHBleManager.shared.disConnectAll()
+        L.d("離開widget")
         CHBleManager.shared.disableScan()
-
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-//        L.d("viewDidAppear",sesameDevicesMap.count)
-        self.sesameDevicesMap.removeAll()
-        self.devices.removeAll()
-        self.tableView.reloadData()
-        CHBleManager.shared.delegate = self
-        CHBleManager.shared.enableScan()
+        CHBleManager.shared.disConnectAll()
     }
     override func viewWillAppear(_ animated: Bool) {
+        L.d("viewWillAppear")
+
         CHSetting.shared.setAppGroup(appGrroup: CHAppGroupWidget)
         CHAccountManager.shared.setupLoginSession(identityProvider:FakeService())
+
+        CHBleManager.shared.delegate = self
+           CHBleManager.shared.enableScan()
+           L.d("viewDidAppear")
+           self.loadLocalDevices()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+
     }
 
+
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        L.d("widgetPerformUpdate")
         completionHandler(NCUpdateResult.newData)
     }
 }
@@ -62,22 +63,41 @@ extension TodayViewController:CHBleManagerDelegate{
             return
         }
         device.connect()
+        self.sesameDevicesMap.updateValue(device, forKey: device.bleIdStr)
+        notifyTable()
+        //        loadLocalDevices()
+    }
+
+
+    func loadLocalDevices()  {
         DispatchQueue.main.async {
-            self.sesameDevicesMap.updateValue(device, forKey: device.bleIdStr)
+
+            CHBleManager.shared.discoverALLDevices(){ result in
+                if case .success(let devices) = result {
+                    self.devices += devices
+                    self.devices.forEach({
+                        self.sesameDevicesMap.updateValue($0, forKey: $0.bleIdStr)
+                    })
+                    //                      L.d("列表本地刷新",self.devices.count)
+                }
+                self.notifyTable()
+            }
+        }
+    }
+    func notifyTable()  {
+        DispatchQueue.main.async {
             self.devices.removeAll()
             self.sesameDevicesMap.forEach({
-                self.devices.append($1)
-            })
-            self.devices.sort(by: {
-                return  $0.customNickname > $1.customNickname
-            })
+                self.devices.append($1)}
+            )
+            self.devices.sort(by: {return  $0.customNickname > $1.customNickname})
             self.tableView.reloadData()
         }
     }
 }
 
 public class FakeService:CHLoginProvider{
-    public func oauthToken() throws -> CHOauthToken {
+    public func oauthToken()  -> CHOauthToken {
         let userDefault =  UserDefaults.init(suiteName: CHAppGroupWidget)
         if let token = userDefault?.value(forKey: "towidget") {
             let ee = CHOauthToken(identityProviderCognito,token as! String)

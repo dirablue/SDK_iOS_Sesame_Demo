@@ -9,11 +9,15 @@
 import Foundation
 import UIKit
 class CHTFDialogVC: UIViewController {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     var callBack:(_ first:String,_ second:String)->Void = {f,s in
               L.d("test 閉包")
           }
 
-    var sss = ""
+    @IBOutlet weak var secondHintLB: UILabel!
+    @IBOutlet weak var tophintLB: UILabel!
     @IBOutlet weak var titleLB: UILabel!
     @IBOutlet weak var firstTF: UITextField!
     @IBOutlet weak var secondTF: UITextField!
@@ -40,19 +44,30 @@ class CHTFDialogVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleLB.font = .boldSystemFont(ofSize: UIFont.labelFontSize)
 
         titleLB.text = "Edit Name".localStr
         cancelBtn.setTitle("Cancel".localStr, for: .normal)
-        okBtn.setTitle("Ok".localStr, for: .normal)
-        firstTF.placeholder = "Last Name".localStr
-        secondTF.placeholder = "First Name".localStr
+        okBtn.setTitle("OK".localStr, for: .normal)
+        tophintLB.text = "Last Name".localStr
+        secondHintLB.text = "First Name".localStr
+
+
+        let tmpFamilyName = UserDefaults.standard.string(forKey: "family_name")
+        let tmpGivenName = UserDefaults.standard.string(forKey: "given_name")
+
+        firstTF.text = tmpFamilyName
+        secondTF.text = tmpGivenName
+
+        okBtn.titleLabel?.font = .boldSystemFont(ofSize: UIFont.labelFontSize)
+        cancelBtn.titleLabel?.font = .boldSystemFont(ofSize: UIFont.labelFontSize)
+
 
     }
     static func show(callBack:@escaping (_ first:String,_ second:String)->Void){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let myAlert = storyboard.instantiateViewController(withIdentifier: "alert") as! CHTFDialogVC
 
-//        myAlert.sss = "wewewe"
         myAlert.callBack = callBack
 
         myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext

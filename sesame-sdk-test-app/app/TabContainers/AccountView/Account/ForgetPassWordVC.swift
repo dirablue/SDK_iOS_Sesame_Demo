@@ -10,7 +10,7 @@ import UIKit
 import SesameSDK
 import AWSCognitoIdentityProvider
 
-class ForgetPassWordVC: BaseViewController {
+class ForgetPassWordVC: CHBaseVC {
     var loginVC:LoginViewController? = nil
 
     @IBOutlet weak var backBtn: UIButton!
@@ -64,13 +64,13 @@ class ForgetPassWordVC: BaseViewController {
     }
     @IBAction func confirm(_ sender: Any) {
         self.view.endEditing(true)
-        guard let confirmationCodeValue = self.ConfirmCodeTF.text, !confirmationCodeValue.isEmpty else {
-            self.view.makeToast("Please enter a password of your choice.".localStr)
-            return
-        }
+//        guard let confirmationCodeValue = self.ConfirmCodeTF.text, !confirmationCodeValue.isEmpty else {
+//            self.view.makeToast("Please enter a password of your choice.".localStr)
+//            return
+//        }
         let user = AWSCognitoOAuthService.shared.pool.getUser(nameTF.text!.toMail())
 
-        user.confirmForgotPassword(confirmationCodeValue, password: self.newPasswordTF.text!).continueWith {[weak self] (task: AWSTask) -> AnyObject? in
+        user.confirmForgotPassword( self.ConfirmCodeTF.text!, password: self.newPasswordTF.text!).continueWith {[weak self] (task: AWSTask) -> AnyObject? in
             guard let strongSelf = self else { return nil }
             DispatchQueue.main.async(execute: {
                 if let error = task.error as NSError? {

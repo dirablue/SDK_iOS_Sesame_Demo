@@ -9,8 +9,6 @@ import UIKit
 
 struct Constants {
 
-    static let DFU_Tag = "6c801cdc"
-
     static let screenHeight = UIScreen.main.bounds.height
     static let screenWidth = UIScreen.main.bounds.width
     static var screenSize: CGSize {

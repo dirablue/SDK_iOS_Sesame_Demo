@@ -40,6 +40,8 @@ class SSMCircle: UIControl {
         let isinLockrange = status.isInLockRange() ?? false
 
         renderer.updateunLockImg(CGFloat(angle2degree(angle: nowDegree)), isInLockrange: isinLockrange)
+
+//        isHidden = (ssm.deviceStatus.loginStatus() == .unlogin)
     }
 
     func angle2degree(angle: Int16) -> Float {

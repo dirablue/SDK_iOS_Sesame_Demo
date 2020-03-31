@@ -15,6 +15,8 @@ public class AWSCognitoOAuthService: NSObject {
 
     var pool: AWSCognitoIdentityUserPool
 
+    public var tokenToPase = CHOauthToken("","")
+
     private override init() {
         let serviceConfiguration = AWSServiceConfiguration(region: CognitoIdentityUserPoolRegion, credentialsProvider: nil)
         let poolConfiguration = AWSCognitoIdentityUserPoolConfiguration(
@@ -62,17 +64,31 @@ public class AWSCognitoOAuthService: NSObject {
 }
 extension AWSCognitoOAuthService:AWSCognitoIdentityInteractiveAuthenticationDelegate{
 }
-extension AWSCognitoOAuthService: CHLoginProvider {//todo 動態轉靜態以節省效能
+extension AWSCognitoOAuthService: CHLoginProvider {
     public func oauthToken() -> CHOauthToken {
+        //f6f7ce55-815e-4be3-b482-04fa8591384f
+//        L.d("🔥","UI請求token",pool.currentUser()?.username)
+//        pool.currentUser()!.getSession().
+        pool.currentUser()
         let task = pool.currentUser()!.getSession().continueWith { (task) in
                 if let session = task.result,
+
                     let idToken = session.idToken {
+//                    L.d("⚠️","jwttoken",idToken.tokenString)
+//                    L.d("🔥","UI收到token",idToken.tokenString.count)
                     UserDefaults.init(suiteName: CHAppGroupApp)?.set(idToken.tokenString, forKey: "towidget")
                     return AWSTask<CHOauthToken>(result: CHOauthToken(identityProviderCognito, idToken.tokenString))
                 } else {
+//                    L.d("🔥","請求發生錯誤")
                     return AWSTask<CHOauthToken>(error: NSError(domain: "app_define", code: 1, userInfo: nil))
                 }
             }
-        return task.result as? CHOauthToken ?? CHOauthToken("","")
+
+//        L.d("🔥","UI測試等待函數")
+//        task.waitUntilFinished()
+
+        let chToken =   task.result as? CHOauthToken ?? CHOauthToken("--","--")
+//        L.d("🔥","UI被調用返回token","after waitUntilFinished",chToken.token.count)
+        return chToken
     }
 }

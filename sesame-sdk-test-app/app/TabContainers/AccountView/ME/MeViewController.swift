@@ -12,10 +12,9 @@ import AWSAPIGateway
 import Foundation
 import AWSCognitoIdentityProvider
 
-class MeViewController: BaseViewController {
+class MeViewController: CHBaseVC {
     private var menuFloatView: SessionMoreFrameFloatView?
-    
-    
+
     @IBOutlet weak var changeAccountNameLb: UILabel!
     @IBOutlet weak var familyNameLB: UILabel!
     @IBOutlet weak var givenNameLb: UILabel!
@@ -25,12 +24,14 @@ class MeViewController: BaseViewController {
     @IBOutlet weak var logoutBtn: UIButton!
     
     @IBAction func logOut(_ sender: UIButton) {
+
+
         let check = UIAlertAction.addAction(title: "Log Out".localStr, style: .destructive) { (action) in
             AWSCognitoOAuthService.shared.logout()
             CHAccountManager.shared.logout()
             (self.tabBarController as! GeneralTabViewController).loginV()
         }
-        UIAlertController.showAlertController(style: .actionSheet, actions: [check])
+        UIAlertController.showAlertController(sender,style: .actionSheet, actions: [check])
     }
     @IBAction func changeAccount(_ sender: Any) {
         // Last Name = Family Name = 姓;
@@ -42,7 +43,6 @@ class MeViewController: BaseViewController {
             family_name?.name = "family_name"
             family_name?.value = lastname
             attributes.append(family_name!)
-            
             
             let given_name = AWSCognitoIdentityUserAttributeType()
             given_name?.name = "given_name"
@@ -62,7 +62,6 @@ class MeViewController: BaseViewController {
                         
                         self?.present(alertController, animated: true, completion:  nil)
                     }  else  {
-                        //                            self?.view.makeToast("OK".localStr)
                         self?.setLoginName()
                     }
                 })
@@ -72,16 +71,26 @@ class MeViewController: BaseViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLoginName()
+
+        if #available(iOS 13.0, *) {
+            self.navigationController?.navigationBar.standardAppearance.shadowColor = .clear
+        } else {
+            // Fallback on earlier versions
+        }
+
         (self.tabBarController as! GeneralTabViewController).delegateMe = self
         logoutBtn.setTitle("Log Out".localStr, for: .normal)
         changeAccountNameLb.text = "Edit Name".localStr
+
         candyIDLB.adjustsFontSizeToFitWidth = true
+        self.setLoginName()
+
     }
 }
 
 extension MeViewController:MeDelegate{
     func setLoginName() {
+//        L.d("設定名子！！！！",AWSCognitoOAuthService.shared.pool.currentUser())
         
         let tmpFamilyName = UserDefaults.standard.string(forKey: "family_name")
         let tmpGivenName = UserDefaults.standard.string(forKey: "given_name")
@@ -96,7 +105,7 @@ extension MeViewController:MeDelegate{
             
             if let attributes = task.result?.userAttributes {
                 for attribute in attributes {
-                    //                    L.d("屬性 ",attribute.name!, attribute.value!)
+//                    L.d("屬性 ",attribute.name!, attribute.value!)
                     if attribute.name == "family_name",let familyName = attribute.value {
                         DispatchQueue.main.async {
                             
@@ -110,7 +119,7 @@ extension MeViewController:MeDelegate{
                         DispatchQueue.main.async {
                             UserDefaults.standard.setValue(username, forKey: "given_name")
                             self.givenNameLb.text = username
-                             self.avatarImg.image = UIImage.makeLetterAvatar(withUsername: username)
+                            self.avatarImg.image = UIImage.makeLetterAvatar(withUsername: username)
                         }
                     }
                     

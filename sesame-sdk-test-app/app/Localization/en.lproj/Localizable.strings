@@ -2,12 +2,12 @@
 "Menu_Scan_Devices" = "New Sesame";
 "autolock" = "Auto Lock";
 "manualOperated" = "Movement in Thumbturn";
-"manualLock" = "Manual Lock";
-"manualUnlock" = "Manual Unlock";
+"manualLock" = "Manually Locked";
+"manualUnlock" = "Manually Unlocked";
 "Change Sesame Name" = "Change Sesame Name";
 "Cancel" = "Cancel";
-"DeleteFriend" = "deleteFriend";
+"DeleteFriend" = "Delete the Contact";
 "sesame_2" = "Sesame 2";
 
-"forgetpassword" = "Forget Password";
-"change sucess" = "Change Success";
+"forgetpassword" = "Forgot Password";
+"change sucess" = "Successfully Changed";

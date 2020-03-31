@@ -11,6 +11,7 @@ import SesameSDK
 import AWSCognitoIdentityProvider
 
 let CHAppGroupApp = "group.candyhouse.widget" // the same as widget
+//let CHAppGroupApp = "group.apaman.widget" // the same as widget
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,16 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
         launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        CHSetting.shared.setAppGroup(appGrroup: CHAppGroupApp)//if you use widget Today extention
-
+        CHSetting.shared.setAppGroup(appGrroup: CHAppGroupApp)
         let isNotFirstRun = UserDefaults.standard.bool(forKey: "CHisFirstRun")
+        //        L.d("isNotFirstRun->",isNotFirstRun ? "之前啟動過":"第一次進來")
         if(isNotFirstRun == false){
             CHAccountManager.shared.logout()
             AWSCognitoOAuthService.shared.logout()
         }
         UserDefaults.standard.setValue(true, forKey: "CHisFirstRun")
-        L.d("🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱")
+        
+        L.d("🌱=>")
+
         let center = UNUserNotificationCenter.current()
         center.delegate = self
         center.requestAuthorization(options: [.alert,.badge,.sound], completionHandler: {
@@ -37,13 +39,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         CHAccountManager.shared.updateApnsDeviceToken(deviceToken: deviceToken.toHexString())
         UserDefaults.standard.setValue(deviceToken.toHexString(), forKey: "devicePushToken")
     }
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        L.d("didFailToRegisterForRemoteNotificationsWithError error",error)
+        L.d("error",error)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {//退出
@@ -60,9 +63,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate:UNUserNotificationCenterDelegate{
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+//        L.d("收到遠端通知==>",(application.applicationState == .active))
+        //        L.d("收到遠端通知==>", userInfo,(application.applicationState == .active))
+
         if let sessions = userInfo["aps"] as? [String: Any]{
             if  let action:String =  sessions["action"] as? String {
                 if (action == "KEYCHAIN_FLUSH"){
+                    L.d("我收到請求刷新")
                     let viewController = self.window?.rootViewController as! GeneralTabViewController
                     viewController.delegateHome?.refleshKeyChain()
                 }

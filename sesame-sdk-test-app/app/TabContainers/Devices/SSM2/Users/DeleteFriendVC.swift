@@ -10,7 +10,7 @@
 import SesameSDK
 import UIKit
 class DeleteFriendVC: BaseViewController {
-    var sesame: CHSesameBleInterface?
+//    var sesame: CHSesameBleInterface?
     @IBOutlet weak var friendTable: UITableView!
     var refreshControl:UIRefreshControl = UIRefreshControl()
     var memberList = [Operater]()
@@ -40,44 +40,79 @@ extension DeleteFriendVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         L.d(indexPath.section,indexPath.row)
 
-        let alertController = UIAlertController(title: self.memberList[indexPath.row].name, message: nil, preferredStyle: .actionSheet)
-        let cancelAction = UIAlertAction(title: "Cancel".localStr, style: .cancel, handler: nil)
-        let deleteAction = UIAlertAction(title: "Delete Member".localStr, style: .destructive){
-            UIAlertAction in
 
-            DispatchQueue.main.async {
-                ViewHelper.showLoadingInView(view: self.view)
-            }
-            let member = self.memberList[indexPath.row]
-
-            self.sesame!.revokeKey(member) { (result) in
-                DispatchQueue.main.async {
-                    ViewHelper.hideLoadingView(view: self.view)
-                }
-                if result.success {
-                    if(member.id == CHAccountManager.shared.candyhouseUserId){
+        let check = UIAlertAction.addAction(title: "Delete the Member".localStr, style: .destructive) { (action) in
                         DispatchQueue.main.async {
-                            self.navigationController?.popToRootViewController(animated: true)
-                        }
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        ViewHelper.showLoadingInView(view: self.view)
-                    }
-                    self.sesame?.getDeviceMembers(){result ,users in
-                        DispatchQueue.main.async {
-                            self.memberList =  users
-                            self.friendTable.reloadData()
-                            ViewHelper.hideLoadingView(view: self.view)
-                        }
-                    }
+                                     ViewHelper.showLoadingInView(view: self.view)
+                                 }
+                                 let member = self.memberList[indexPath.row]
 
-                }
-            }
-        }
-        alertController.addAction(cancelAction)
-        alertController.addAction(deleteAction)
-        self.present(alertController, animated: true, completion: nil)
+                                 self.sesame!.revokeKey(member) { (result) in
+                                     DispatchQueue.main.async {
+                                         ViewHelper.hideLoadingView(view: self.view)
+                                     }
+                                     if result.success {
+                                         if(member.roleType == "OWNER"){
+                                             DispatchQueue.main.async {
+                                                 self.navigationController?.popToRootViewController(animated: true)
+                                             }
+                                             return
+                                         }
+                                         DispatchQueue.main.async {
+                                             ViewHelper.showLoadingInView(view: self.view)
+                                         }
+                                         self.sesame?.getDeviceMembers(){result ,users in
+                                             DispatchQueue.main.async {
+                                                 self.memberList =  users
+                                                 self.friendTable.reloadData()
+                                                 ViewHelper.hideLoadingView(view: self.view)
+                                             }
+                                         }
+
+                                     }
+                                 }
+                     }
+                     UIAlertController.showAlertController(tableView.cellForRow(at: indexPath)!,title: self.memberList[indexPath.row].name,style: .actionSheet, actions: [check])
+
+
+//        let alertController = UIAlertController(title: self.memberList[indexPath.row].name, message: nil, preferredStyle: .actionSheet)
+//        let cancelAction = UIAlertAction(title: "Cancel".localStr, style: .cancel, handler: nil)
+//        let deleteAction = UIAlertAction(title: "Delete the Member".localStr, style: .destructive){
+//            UIAlertAction in
+//
+//            DispatchQueue.main.async {
+//                ViewHelper.showLoadingInView(view: self.view)
+//            }
+//            let member = self.memberList[indexPath.row]
+//
+//            self.sesame!.revokeKey(member) { (result) in
+//                DispatchQueue.main.async {
+//                    ViewHelper.hideLoadingView(view: self.view)
+//                }
+//                if result.success {
+//                    if(member.id == CHAccountManager.shared.candyhouseUserId){
+//                        DispatchQueue.main.async {
+//                            self.navigationController?.popToRootViewController(animated: true)
+//                        }
+//                        return
+//                    }
+//                    DispatchQueue.main.async {
+//                        ViewHelper.showLoadingInView(view: self.view)
+//                    }
+//                    self.sesame?.getDeviceMembers(){result ,users in
+//                        DispatchQueue.main.async {
+//                            self.memberList =  users
+//                            self.friendTable.reloadData()
+//                            ViewHelper.hideLoadingView(view: self.view)
+//                        }
+//                    }
+//
+//                }
+//            }
+//        }
+//        alertController.addAction(cancelAction)
+//        alertController.addAction(deleteAction)
+//        self.present(alertController, animated: true, completion: nil)
     }
 
 

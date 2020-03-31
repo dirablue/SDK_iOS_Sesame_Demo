@@ -9,21 +9,40 @@
 import Foundation
 import SesameSDK
 
-class MyQrVC: BaseViewController {
-
+class MyQrVC: CHBaseVC {
+    
     @IBOutlet weak var hintLB: UILabel!
     @IBOutlet weak var headImg: UIImageView!
     @IBOutlet weak var familyNameLB: UILabel!
     @IBOutlet weak var givenNameLb: UILabel!
     @IBOutlet weak var mailLB: UILabel!
     @IBOutlet weak var qrImg: UIImageView!
-
+    
+    
     var familyName:String?
     var givenName:String?
     var mail:String?
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if #available(iOS 13.0, *) {
+            self.navigationController?.navigationBar.standardAppearance.backgroundColor = .white
+          
 
+        } else {
+            self.navigationController?.navigationBar.tintColor = .white
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            self.navigationController?.navigationBar.standardAppearance.backgroundColor = UIColor.secondarySystemBackground
+        } else {
+            self.navigationController?.navigationBar.tintColor = Colors.bg2
+        }
+
 
         familyNameLB.text  = familyName
         givenNameLb.text  = givenName
@@ -31,7 +50,7 @@ class MyQrVC: BaseViewController {
         mailLB.adjustsFontSizeToFitWidth = true
         hintLB.text = "Scan this QR code to add me on your contact".localStr
         headImg.image = UIImage.makeLetterAvatar(withUsername: self.givenName ?? "")
-
+        
         DispatchQueue.main.async {
             ViewHelper.showLoadingInView(view: self.view)
         }
