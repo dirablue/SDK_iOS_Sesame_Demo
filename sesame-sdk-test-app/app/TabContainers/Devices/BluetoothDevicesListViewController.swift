@@ -175,6 +175,7 @@ extension BluetoothDevicesListViewController:homeDelegate{
             self.devices.removeAll()
             self.sesameDevicesMap.removeAll()
             CHBleManager.shared.discoverALLDevices(){ result in
+                L.d("*** discoverALLDevices")
                 if case .success(let devices) = result {
                     self.devices += devices
                     self.devices.forEach({

@@ -70,10 +70,12 @@ extension TodayViewController:CHBleManagerDelegate{
 
 
     func loadLocalDevices()  {
+        L.d("*** TodayViewController loadLocalDevices")
         DispatchQueue.main.async {
 
             CHBleManager.shared.discoverALLDevices(){ result in
                 if case .success(let devices) = result {
+                    L.d("列表本地刷新",self.devices.count)
                     self.devices += devices
                     self.devices.forEach({
                         self.sesameDevicesMap.updateValue($0, forKey: $0.bleIdStr)

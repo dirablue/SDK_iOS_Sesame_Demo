@@ -55,6 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {//進入
+        L.d("*** CHBleManager.shared.enableScan")
         CHBleManager.shared.enableScan()
     }
 

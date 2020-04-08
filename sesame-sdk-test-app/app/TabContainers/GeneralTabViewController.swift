@@ -24,6 +24,7 @@ class GeneralTabViewController: UITabBarController {
 
 //        L.d("進入主要ＡＰＰ","是否登入",service.isSignedIn,AWSCognitoOAuthService.shared.pool.currentUser()?.username)
         if service.isSignedIn {
+            L.d("*** CHAccountManager.shared.setupLoginSession")
             CHAccountManager.shared.setupLoginSession(identityProvider: AWSCognitoOAuthService.shared)
 
         }else{
