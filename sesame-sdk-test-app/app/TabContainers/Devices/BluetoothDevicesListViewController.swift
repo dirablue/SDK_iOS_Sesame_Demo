@@ -27,7 +27,7 @@ extension BluetoothDevicesListViewController:CHBleManagerDelegate{
            }
 }
 
-class BluetoothDevicesListViewController: CHBaseVC {
+class BluetoothDevicesListViewController: CHBaseVC, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var testMode: UISwitch!
     @IBOutlet weak var deviceTableView: UITableView!
@@ -78,6 +78,16 @@ class BluetoothDevicesListViewController: CHBaseVC {
         deviceTableView.tableFooterView = UIView(frame: .zero)
         loadLocalDevices()
 
+        // UILongPressGestureRecognizer宣言
+//        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: Selector("cellLongPressed:"))
+//        var uilpgr = UILongPressGestureRecognizer(target: self, action: "cellLongPressed:")
+
+//
+//        // `UIGestureRecognizerDelegate`を設定するのをお忘れなく
+//        longPressRecognizer.delegate = self
+
+        // tableViewにrecognizerを設定
+//        deviceTableView.addGestureRecognizer(longPressRecognizer)
     }
     
     @objc func pullTorefresh(sender:AnyObject) {
@@ -107,6 +117,26 @@ extension BluetoothDevicesListViewController: UITableViewDataSource {
         self.performSegue(withIdentifier: ssm.deviceStatus == .nosetting ? "setting"   : "ssm2", sender: ssm)
     }
     
+//    @objc func onLongPress() {
+//        let alert = UIAlertController(title: "Long Press", message: "親父にも長押しされたことないのに！", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//        self.present(alert, animated: true, completion: nil)
+//    }
+    
+//    func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
+//        print("aaa")
+//        return
+//        // 押された位置でcellのPathを取得
+//        let point = recognizer.location(in: deviceTableView)
+//        let indexPath = deviceTableView.indexPathForRow(at: point)
+//
+//        if indexPath == nil {
+//
+//        } else if recognizer.state == UIGestureRecognizer.State.began  {
+//            // 長押しされた場合の処理
+//            print("長押しされたcellのindexPath:\(indexPath?.row)")
+//         }
+//    }
 }
 
 extension BluetoothDevicesListViewController: UITableViewDelegate {

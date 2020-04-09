@@ -46,21 +46,43 @@ class BluetoothDevicesCell: UITableViewCell {
     @IBOutlet weak var testBtn: UIButton!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var ownerNAmeLB: UILabel!
+    
+    @IBOutlet weak var deviceId: TapLabel!
     @IBOutlet weak var lockOp: UIButton!
     public var ssm:CHSesameBleInterface?{
         didSet{
 //            L.d("列表綁定ＳＳＭ",ssm?.customNickname)
             ssm?.delegate = self
             updateUI()
+            
+            // Added Device UUID
             name.text = ssm!.customNickname
+            
             ownerNAmeLB.text = ssm!.ownerName
             ownerNAmeLB.isHidden = (ssm!.customNickname == ssm!.ownerName)
+            
+            deviceId.text = ssm!.deviceId?.uuidString
+            deviceId.tapLabelHandler { [weak self] in
+                // タップ処理を実装
+                let deviceIdText = self?.deviceId.text ?? ""
+                print("UUID: " + deviceIdText)
+                
+                // 文字列をコピーする
+                UIPasteboard.general.string = deviceIdText
+                Toast.show("クリップボードへコピーしました", (self!.vc!.view!))
+            }
         }
     }
 
     @IBAction func togleLock(_ sender: UIButton) {
          ssm!.toggle()
     }
+    
+    
+//    func tapDeviceId(_ sender: UITextView) {
+//        print("aaa")
+//    }
+    
 }
 
 func batteryPrecentage(voltage:Float) -> Int {

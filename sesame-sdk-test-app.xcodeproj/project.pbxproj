@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24E2A6AC243F606F0065E49E /* TapLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E2A6AB243F606F0065E49E /* TapLabel.swift */; };
+		24E2A6AE243F62AE0065E49E /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E2A6AD243F62AE0065E49E /* Toast.swift */; };
 		4102FAF323C2E17A00ECA735 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102FAF223C2E17A00ECA735 /* ScanView.swift */; };
 		4102FAF723C3203600ECA735 /* icons_filled_add-friends_black.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4102FAF623C3203600ECA735 /* icons_filled_add-friends_black.svg */; };
 		4103032D2379024600785311 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4103032C2379024600785311 /* Colors.swift */; };
@@ -256,6 +258,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		24E2A6AB243F606F0065E49E /* TapLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapLabel.swift; sourceTree = "<group>"; };
+		24E2A6AD243F62AE0065E49E /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		4102FAF223C2E17A00ECA735 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		4102FAF623C3203600ECA735 /* icons_filled_add-friends_black.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "icons_filled_add-friends_black.svg"; sourceTree = "<group>"; };
 		4103032C2379024600785311 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -575,6 +579,8 @@
 				B179691322F7CE9400E91996 /* LaunchScreen.storyboard */,
 				410303672379169F00785311 /* Constants.swift */,
 				4103032C2379024600785311 /* Colors.swift */,
+				24E2A6AB243F606F0065E49E /* TapLabel.swift */,
+				24E2A6AD243F62AE0065E49E /* Toast.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1191,11 +1197,13 @@
 				41BE39BC239B3C0F008A7E47 /* ForgetPassWordVC.swift in Sources */,
 				41C94896238BC576009469B0 /* SignupVC.swift in Sources */,
 				41D0C59223CFF892001EC085 /* EmptyDataSet.swift in Sources */,
+				24E2A6AE243F62AE0065E49E /* Toast.swift in Sources */,
 				41F1CC32234D8ABD00652D12 /* MeViewController.swift in Sources */,
 				B179690B22F7CE9300E91996 /* AppDelegate.swift in Sources */,
 				41CD2A29235731E80050C42D /* LetterAvatarBuilder.swift in Sources */,
 				4137C8CC2350276300211F43 /* SesameView.swift in Sources */,
 				415C81C4242F313D001B2705 /* CHBaseVC.swift in Sources */,
+				24E2A6AC243F606F0065E49E /* TapLabel.swift in Sources */,
 				418D73BA2354192900278380 /* SSM2HistoryCell.swift in Sources */,
 				4152908023224C2300F7E0E5 /* Knob.swift in Sources */,
 				4102FAF323C2E17A00ECA735 /* ScanView.swift in Sources */,

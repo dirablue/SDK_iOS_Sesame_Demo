@@ -90,19 +90,34 @@
                                                                 <constraint firstAttribute="height" constant="11" id="iEM-WE-h2Z"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-----" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbW-dk-dog" userLabel="DeviceId" customClass="TapLabel" customModule="Sesame" customModuleProvider="target">
+                                                            <rect key="frame" x="18" y="83" width="284" height="26"/>
+                                                            <gestureRecognizers/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="EZ7-Ru-C17"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="EbW-dk-dog" secondAttribute="trailing" constant="18" id="10O-yO-vp3"/>
                                                         <constraint firstItem="dAO-eu-3ni" firstAttribute="leading" secondItem="8Hg-bu-x0r" secondAttribute="leading" constant="16" id="3ra-UV-IRA"/>
+                                                        <constraint firstItem="EbW-dk-dog" firstAttribute="leading" secondItem="8Hg-bu-x0r" secondAttribute="leading" constant="18" id="D7N-86-isF"/>
                                                         <constraint firstItem="7Vj-0z-LgQ" firstAttribute="leading" secondItem="dAO-eu-3ni" secondAttribute="trailing" constant="7" id="Hki-ZL-qWJ"/>
                                                         <constraint firstAttribute="bottom" secondItem="9vs-8j-Cgo" secondAttribute="bottom" constant="24" id="Ngd-dF-2g8"/>
                                                         <constraint firstAttribute="height" constant="110" id="QJC-dd-o5I"/>
                                                         <constraint firstItem="3E7-sB-VNj" firstAttribute="centerY" secondItem="8Hg-bu-x0r" secondAttribute="centerY" id="QYu-38-cYM"/>
                                                         <constraint firstItem="7Vj-0z-LgQ" firstAttribute="centerY" secondItem="dAO-eu-3ni" secondAttribute="centerY" id="bdw-Gw-Ik8"/>
+                                                        <constraint firstAttribute="bottom" secondItem="EbW-dk-dog" secondAttribute="bottom" constant="1.5" id="cCq-m6-00z"/>
                                                         <constraint firstItem="9vs-8j-Cgo" firstAttribute="leading" secondItem="8Hg-bu-x0r" secondAttribute="leading" constant="16" id="dC7-s5-jd0"/>
                                                         <constraint firstItem="QOq-bs-Qes" firstAttribute="centerX" secondItem="3E7-sB-VNj" secondAttribute="centerX" id="hVP-uf-8Ez"/>
                                                         <constraint firstItem="dAO-eu-3ni" firstAttribute="top" secondItem="8Hg-bu-x0r" secondAttribute="top" constant="10" id="iEE-S2-Qee"/>
                                                         <constraint firstItem="QOq-bs-Qes" firstAttribute="centerY" secondItem="3E7-sB-VNj" secondAttribute="centerY" id="pAE-Dg-AaQ"/>
+                                                        <constraint firstItem="EbW-dk-dog" firstAttribute="top" secondItem="f5r-Yg-89B" secondAttribute="bottom" constant="14.5" id="vVP-Xl-rru"/>
                                                         <constraint firstItem="f5r-Yg-89B" firstAttribute="leading" secondItem="8Hg-bu-x0r" secondAttribute="leading" constant="16" id="wVG-zK-GX7"/>
                                                         <constraint firstItem="f5r-Yg-89B" firstAttribute="centerY" secondItem="8Hg-bu-x0r" secondAttribute="centerY" id="x9n-xt-7Zn"/>
                                                         <constraint firstAttribute="trailing" secondItem="3E7-sB-VNj" secondAttribute="trailing" constant="30" id="zr0-H5-RgB"/>
@@ -116,8 +131,10 @@
                                                 <constraint firstItem="8Hg-bu-x0r" firstAttribute="top" secondItem="Pe3-GV-Zse" secondAttribute="top" id="e2u-U9-mAr"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="batteryIMG" destination="dAO-eu-3ni" id="iQ6-Ci-Vxx"/>
+                                            <outlet property="deviceId" destination="EbW-dk-dog" id="6Bc-0B-6I8"/>
                                             <outlet property="lockOp" destination="3E7-sB-VNj" id="uxt-i3-s2v"/>
                                             <outlet property="name" destination="f5r-Yg-89B" id="HIY-SC-eIp"/>
                                             <outlet property="ownerNAmeLB" destination="9vs-8j-Cgo" id="gOZ-eH-1F3"/>
@@ -173,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ibF-qy-oaS" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3830.434782608696" y="1535.4910714285713"/>
+            <point key="canvasLocation" x="-3830.625" y="1534.8591549295775"/>
         </scene>
         <!--Eb RegisterVC-->
         <scene sceneID="AFk-ir-LCz">
@@ -3912,7 +3929,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7EE-bM-nta"/>
+        <segue reference="EIz-he-vTA"/>
         <segue reference="zhR-9G-Beh"/>
     </inferredMetricsTieBreakers>
     <resources>
